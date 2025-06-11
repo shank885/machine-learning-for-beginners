@@ -68,9 +68,9 @@ The core idea here is to train a "model" using data. Once trained, this model ca
     * **Deep Learning (DL):** A specialized subfield of ML that uses artificial neural networks with multiple layers (hence "deep") to learn complex patterns. DL has revolutionized fields like computer vision and natural language processing. All DL is ML, but not all ML is DL.
 
 
-    graph TD
-        A[Artificial Intelligence] --> B(Machine Learning)
-        B --> C(Deep Learning)
+graph TD
+    A[Artificial Intelligence] --> B(Machine Learning)
+    B --> C(Deep Learning)
 
 
 ### Why Learn Machine Learning?
