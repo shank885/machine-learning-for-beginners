@@ -67,11 +67,11 @@ The core idea here is to train a "model" using data. Once trained, this model ca
     * **Machine Learning (ML):** As defined above, focuses on systems that learn from data. All ML is AI, but not all AI is ML.
     * **Deep Learning (DL):** A specialized subfield of ML that uses artificial neural networks with multiple layers (hence "deep") to learn complex patterns. DL has revolutionized fields like computer vision and natural language processing. All DL is ML, but not all ML is DL.
 
-
+'''mermaid
 graph TD
     A[Artificial Intelligence] --> B(Machine Learning)
     B --> C(Deep Learning)
-
+```
 
 ### Why Learn Machine Learning?
 
@@ -369,3 +369,4 @@ graph LR
     C --> D[Train Model]
     D --> E(Evaluate Model)
     E --> F[End]
+```
