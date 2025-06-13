@@ -245,11 +245,11 @@ The process of creating new features or transforming existing ones from raw data
 -   **Common Techniques:**
     -   **One-hot encoding:** Converting categorical variables into a numerical format that ML algorithms can understand without implying an artificial order. For a feature with N categories, it creates N new binary features.
     -   **Scaling:** Adjusting the range of feature values.
-        -   **Standardization (Z-score normalization):** Rescales data to have a mean (μ) of 0 and a standard deviation (σ) of 1. 
+        -   **Standardization (Z-score normalization):** Rescales data to have a mean (μ) of 0 and a standard deviation (σ) of 1.
 
             $$ z = \frac{x - \mu}{\sigma} $$
 
-        -   **Normalization (Min-Max scaling):** Rescales data to a fixed range, usually between 0 and 1. 
+        -   **Normalization (Min-Max scaling):** Rescales data to a fixed range, usually between 0 and 1.
 
             $$ x_{scaled} = \frac{x - x_{min}}{x_{max} - x_{min}} $$
 
