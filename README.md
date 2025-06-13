@@ -220,7 +220,7 @@ This describes the core process of building and assessing an ML model.
     -   **For Regression:**
         -   **Mean Squared Error (MSE):** Average of the squared differences between predicted and actual values. Penalizes larger errors more.
 
-            $$ MSE = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 $$
+            $$MSE = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$
 
         -   **Mean Absolute Error (MAE):** Average of the absolute differences between predicted and actual values. Less sensitive to outliers than MSE.
 
