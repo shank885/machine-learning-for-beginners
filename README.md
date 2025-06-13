@@ -223,7 +223,7 @@ This describes the core process of building and assessing an ML model.
 
         -   **Mean Absolute Error (MAE):** Average of the absolute differences between predicted and actual values. Less sensitive to outliers than MSE.
 
-            $$ MAE = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i) $$
+            $ MAE = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i| $
 
         -   **R-squared (R2):** Represents the proportion of the variance in the dependent variable that is predictable from the independent variables. Values closer to 1 indicate a better fit.
     -   **For Classification:**
