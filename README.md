@@ -211,6 +211,7 @@ This describes the core process of building and assessing an ML model.
         -   **Bias:**  The error introduced by approximating a real-world problem, which may be complex, by a simplified model. High bias leads to underfitting.
         -   **Variance:** The amount that the estimate of the target function will change if different training data was used. High variance leads to overfitting.
         -   **Tradeoff:** There's an inverse relationship between bias and variance. Reducing one often increases the other. The goal is to find a balance that minimizes the total error (Bias$^2$ + Variance + Irreducible Error).
+
             $$ Total Error = Bias^2 + Variance + Irreducible Error $$
 
 -   **Model Evaluation Metrics (General Overview for now, detailed later):**
