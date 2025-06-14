@@ -400,37 +400,225 @@ Probability deals with the likelihood of events, and statistics deals with colle
 ---
 
 ## 5. Supervised Learning Algorithms (Concepts & Math)
+
+Supervised learning is the most common type of machine learning problem. In supervised learning, the model learns from a dataset that includes **labeled examples**, meaning each data point comes with both input features and the corresponding correct output (the "label" or "target"). The goal is for the model to learn a mapping from features to labels so it can accurately predict outputs for new, unseen data.
+
+Supervised learning problems are broadly categorized into:
+* **Regression:** Predicting a continuous numerical value.
+* **Classification:** Predicting a discrete category or class.
+
+
 ### 5.1. Regression Algorithms:
-* **Linear Regression:**
-    * Simple Linear Regression (Equation, Assumptions)
-    * Multiple Linear Regression
-    * Cost Function (Mean Squared Error - MSE)
-    * Gradient Descent for Linear Regression (Derivations & Update Rules)
-    * Normal Equation (Alternative for analytical solution)
-    * Evaluation Metrics (MSE, MAE, R-squared)
-* **Polynomial Regression:** (Brief overview, transformation of linear regression)
+
+Regression algorithms are used when the target variable is a continuous numerical value. The model learns to predict this value based on the input features.
+
+#### **Linear Regression:**
+
+Linear Regression is one of the simplest and most fundamental algorithms in machine learning. It models the relationship between a dependent variable (label) and one or more independent variables (features) by fitting a linear equation to the observed data.
+
+* **Simple Linear Regression (Equation, Assumptions):**
+    * **Equation:** For a single feature $x$, the relationship is modeled as a straight line:
+        $$h_\theta(x) = \theta_0 + \theta_1 x$$
+        Where:
+        * $h_\theta(x)$ (or $\hat{y}$) is the predicted output.
+        * $\theta_0$ (theta-zero) is the y-intercept (the value of $y$ when $x=0$).
+        * $\theta_1$ (theta-one) is the slope of the line (how much $y$ changes for a unit change in $x$).
+        * $x$ is the input feature.
+    * **Assumptions (Key ones for valid inference, less strict for pure prediction):**
+        * **Linearity:** The relationship between features and the target is linear.
+        * **Independence:** Observations are independent of each other.
+        * **Homoscedasticity:** The variance of the residuals (errors) is constant across all levels of the independent variables.
+        * **Normality of Residuals:** Residuals are normally distributed.
+        * **No or Little Multicollinearity:** Independent variables are not highly correlated with each other.
+
+* **Multiple Linear Regression:**
+    * Extends simple linear regression to include multiple features. The equation becomes:
+        $$h_\theta(\mathbf{x}) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \dots + \theta_n x_n$$
+        In a more compact **vectorized form**, where $\mathbf{x}$ is a vector of features (with $x_0=1$ for the intercept term) and $\theta$ is a vector of parameters:
+        $$h_\theta(\mathbf{x}) = \theta^T \mathbf{x}$$
+
+* **Cost Function (Mean Squared Error - MSE):**
+    * To find the "best" line, we need to define what "best" means. This is done by a **Cost Function**, which measures the difference between our model's predictions and the actual target values. For Linear Regression, the **Mean Squared Error (MSE)** is commonly used. Our goal is to find the values of $\theta$ that minimize this cost.
+    * The cost function $J(\theta)$ for $m$ training examples is:
+        $$J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2$$
+        Where:
+        * $m$ is the number of training examples.
+        * $h_\theta(x^{(i)})$ is the model's prediction for the $i$-th training example.
+        * $y^{(i)}$ is the actual target value for the $i$-th training example.
+
+* **Gradient Descent for Linear Regression (Derivations & Update Rules):**
+    * **Gradient Descent** is an iterative optimization algorithm used to find the values of $\theta$ (parameters) that minimize the cost function $J(\theta)$. It repeatedly adjusts the parameters in the direction opposite to the gradient of the cost function.
+    * The **update rule** for each parameter $\theta_j$ is:
+        $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
+        Where:
+        * $\alpha$ (alpha) is the **learning rate**, a hyperparameter that controls the step size of each update.
+        * $\frac{\partial}{\partial \theta_j} J(\theta)$ is the partial derivative of the cost function with respect to parameter $\theta_j$. This derivative tells us the slope (gradient) of the cost function with respect to that parameter.
+
+    * **Partial Derivatives for Linear Regression Cost Function:**
+        * For $\theta_0$ (intercept):
+            $$\frac{\partial}{\partial \theta_0} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})$$
+        * For $\theta_j$ (for $j=1, \dots, n$ features):
+            $$\frac{\partial}{\partial \theta_j} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}$$
+
+* **Normal Equation (Alternative for analytical solution):**
+    * For linear regression, there's a closed-form solution to find the optimal $\theta$ values without iteration. This is called the **Normal Equation**.
+    * $$\theta = (X^T X)^{-1} X^T \mathbf{y}$$
+        Where:
+        * $\theta$ is the vector of optimal parameters.
+        * $X$ is the design matrix (matrix of features, with a column of ones for the intercept).
+        * $X^T$ is the transpose of $X$.
+        * $(X^T X)^{-1}$ is the inverse of the matrix $(X^T X)$.
+        * $\mathbf{y}$ is the vector of actual target values.
+    * **Pros:** No need to choose a learning rate $\alpha$, no iteration.
+    * **Cons:** Computationally expensive for very large datasets as it requires calculating a matrix inverse, which scales poorly with the number of features ($O(n^3)$ complexity). Gradient Descent is preferred for large datasets or many features.
+
+* **Evaluation Metrics (Revisit from Section 3, now in context):**
+    * **Mean Squared Error (MSE):** Already discussed as the cost function.
+        $$\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$
+    * **Mean Absolute Error (MAE):**
+        $$MAE = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i|$$
+    * **R-squared ($R^2$):** Also known as the coefficient of determination. It measures the proportion of the variance in the dependent variable that can be explained by the independent variables. Values range from 0 to 1, with 1 indicating a perfect fit.
+        $$R^2 = 1 - \frac{\sum_{i=1}^{N} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{N} (y_i - \bar{y})^2}$$
+        * The numerator is the sum of squared residuals (SSR) and the denominator is the total sum of squares (SST).
+
+#### 5.1.2. Polynomial Regression (Brief overview, transformation of linear regression)
+
+* **Concept:** Polynomial Regression is a form of linear regression where the relationship between the independent variable $x$ and the dependent variable $y$ is modeled as an $n$-th degree polynomial. It's still considered "linear" because it's linear in terms of its parameters ($\theta$).
+* **Equation (Example for degree 2):**
+    $$h_\theta(x) = \theta_0 + \theta_1 x + \theta_2 x^2$$
+    * You effectively create new features by taking powers of the original features. Once these polynomial features are created, the model is trained using the same linear regression techniques (e.g., Gradient Descent or Normal Equation).
+
 ### 5.2. Classification Algorithms:
-* **Logistic Regression:**
-    * Binary Classification (Sigmoid Function)
-    * Multi-class Classification (Softmax - Brief)
-    * Cost Function (Cross-Entropy/Log Loss)
-    * Gradient Descent for Logistic Regression (Derivations & Update Rules)
-    * Decision Boundary
-    * Evaluation Metrics:
-        * Confusion Matrix (True Positives, False Positives, etc.)
-        * Accuracy, Precision, Recall, F1-Score
-        * ROC Curve and AUC (Conceptual)
-* **K-Nearest Neighbors (KNN):**
-    * How it works (Distance metric - Euclidean)
-    * Choosing K
-    * Advantages and Disadvantages
-* **Decision Trees:**
-    * How they work (Splitting criteria - Gini Impurity, Entropy/Information Gain)
-    * Overfitting in Decision Trees
-    * Pruning
-* **Support Vector Machines (SVM):** (Conceptual Introduction)
-    * Hyperplane and Margins
-    * Kernel Trick (Brief mention)
+
+Classification algorithms are used when the target variable is a discrete category or class. The model learns to assign new data points to one of these predefined categories.
+
+#### 5.2.1. Logistic Regression
+
+Despite its name, Logistic Regression is a fundamental **classification algorithm**, not a regression algorithm. It's used for predicting the probability that an instance belongs to a particular class (e.g., 0 or 1, true or false).
+
+* **Binary Classification (Sigmoid Function):**
+    * For binary classification, Logistic Regression uses the **Sigmoid function** (also called the Logistic function) to squash the output of a linear equation into a probability between 0 and 1.
+    * The linear part is: $z = \theta^T \mathbf{x}$
+    * The Sigmoid function $\sigma(z)$ is:
+        $$\sigma(z) = \frac{1}{1 + e^{-z}}$$
+    * The predicted probability $\hat{p}$ for class 1 is:
+        $$\hat{p} = h_\theta(\mathbf{x}) = \sigma(\theta^T \mathbf{x})$$
+    * If $\hat{p} \geq 0.5$, classify as 1 (positive class); otherwise, classify as 0 (negative class).
+
+* **Multi-class Classification (Softmax - Brief):**
+    * For problems with more than two classes, Logistic Regression can be extended using the **Softmax function** (also known as multinomial logistic regression). Softmax outputs a probability distribution over multiple classes, ensuring the probabilities sum to 1.
+
+* **Cost Function (Cross-Entropy/Log Loss):**
+    * Instead of MSE, Logistic Regression uses a cost function called **Log Loss** or **Binary Cross-Entropy**. This cost function penalizes confident wrong predictions heavily and is convex for Logistic Regression, allowing Gradient Descent to find the global minimum.
+    * For a single training example $(x^{(i)}, y^{(i)})$ where $y^{(i)} \in \{0, 1\}$:
+        $$Cost(h_\theta(x^{(i)}), y^{(i)}) = \begin{cases} -\log(h_\theta(x^{(i)})) & \text{if } y^{(i)} = 1 \\ -\log(1 - h_\theta(x^{(i)})) & \text{if } y^{(i)} = 0 \end{cases}$$
+    * The overall cost function $J(\theta)$ for $m$ training examples is the average of these costs:
+        $$J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]$$
+
+* **Gradient Descent for Logistic Regression (Derivations & Update Rules):**
+    * Similar to linear regression, Gradient Descent is used to minimize the cross-entropy cost function.
+    * The **update rule** for each parameter $\theta_j$ is still:
+        $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
+    * Interestingly, the partial derivative for Logistic Regression takes a very similar form to Linear Regression, despite the different cost function:
+        $$\frac{\partial}{\partial \theta_j} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}$$
+
+* **Decision Boundary:**
+    * Logistic Regression creates a **linear decision boundary** in the feature space. This is a line (or hyperplane in higher dimensions) that separates the different classes. Instances falling on one side of the boundary are classified into one class, and instances on the other side into the other class.
+
+* **Evaluation Metrics (Specific to Classification):**
+    * **Confusion Matrix:** A table that summarizes the performance of a classification model. It shows the number of:
+        * **True Positives (TP):** Correctly predicted positive cases.
+        * **True Negatives (TN):** Correctly predicted negative cases.
+        * **False Positives (FP) / Type I Error:** Incorrectly predicted positive cases (model predicted positive, but actual was negative).
+        * **False Negatives (FN) / Type II Error:** Incorrectly predicted negative cases (model predicted negative, but actual was positive).
+        $$
+        \begin{array}{|c|c|c|}
+        \hline
+        & \text{Predicted Positive} & \text{Predicted Negative} \\
+        \hline
+        \text{Actual Positive} & \text{TP} & \text{FN} \\
+        \hline
+        \text{Actual Negative} & \text{FP} & \text{TN} \\
+        \hline
+        \end{array}
+        $$
+
+    * **Accuracy:** Overall correctness.
+        $$\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}$$
+        * *Limitations:* Can be misleading with imbalanced datasets. If 95% of emails are not spam, a model that always predicts "not spam" will have 95% accuracy but be useless.
+    * **Precision:** Of all positive predictions, how many were correct?
+        $$\text{Precision} = \frac{TP}{TP + FP}$$
+        * *High precision is important when false positives are costly (e.g., medical diagnosis, spam filter).*
+    * **Recall (Sensitivity):** Of all actual positive cases, how many were correctly identified?
+        $$\text{Recall} = \frac{TP}{TP + FN}$$
+        * *High recall is important when false negatives are costly (e.g., fraud detection, finding all sick patients).*
+    * **F1-Score:** The harmonic mean of Precision and Recall. Provides a single score that balances both. Useful for imbalanced datasets.
+        $$\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
+    * **ROC Curve and AUC (Conceptual):**
+        * **Receiver Operating Characteristic (ROC) Curve:** A plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied. It plots the True Positive Rate (Recall) against the False Positive Rate (1 - Specificity).
+        * **Area Under the Curve (AUC):** The area under the ROC curve. It provides a single number summary of the classifier's performance across all possible classification thresholds. An AUC of 1.0 means a perfect classifier, while 0.5 means it's no better than random guessing.
+
+#### 5.2.2. K-Nearest Neighbors (KNN)
+
+KNN is a simple, non-parametric, lazy learning algorithm used for both classification and regression.
+
+* **How it works (Distance metric - Euclidean):**
+    1.  **"Lazy" Learning:** It doesn't learn a discriminative function from the training data, but simply memorizes the training dataset.
+    2.  **Prediction:** To classify a new, unseen data point:
+        * Calculate the **distance** (commonly Euclidean distance) between the new data point and all training data points.
+        * Identify the `K` nearest neighbors (training points closest to the new point).
+        * For **classification:** The new point is assigned the class that is most common among its `K` nearest neighbors (majority vote).
+        * For **regression:** The new point's value is the average (or weighted average) of the values of its `K` nearest neighbors.
+    * **Euclidean Distance** between two points $P=(p_1, p_2, \dots, p_n)$ and $Q=(q_1, q_2, \dots, q_n)$:
+        $$d(P, Q) = \sqrt{\sum_{i=1}^{n} (p_i - q_i)^2}$$
+
+* **Choosing K:**
+    * `K` is a crucial hyperparameter.
+    * A small `K` (e.g., K=1) makes the model sensitive to noise and outliers, leading to high variance (overfitting).
+    * A large `K` smooths out the decision boundary, reducing variance but potentially increasing bias (underfitting) by including too many distant points.
+    * `K` is typically chosen via cross-validation.
+
+* **Advantages and Disadvantages:**
+    * **Pros:** Simple to understand and implement, no training phase (lazy), easily adapts to new training data.
+    * **Cons:** Can be computationally expensive during prediction (has to calculate distances to all training points), sensitive to irrelevant features, scales poorly with high-dimensional data ("curse of dimensionality"), sensitive to feature scaling.
+
+
+#### 5.2.3. Decision Trees
+
+Decision Trees are versatile non-parametric supervised learning algorithms used for both classification and regression. They make predictions by learning simple decision rules inferred from the data features.
+
+* **How they work (Splitting criteria - Gini Impurity, Entropy/Information Gain):**
+    * A decision tree is a flowchart-like structure where each internal node represents a "test" on a feature (e.g., "Is outlook sunny?"), each branch represents the outcome of the test, and each leaf node represents a class label (for classification) or a numerical value (for regression).
+    * The process of building a tree involves recursively splitting the data into subsets based on the feature that provides the "best" split.
+    * **Splitting Criteria (for Classification Trees):** Measures used to decide which feature and which threshold to split on to create the purest possible child nodes.
+        * **Gini Impurity:** Measures how often a randomly chosen element from the set would be incorrectly labeled if it were randomly labeled according to the distribution of labels in the subset. A lower Gini impurity means higher purity.
+            $$G = 1 - \sum_{k=1}^{C} p_k^2$$
+        * **Entropy / Information Gain:**
+            * **Entropy:** Measures the impurity or disorder in a set of data. A higher entropy means more disorder.
+                $$H = - \sum_{k=1}^{C} p_k \log_2(p_k)$$
+            * **Information Gain (IG):** The reduction in entropy (or Gini impurity) after a dataset is split on an attribute. The attribute with the highest information gain is chosen for the split.
+                $$IG(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)$$
+
+* **Overfitting in Decision Trees:**
+    * Decision trees are prone to overfitting, especially when they are allowed to grow very deep. A very deep tree can learn the training data too specifically, including noise, and fail to generalize to new data.
+
+* **Pruning:**
+    * Techniques used to reduce the size of decision trees by removing sections of the tree that provide little power to classify instances. This helps to prevent overfitting.
+        * **Pre-pruning (Early Stopping):** Stop the tree growth early (e.g., limit max depth, min samples per leaf).
+        * **Post-pruning:** Grow the full tree and then remove branches that don't contribute significantly to accuracy.
+
+#### 5.2.4. Support Vector Machines (SVM): (Conceptual Introduction)
+
+SVMs are powerful and versatile supervised learning models used for both classification and regression, but are primarily known for classification.
+
+* **Hyperplane and Margins:**
+    * **Concept:** SVMs aim to find the "best" hyperplane that separates data points of different classes in a high-dimensional space.
+    * **Hyperplane:** A decision boundary. In 2D, it's a line; in 3D, it's a plane; in higher dimensions, it's a hyperplane.
+    * **Margin:** SVMs choose the hyperplane that has the largest possible **margin** (the distance between the hyperplane and the nearest data points from each class, called support vectors). A larger margin generally leads to better generalization.
+
+* **Kernel Trick (Brief mention):**
+    * **Concept:** SVMs can handle non-linear classification tasks by using the "kernel trick." A kernel function implicitly maps the input features into a higher-dimensional space where a linear decision boundary (hyperplane) can then effectively separate the classes.
+    * **Common Kernels:** Polynomial Kernel, Radial Basis Function (RBF) Kernel.
 
 ---
 
