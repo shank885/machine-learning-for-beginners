@@ -212,7 +212,7 @@ This describes the core process of building and assessing an ML model.
         -   **Variance:** The amount that the estimate of the target function will change if different training data was used. High variance leads to overfitting.
         -   **Tradeoff:** There's an inverse relationship between bias and variance. Reducing one often increases the other. The goal is to find a balance that minimizes the total error (Bias$^2$ + Variance + Irreducible Error).
 
-            $$ Total Error = Bias^2 + Variance + Irreducible Error $$
+            $$Total Error = Bias^2 + Variance + Irreducible Error$$
 
 -   **Model Evaluation Metrics (General Overview for now, detailed later):**
 
@@ -222,11 +222,11 @@ This describes the core process of building and assessing an ML model.
 
         -   **Mean Squared Error (MSE):** Average of the squared differences between predicted and actual values. Penalizes larger errors more.
 
-            $$\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 $$
+            $$\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$
 
         -   **Mean Absolute Error (MAE):** Average of the absolute differences between predicted and actual values. Less sensitive to outliers than MSE.
 
-            $$\text{MAE} = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i| $$
+            $$\text{MAE} = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i|$$
 
         -   **R-squared (R2):** Represents the proportion of the variance in the dependent variable that is predictable from the independent variables. Values closer to 1 indicate a better fit.
     
