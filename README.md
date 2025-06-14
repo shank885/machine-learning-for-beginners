@@ -4,7 +4,7 @@
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-![alt text](asests/image.png)
+![alt_text](assets/image.png)
 
 # Machine Learning For Beginners
 
@@ -1052,7 +1052,11 @@ Deep learning has revolutionized NLP, enabling models to learn hierarchical feat
 * **Concept:** The Transformer architecture, introduced in 2017 ("Attention Is All You Need"), completely revolutionized NLP by ditching recurrence and convolutions and relying solely on **self-attention mechanisms**. This allows for highly parallelizable computation and better handling of long-range dependencies.
 * **Self-Attention:** Allows each word in an input sequence to weigh the importance of all other words in the same sequence when calculating its own representation. This directly captures relationships between words, regardless of their distance.
 * **Positional Encoding:** Since Transformers process words in parallel without recurrence, they need a way to incorporate information about the word's position in the sequence. Positional encodings (fixed or learned) are added to the word embeddings to provide this crucial positional context.
-* **Encoder-Decoder Architecture:** The original Transformer consists of an Encoder stack (for understanding input) and a Decoder stack (for generating output).
+* **Encoder-Decoder Architecture:** The original Transformer consists of an
+* Computer Vision (CV)
+* Reinforcement Learning
+* Deployment of ML Models (Brief mention)
+* Ethics in AI/ML Encoder stack (for understanding input) and a Decoder stack (for generating output).
     * **Encoder:** Maps an input sequence of symbol representations $(x_1, ..., x_n)$ to a sequence of continuous representations $(z_1, ..., z_n)$.
     * **Decoder:** Given $z_1, ..., z_n$, the decoder generates an output sequence $(y_1, ..., y_m)$ one element at a time.
 * **Benefits:**
@@ -1091,14 +1095,6 @@ Deep learning has significantly advanced performance across a wide range of NLP 
 * **Chatbots / Conversational AI:** AI systems designed to simulate human conversation through text or voice, used for customer service, virtual assistants, etc.
 * **Speech Recognition (Speech-to-Text):** Converting spoken language into written text.
 * **Text-to-Speech (TTS):** Synthesizing human-like speech from written text.
-
----
-
-
-* Computer Vision (CV)
-* Reinforcement Learning
-* Deployment of ML Models (Brief mention)
-* Ethics in AI/ML
 
 ---
 
