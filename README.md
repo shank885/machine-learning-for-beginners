@@ -300,11 +300,9 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
     *   **Scalar:** A single number (e.g., 5, -2.7, $\pi$).
     
     *   **Vector:** An ordered list of numbers. Can represent a point in space, a direction, or a single data instance's features.
-    
-        *   **Row Vector:** 
 
-            $$\mathbf{v} = \begin{pmatrix} v_1 & v_2 & \dots & v_n \end{pmatrix}$$
-    
+        *   **Row Vector:**  $ \mathbf{v} = \begin{pmatrix} v_1 & v_2 & \dots & v_n \end{pmatrix} $
+
         *   **Column Vector:** $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}$
     
     *   **Matrix:** A rectangular array of numbers arranged in rows and columns. Datasets are often represented as matrices, where rows are data points and columns are features.
