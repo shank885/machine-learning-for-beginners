@@ -226,14 +226,20 @@ This describes the core process of building and assessing an ML model.
 
         -   **Mean Absolute Error (MAE):** Average of the absolute differences between predicted and actual values. Less sensitive to outliers than MSE.
 
-            $$ MAE = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i| $$
+            $$ \text{MAE} = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i| $$
 
         -   **R-squared (R2):** Represents the proportion of the variance in the dependent variable that is predictable from the independent variables. Values closer to 1 indicate a better fit.
+    
     -   **For Classification:**
+
         -   **Accuracy:** The proportion of correctly predicted instances out of the total instances. (Can be misleading with imbalanced datasets).
+
         -   **Precision:** The proportion of correctly predicted positive observations out of all predicted positives. "Of all the times we predicted positive, how many were actually positive?"
+
         -   **Recall (Sensitivity):** The proportion of correctly predicted positive observations out of all actual positives. "Of all the actual positives, how many did we correctly identify?"
+
         -   **F1-Score:** The harmonic mean of Precision and Recall. Useful when you need a balance between Precision and Recall.
+
         -   **Confusion Matrix:** A table that summarizes the performance of a classification model, showing True Positives, True Negatives, False Positives, and False Negatives. (Will be detailed in classification algorithms).
 
 
