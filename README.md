@@ -306,6 +306,7 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
         * **Column Vector:** $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}$
     
     * **Matrix:** A rectangular array of numbers arranged in rows and columns. Datasets are often represented as matrices, where rows are data points and columns are features.
+
         $$\mathbf{A} = \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{pmatrix}$$
 
 * **Vector Addition and Scalar Multiplication:**
@@ -323,9 +324,11 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
     * A fundamental operation that takes two vectors and returns a single scalar. It measures the extent to which two vectors point in the same direction. Crucial for calculating similarity, projections, and weighted sums (e.g., in linear regression or neural networks).
 
     * For $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}$ and $\mathbf{w} = \begin{pmatrix} w_1 \\ w_2 \end{pmatrix}$:
+
         $$\mathbf{v} \cdot \mathbf{w} = v_1 w_1 + v_2 w_2$$
 
     * In general for $n$ dimensions:
+
         $$\mathbf{v} \cdot \mathbf{w} = \sum_{i=1}^{n} v_i w_i$$
 
 * **Matrix Multiplication (Conceptual and Rule-based):**
