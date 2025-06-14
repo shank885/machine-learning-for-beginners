@@ -220,16 +220,16 @@ This describes the core process of building and assessing an ML model.
     -   **For Regression:**
         -   **Mean Squared Error (MSE):** Average of the squared differences between predicted and actual values. Penalizes larger errors more.
 
-    $$ \text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 $$
+            $$ \text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 $$
 
-    *Explanation for MSE...*
+            *Explanation for MSE...*
 
--   **Mean Absolute Error (MAE):** Average of the absolute differences between predicted and actual values. Less sensitive to outliers than MSE.
+        -   **Mean Absolute Error (MAE):** Average of the absolute differences between predicted and actual values. Less sensitive to outliers than MSE.
 
-    $$ MAE = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i| $$
+            $$ MAE = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i| $$
 
-    *Explanation for MAE...*
-        
+            *Explanation for MAE...*
+
         -   **R-squared (R2):** Represents the proportion of the variance in the dependent variable that is predictable from the independent variables. Values closer to 1 indicate a better fit.
     -   **For Classification:**
         -   **Accuracy:** The proportion of correctly predicted instances out of the total instances. (Can be misleading with imbalanced datasets).
