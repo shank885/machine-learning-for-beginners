@@ -714,11 +714,102 @@ PCA is a widely used linear dimensionality reduction technique. It transforms th
 
 ---
 
-## 7. Model Selection & Improvement (Advanced Beginner Topics)
-* Cross-Validation (k-fold, Stratified)
-* Hyperparameter Tuning (Grid Search, Random Search - Conceptual)
-* Regularization (L1, L2 - Ridge, Lasso; Intuition to prevent overfitting)
-* Ensemble Methods (Brief introduction to Bagging/Boosting, e.g., Random Forest, Gradient Boosting)
+## 7. Reinforcement Learning (Concepts & Algorithms)
+
+Reinforcement Learning (RL) is a paradigm of machine learning concerned with how intelligent agents ought to take actions in an environment to maximize the notion of cumulative reward. Unlike supervised learning (which learns from labeled data) and unsupervised learning (which finds patterns in unlabeled data), RL learns through trial and error, getting feedback in the form of rewards or penalties from its actions.
+
+### 7.1. Core Concepts in Reinforcement Learning
+
+Understanding the fundamental components of an RL system is crucial before diving into algorithms.
+
+* **Agent:** The learner or decision-maker that interacts with the environment.
+* **Environment:** Everything outside the agent that the agent interacts with. It provides observations to the agent and responds to the agent's actions.
+* **State ($S$):** A complete description of the current situation in the environment. It captures all relevant information the agent needs to make a decision.
+    * Example: In a chess game, the state is the current position of all pieces on the board.
+* **Action ($A$):** A move or decision made by the agent within a given state. The set of all possible actions for a given state is called the action space.
+    * Example: In chess, moving a pawn to a specific square.
+* **Reward ($R$):** A scalar feedback signal from the environment to the agent after performing an action in a state. The agent's goal is to maximize the cumulative reward over time.
+    * Rewards can be immediate or delayed.
+    * Example: +1 for winning a game, -1 for losing, 0 for any non-terminal move.
+* **Policy ($\pi$):** The agent's strategy, which defines how the agent behaves given a state. It maps states to actions (or probabilities of taking actions).
+    * **Deterministic Policy:** $\pi(s) = a$ (for a given state $s$, always take action $a$).
+    * **Stochastic Policy:** $\pi(a|s)$ (for a given state $s$, take action $a$ with a certain probability).
+* **Value Function ($V^\pi(s)$):** Represents the expected total cumulative reward an agent can expect to get starting from a given state $s$ and following a specific policy $\pi$. It quantifies "how good" a state is.
+    $$V^\pi(s) = E_\pi \left[ \sum_{t=0}^{\infty} \gamma^t R_{t+1} \middle| S_0 = s \right]$$
+* **Q-Value Function ($Q^\pi(s, a)$):** Also known as the **action-value function**. Represents the expected total cumulative reward an agent can expect to get starting from a given state $s$, taking a specific action $a$, and thereafter following policy $\pi$. It quantifies "how good" it is to take a particular action in a particular state.
+    $$Q^\pi(s, a) = E_\pi \left[ \sum_{t=0}^{\infty} \gamma^t R_{t+1} \middle| S_0 = s, A_0 = a \right]$$
+* **Discount Factor ($\gamma$ - gamma):** A value between 0 and 1. It determines the present value of future rewards.
+    * A high $\gamma$ (closer to 1) means the agent cares more about future rewards (long-term thinking).
+    * A low $\gamma$ (closer to 0) means the agent cares more about immediate rewards (short-term thinking).
+    * The sum $\sum_{t=0}^{\infty} \gamma^t R_{t+1}$ ensures that rewards further in the future are "discounted" and weigh less.
+
+### 7.2. Key Reinforcement Learning Algorithms
+
+RL algorithms are broadly categorized into:
+* **Model-Free vs. Model-Based:** Model-free algorithms learn directly from experience (trial and error) without explicitly understanding the environment's dynamics. Model-based algorithms try to learn a model of the environment (how states and rewards transition based on actions).
+* **Value-Based vs. Policy-Based:** Value-based methods learn an optimal value function (or Q-value function) and derive a policy from it. Policy-based methods directly learn the optimal policy.
+
+#### 7.2.1. Q-Learning (Value-Based, Model-Free)
+
+Q-Learning is a popular off-policy, value-based reinforcement learning algorithm. "Off-policy" means it can learn the optimal policy even while following a different exploration policy.
+
+* **Concept:** Q-Learning learns the optimal Q-value function, $Q^*(s,a)$, which represents the maximum expected future reward for taking action $a$ in state $s$. Once $Q^*(s,a)$ is learned, the optimal policy is simply to take the action with the highest Q-value in any given state.
+    $$\pi^*(s) = \arg\max_a Q^*(s,a)$$
+* **Q-Table:** For environments with a discrete and relatively small number of states and actions, Q-Learning often uses a **Q-table** to store the Q-values. The table has states as rows and actions as columns, with each cell $Q(s,a)$ holding the current estimate of the Q-value.
+* **Bellman Equation for Optimality (Conceptual):**
+    * The core of Q-Learning lies in the **Bellman Optimality Equation**, which states that the optimal Q-value for a state-action pair is the immediate reward plus the discounted maximum Q-value of the next state.
+    $$Q^*(s,a) = R_{t+1} + \gamma \max_{a'} Q^*(s',a')$$
+* **Q-Learning Update Rule:**
+    * The algorithm iteratively updates the Q-values based on the agent's experience (state, action, reward, next state).
+    $$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ R + \gamma \max_{a'} Q(s',a') - Q(s,a) \right]$$
+        Where:
+        * $Q(s,a)$ is the current estimate of the Q-value for state $s$ and action $a$.
+        * $\alpha$ (alpha) is the **learning rate** (similar to gradient descent), controlling how much new information overrides old information.
+        * $R$ is the immediate reward received after taking action $a$ in state $s$.
+        * $\gamma$ (gamma) is the **discount factor**.
+        * $\max_{a'} Q(s',a')$ is the maximum Q-value for the next state $s'$ over all possible next actions $a'$. This is the "target" Q-value.
+        * The term in the square brackets is the **Temporal Difference (TD) Error**, representing the difference between the current Q-value estimate and the updated (more accurate) estimate.
+
+* **Exploration vs. Exploitation (Epsilon-Greedy Strategy):**
+    * A crucial challenge in RL is balancing **exploration** (trying new actions to discover potentially better rewards) and **exploitation** (taking actions known to yield high rewards).
+    * **Epsilon-Greedy:** A common strategy where the agent:
+        * With probability $\epsilon$ (epsilon), chooses a random action (exploration).
+        * With probability $1-\epsilon$, chooses the action with the highest Q-value (exploitation).
+    * $\epsilon$ typically starts high and decays over time, allowing for more exploration initially and more exploitation as the agent learns.
+
+* **Advantages and Disadvantages:**
+    * **Pros:** Model-free (doesn't need to know environment dynamics), off-policy (can learn optimal policy while exploring), guaranteed to converge to optimal Q-values under certain conditions.
+    * **Cons:** Can be slow to converge for large state/action spaces (Q-table becomes too large), struggles with continuous state/action spaces (needs discretization or function approximation).
+
+#### 7.2.2. SARSA (State-Action-Reward-State-Action) (Value-Based, Model-Free)
+
+SARSA is another popular on-policy, value-based reinforcement learning algorithm. "On-policy" means it learns the Q-value for the policy currently being followed, including its exploration strategy.
+
+* **Concept:** SARSA is very similar to Q-Learning but with a key difference in how it calculates the "target" Q-value. Instead of taking the maximum Q-value of the next state, SARSA uses the Q-value of the *actual action taken* in the next state, according to the current policy.
+* **SARSA Update Rule:**
+    $$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ R + \gamma Q(s',a') - Q(s,a) \right]$$
+        Where:
+        * $s, a, R, s'$ are the current state, action, reward, and next state, respectively.
+        * $a'$ is the **action chosen in the next state $s'$ according to the current policy (e.g., epsilon-greedy)**. This is the crucial difference from Q-Learning, which uses $\max_{a'} Q(s',a')$.
+
+* **On-Policy vs. Off-Policy (Key Distinction):**
+    * **Q-Learning (Off-Policy):** Learns the optimal Q-function regardless of the policy being followed. It *imagines* taking the optimal action in the next state (the `max` part) even if it didn't actually take it for exploration.
+    * **SARSA (On-Policy):** Learns the Q-function for the *actual policy being followed*. If the agent follows an epsilon-greedy policy, SARSA learns the Q-values for *that* epsilon-greedy policy. If the exploration part leads to a suboptimal action in the next state, SARSA factors that into its learning.
+
+* **Advantages and Disadvantages:**
+    * **Pros:** Model-free, can converge to optimal Q-values (for the current policy), often considered safer in certain environments because it accounts for exploration steps, leading to less "greedy" paths during training.
+    * **Cons:** Still suffers from the curse of dimensionality for large state/action spaces, learning is tied to the exploration policy (if the exploration policy is poor, learning will be slow).
+
+### 7.3. Deep Reinforcement Learning (Conceptual)
+
+* **Concept:** When the state and/or action spaces are very large or continuous, using Q-tables becomes impossible. Deep Reinforcement Learning (DRL) combines standard RL algorithms with Deep Neural Networks.
+    * Instead of a Q-table, a **deep neural network (a Q-network)** is used to approximate the Q-value function. The input to the network is the state, and the output can be the Q-value for each possible action, or a single Q-value for a given state-action pair.
+    * The network's weights are updated using a variant of gradient descent on the TD error.
+* **Algorithms:**
+    * **Deep Q-Networks (DQN):** The pioneering DRL algorithm that successfully applied neural networks to Q-Learning, enabling agents to play Atari games from raw pixels.
+    * **Policy Gradient Methods:** Directly learn the optimal policy parameters using gradient ascent.
+    * **Actor-Critic Methods:** Combine elements of both value-based (critic) and policy-based (actor) methods.
+* **Why it's crucial:** DRL has enabled RL to tackle complex, high-dimensional problems like robotics, game playing (AlphaGo, AlphaZero), and autonomous driving.
 
 ---
 
