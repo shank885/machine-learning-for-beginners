@@ -222,11 +222,11 @@ This describes the core process of building and assessing an ML model.
 
         -   **Mean Squared Error (MSE):** Average of the squared differences between predicted and actual values. Penalizes larger errors more.
 
-            $$ \text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 $$
+            $$\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 $$
 
         -   **Mean Absolute Error (MAE):** Average of the absolute differences between predicted and actual values. Less sensitive to outliers than MSE.
 
-            $$ \text{MAE} = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i| $$
+            $$\text{MAE} = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i| $$
 
         -   **R-squared (R2):** Represents the proportion of the variance in the dependent variable that is predictable from the independent variables. Values closer to 1 indicate a better fit.
     
@@ -255,11 +255,11 @@ The process of creating new features or transforming existing ones from raw data
     -   **Scaling:** Adjusting the range of feature values.
         -   **Standardization (Z-score normalization):** Rescales data to have a mean (μ) of 0 and a standard deviation (σ) of 1.
 
-                $$z = \frac{x - \mu}{\sigma}$$
+            $$z = \frac{x - \mu}{\sigma}$$
 
         -   **Normalization (Min-Max scaling):** Rescales data to a fixed range, usually between 0 and 1.
 
-                $$x_{scaled} = \frac{x - x_{min}}{x_{max} - x_{min}}$$
+            $$x_{scaled} = \frac{x - x_{min}}{x_{max} - x_{min}}$$
 
         -   **Why Scale?** Many ML algorithms (like Gradient Descent, KNN, SVM) are sensitive to the scale of input features because they involve distance calculations or weight updates. Scaling prevents features with larger ranges from dominating the learning process.
 
