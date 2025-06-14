@@ -289,52 +289,32 @@ The process of finding the best set of model parameters that minimize the model'
 
 While Machine Learning often feels like coding, at its core, it's deeply rooted in mathematics. A solid grasp of these mathematical fundamentals isn't about memorizing complex proofs, but about building intuition for *why* algorithms work the way they do and understanding their limitations. This section will lay out the essential concepts from Linear Algebra, Calculus, and Probability & Statistics.
 
-
 ### 4.1. Linear Algebra:
 
 Linear Algebra is the mathematics of vectors, matrices, and linear transformations. It's the language used to represent data, features, and model parameters in machine learning, making it fundamental for almost every algorithm.
 
-
 * **Scalars, Vectors, Matrices (Definitions and Basic Operations):**
-    
     * **Scalar:** A single number (e.g., 5, -2.7, $\pi$).
-    
     * **Vector:** An ordered list of numbers. Can represent a point in space, a direction, or a single data instance's features.
         * **Row Vector:** $\mathbf{v} = \begin{pmatrix} v_1 & v_2 & \dots & v_n \end{pmatrix}$
-
         * **Column Vector:** $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}$
-
     * **Matrix:** A rectangular array of numbers arranged in rows and columns. Datasets are often represented as matrices, where rows are data points and columns are features.
         $$\mathbf{A} = \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{pmatrix}$$
-
 * **Vector Addition and Scalar Multiplication:**
-
     * **Vector Addition:** Adding two vectors of the same dimension, element-wise.
-
         $$\mathbf{v} + \mathbf{w} = \begin{pmatrix} v_1+w_1 \\ v_2+w_2 \end{pmatrix}$$
-
     * **Scalar Multiplication:** Multiplying a vector (or matrix) by a scalar, element-wise.
-
         $$c \mathbf{v} = \begin{pmatrix} c v_1 \\ c v_2 \end{pmatrix}$$
-
 * **Dot Product (Vector Multiplication):**
-
     * A fundamental operation that takes two vectors and returns a single scalar. It measures the extent to which two vectors point in the same direction. Crucial for calculating similarity, projections, and weighted sums (e.g., in linear regression or neural networks).
-
     * For $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}$ and $\mathbf{w} = \begin{pmatrix} w_1 \\ w_2 \end{pmatrix}$:
         $$\mathbf{v} \cdot \mathbf{w} = v_1 w_1 + v_2 w_2$$
-
     * In general for $n$ dimensions:
         $$\mathbf{v} \cdot \mathbf{w} = \sum_{i=1}^{n} v_i w_i$$
-
 * **Matrix Multiplication (Conceptual and Rule-based):**
-
     * Multiplies two matrices to produce a third matrix. It's not element-wise multiplication. The number of columns in the first matrix must equal the number of rows in the second.
-
     * Conceptual: Each element in the resulting matrix is the dot product of a row from the first matrix and a column from the second matrix.
-
     * Importance: Used extensively in neural networks (layer transformations), transformations in PCA, and solving systems of linear equations.
-
 * **Transposition:**
     * Flipping a matrix over its diagonal, converting rows into columns and columns into rows. Denoted by a superscript $T$.
     * If $\mathbf{A} = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, then $\mathbf{A}^T = \begin{pmatrix} a & c \\ b & d \end{pmatrix}$.
@@ -349,30 +329,73 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
     * **Algorithm Operations:** Core operations of many algorithms (e.g., dot products for predictions, matrix multiplications in neural networks) are linear algebraic.
 
 ### 4.2. Calculus:
-* Functions and Graphs
-* Limits (Intuition)
-* Derivatives (Rate of Change, Slope of a Tangent)
-    * Rules of Differentiation (Power Rule, Chain Rule - focus on application)
-    * Partial Derivatives (Introduction for multi-variable functions)
-* Gradients (Vector of partial derivatives)
-* Minima and Maxima (How derivatives help find them)
-* Why Calculus is crucial in ML (Optimization, Gradient Descent)
+
+Calculus is the study of change. In Machine Learning, it's primarily used for **optimization** – finding the best possible parameters for a model by minimizing a cost function.
+
+* **Functions and Graphs:**
+    * Understanding what a function represents (input-output relationship) and how to visualize it on a graph. The cost function $J(\theta)$ is a function we want to minimize.
+* **Limits (Intuition):**
+    * The concept of approaching a value without necessarily reaching it. Forms the foundation for derivatives.
+* **Derivatives (Rate of Change, Slope of a Tangent):**
+    * **Definition:** The derivative of a function measures how sensitive the output of the function is to changes in its input. Geometrically, it's the slope of the tangent line to the function's graph at a given point.
+    * **Intuition:** If you're walking on a curve, the derivative tells you how steep the path is at your current location and in which direction (uphill/downhill).
+    * **Rules of Differentiation (Power Rule, Chain Rule - focus on application):**
+        * **Power Rule:** If $f(x) = x^n$, then $f'(x) = nx^{n-1}$.
+        * **Chain Rule:** Used for differentiating composite functions. If $h(x) = f(g(x))$, then $h'(x) = f'(g(x)) \cdot g'(x)$. This is crucial for backpropagation in neural networks.
+    * **Partial Derivatives (Introduction for multi-variable functions):**
+        * When a function has multiple input variables (e.g., a cost function depending on many weights), a partial derivative measures the rate of change with respect to *one* variable, holding all others constant.
+        * Example: For $f(x, y) = x^2 + y^3$, the partial derivative with respect to $x$ is $\frac{\partial f}{\partial x} = 2x$.
+* **Gradients (Vector of partial derivatives):**
+    * For a function with multiple variables, the gradient is a vector containing all its partial derivatives. It points in the direction of the steepest ascent of the function.
+    * The gradient of $J(\theta_0, \theta_1)$ is $\nabla J = \begin{pmatrix} \frac{\partial J}{\partial \theta_0} \\ \frac{\partial J}{\partial \theta_1} \end{pmatrix}$.
+* **Minima and Maxima (How derivatives help find them):**
+    * At local minima or maxima of a function, the derivative (or gradient for multi-variable functions) is zero. This is why Gradient Descent aims to reach a point where the gradient is zero or very close to zero.
+* **Why Calculus is crucial in ML:**
+    * **Optimization (Gradient Descent):** Derivatives are the backbone of Gradient Descent, telling us which direction to adjust model parameters to reduce the cost.
+    * **Backpropagation:** The algorithm for training neural networks relies heavily on the chain rule for calculating gradients.
+    * **Loss Functions:** Many loss functions are designed to be differentiable, enabling gradient-based optimization.
+
 ### 4.3. Probability & Statistics:
-* **Basic Statistics:**
-    * Mean, Median, Mode
-    * Variance and Standard Deviation
-    * Percentiles and Quartiles
-    * Covariance and Correlation (Intuition)
-* **Probability Theory:**
-    * Events, Sample Space
-    * Probability of an Event
-    * Conditional Probability ($P(A|B)$)
-    * Independent and Dependent Events
-    * Bayes' Theorem (Conceptual introduction - for Naive Bayes)
-* **Probability Distributions:**
-    * Normal (Gaussian) Distribution
-    * Binomial Distribution (Brief mention)
-* Why Probability & Statistics are crucial in ML (Uncertainty, model assumptions, evaluation)
+
+Probability deals with the likelihood of events, and statistics deals with collecting, analyzing, interpreting, and presenting data. Both are critical for understanding data, making informed decisions, and evaluating the uncertainty in machine learning models.
+
+* **4.3.1. Basic Statistics:**
+    * **Mean, Median, Mode:** Measures of central tendency.
+        * **Mean ($\mu$):** The average. $\mu = \frac{1}{N} \sum_{i=1}^{N} x_i$
+        * **Median:** The middle value when data is ordered.
+        * **Mode:** The most frequent value.
+    * **Variance ($\sigma^2$) and Standard Deviation ($\sigma$):** Measures of data spread or dispersion.
+        * **Variance:** Average of the squared differences from the mean. $\sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2$
+        * **Standard Deviation:** Square root of the variance. Provides a measure of spread in the same units as the data. $\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2}$
+    * **Percentiles and Quartiles:** Describe the position of a value relative to the rest of the data.
+    * **Covariance and Correlation (Intuition):**
+        * **Covariance:** Measures the joint variability of two random variables. Indicates if they tend to increase or decrease together.
+        * **Correlation:** A normalized version of covariance, ranging from -1 to 1. Describes the strength and direction of a linear relationship between two variables.
+* **4.3.2. Probability Theory:**
+    * **Events, Sample Space:**
+        * **Sample Space ($\Omega$):** The set of all possible outcomes of an experiment.
+        * **Event:** A subset of the sample space.
+    * **Probability of an Event ($P(A)$):** The likelihood of an event occurring, between 0 and 1.
+    * **Conditional Probability ($P(A|B)$):** The probability of event A occurring, given that event B has already occurred.
+        $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
+    * **Independent and Dependent Events:**
+        * **Independent:** The occurrence of one event does not affect the probability of the other. $P(A \cap B) = P(A)P(B)$.
+        * **Dependent:** The occurrence of one event influences the probability of the other.
+    * **Bayes' Theorem (Conceptual introduction - for Naive Bayes):**
+        * A fundamental theorem that describes how to update the probability of a hypothesis based on new evidence. Crucial for probabilistic models like Naive Bayes.
+        $$P(H|E) = \frac{P(E|H) P(H)}{P(E)}$$
+        * *Where $P(H|E)$ is the posterior probability, $P(E|H)$ is the likelihood, $P(H)$ is the prior probability, and $P(E)$ is the evidence.*
+* **4.3.3. Probability Distributions:**
+    * **Normal (Gaussian) Distribution:**
+        * A very common and important continuous probability distribution, characterized by its bell-shaped curve. Many natural phenomena and statistical samples approximate this distribution. Defined by its mean ($\mu$) and standard deviation ($\sigma$).
+    * **Binomial Distribution (Brief mention):
+        * A discrete probability distribution that models the number of successes in a fixed number of independent Bernoulli trials (e.g., coin flips).
+* **Why Probability & Statistics are crucial in ML:**
+    * **Understanding Data:** Descriptive statistics help summarize and understand the properties of your dataset.
+    * **Model Assumptions:** Many ML algorithms (e.g., Linear Regression, Naive Bayes) make assumptions about the underlying distribution of data.
+    * **Uncertainty and Confidence:** Statistical methods allow us to quantify the uncertainty in our predictions and build confidence intervals.
+    * **Model Evaluation:** Metrics like p-values, confidence intervals, and hypothesis testing (though less common for daily ML practice, they form the bedrock) are rooted in statistics.
+    * **Generative Models:** Probabilistic models explicitly model the underlying data distribution.
 
 ---
 
@@ -577,114 +600,3 @@ graph LR
 ```
 
 
-## 4. Mathematical Foundations for Machine Learning
-
-While Machine Learning often feels like coding, at its core, it's deeply rooted in mathematics. A solid grasp of these mathematical fundamentals isn't about memorizing complex proofs, but about building intuition for *why* algorithms work the way they do and understanding their limitations. This section will lay out the essential concepts from Linear Algebra, Calculus, and Probability & Statistics.
-
-### 4.1. Linear Algebra:
-
-Linear Algebra is the mathematics of vectors, matrices, and linear transformations. It's the language used to represent data, features, and model parameters in machine learning, making it fundamental for almost every algorithm.
-
-* **Scalars, Vectors, Matrices (Definitions and Basic Operations):**
-    * **Scalar:** A single number (e.g., 5, -2.7, $\pi$).
-    * **Vector:** An ordered list of numbers. Can represent a point in space, a direction, or a single data instance's features.
-        * **Row Vector:** $\mathbf{v} = \begin{pmatrix} v_1 & v_2 & \dots & v_n \end{pmatrix}$
-        * **Column Vector:** $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}$
-    * **Matrix:** A rectangular array of numbers arranged in rows and columns. Datasets are often represented as matrices, where rows are data points and columns are features.
-        $$\mathbf{A} = \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{pmatrix}$$
-* **Vector Addition and Scalar Multiplication:**
-    * **Vector Addition:** Adding two vectors of the same dimension, element-wise.
-        $$\mathbf{v} + \mathbf{w} = \begin{pmatrix} v_1+w_1 \\ v_2+w_2 \end{pmatrix}$$
-    * **Scalar Multiplication:** Multiplying a vector (or matrix) by a scalar, element-wise.
-        $$c \mathbf{v} = \begin{pmatrix} c v_1 \\ c v_2 \end{pmatrix}$$
-* **Dot Product (Vector Multiplication):**
-    * A fundamental operation that takes two vectors and returns a single scalar. It measures the extent to which two vectors point in the same direction. Crucial for calculating similarity, projections, and weighted sums (e.g., in linear regression or neural networks).
-    * For $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}$ and $\mathbf{w} = \begin{pmatrix} w_1 \\ w_2 \end{pmatrix}$:
-        $$\mathbf{v} \cdot \mathbf{w} = v_1 w_1 + v_2 w_2$$
-    * In general for $n$ dimensions:
-        $$\mathbf{v} \cdot \mathbf{w} = \sum_{i=1}^{n} v_i w_i$$
-* **Matrix Multiplication (Conceptual and Rule-based):**
-    * Multiplies two matrices to produce a third matrix. It's not element-wise multiplication. The number of columns in the first matrix must equal the number of rows in the second.
-    * Conceptual: Each element in the resulting matrix is the dot product of a row from the first matrix and a column from the second matrix.
-    * Importance: Used extensively in neural networks (layer transformations), transformations in PCA, and solving systems of linear equations.
-* **Transposition:**
-    * Flipping a matrix over its diagonal, converting rows into columns and columns into rows. Denoted by a superscript $T$.
-    * If $\mathbf{A} = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, then $\mathbf{A}^T = \begin{pmatrix} a & c \\ b & d \end{pmatrix}$.
-* **Identity Matrix:**
-    * A square matrix with ones on the main diagonal and zeros elsewhere. Denoted by $\mathbf{I}$. When multiplied by another matrix, it leaves the other matrix unchanged.
-* **Inverse Matrix (Brief mention):**
-    * For a square matrix $\mathbf{A}$, its inverse $\mathbf{A}^{-1}$ is a matrix such that $\mathbf{A} \mathbf{A}^{-1} = \mathbf{I}$. Used in analytical solutions for linear regression (Normal Equation).
-* **Why Linear Algebra is crucial in ML:**
-    * **Data Representation:** Datasets are represented as matrices. Individual data points are vectors.
-    * **Feature Transformations:** Many preprocessing steps (like scaling, PCA) involve matrix operations.
-    * **Model Parameters:** Weights and biases in models (e.g., linear regression, neural networks) are often vectors or matrices.
-    * **Algorithm Operations:** Core operations of many algorithms (e.g., dot products for predictions, matrix multiplications in neural networks) are linear algebraic.
-
-### 4.2. Calculus:
-
-Calculus is the study of change. In Machine Learning, it's primarily used for **optimization** – finding the best possible parameters for a model by minimizing a cost function.
-
-* **Functions and Graphs:**
-    * Understanding what a function represents (input-output relationship) and how to visualize it on a graph. The cost function $J(\theta)$ is a function we want to minimize.
-* **Limits (Intuition):**
-    * The concept of approaching a value without necessarily reaching it. Forms the foundation for derivatives.
-* **Derivatives (Rate of Change, Slope of a Tangent):**
-    * **Definition:** The derivative of a function measures how sensitive the output of the function is to changes in its input. Geometrically, it's the slope of the tangent line to the function's graph at a given point.
-    * **Intuition:** If you're walking on a curve, the derivative tells you how steep the path is at your current location and in which direction (uphill/downhill).
-    * **Rules of Differentiation (Power Rule, Chain Rule - focus on application):**
-        * **Power Rule:** If $f(x) = x^n$, then $f'(x) = nx^{n-1}$.
-        * **Chain Rule:** Used for differentiating composite functions. If $h(x) = f(g(x))$, then $h'(x) = f'(g(x)) \cdot g'(x)$. This is crucial for backpropagation in neural networks.
-    * **Partial Derivatives (Introduction for multi-variable functions):**
-        * When a function has multiple input variables (e.g., a cost function depending on many weights), a partial derivative measures the rate of change with respect to *one* variable, holding all others constant.
-        * Example: For $f(x, y) = x^2 + y^3$, the partial derivative with respect to $x$ is $\frac{\partial f}{\partial x} = 2x$.
-* **Gradients (Vector of partial derivatives):**
-    * For a function with multiple variables, the gradient is a vector containing all its partial derivatives. It points in the direction of the steepest ascent of the function.
-    * The gradient of $J(\theta_0, \theta_1)$ is $\nabla J = \begin{pmatrix} \frac{\partial J}{\partial \theta_0} \\ \frac{\partial J}{\partial \theta_1} \end{pmatrix}$.
-* **Minima and Maxima (How derivatives help find them):**
-    * At local minima or maxima of a function, the derivative (or gradient for multi-variable functions) is zero. This is why Gradient Descent aims to reach a point where the gradient is zero or very close to zero.
-* **Why Calculus is crucial in ML:**
-    * **Optimization (Gradient Descent):** Derivatives are the backbone of Gradient Descent, telling us which direction to adjust model parameters to reduce the cost.
-    * **Backpropagation:** The algorithm for training neural networks relies heavily on the chain rule for calculating gradients.
-    * **Loss Functions:** Many loss functions are designed to be differentiable, enabling gradient-based optimization.
-
-### 4.3. Probability & Statistics:
-
-Probability deals with the likelihood of events, and statistics deals with collecting, analyzing, interpreting, and presenting data. Both are critical for understanding data, making informed decisions, and evaluating the uncertainty in machine learning models.
-
-* **4.3.1. Basic Statistics:**
-    * **Mean, Median, Mode:** Measures of central tendency.
-        * **Mean ($\mu$):** The average. $\mu = \frac{1}{N} \sum_{i=1}^{N} x_i$
-        * **Median:** The middle value when data is ordered.
-        * **Mode:** The most frequent value.
-    * **Variance ($\sigma^2$) and Standard Deviation ($\sigma$):** Measures of data spread or dispersion.
-        * **Variance:** Average of the squared differences from the mean. $\sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2$
-        * **Standard Deviation:** Square root of the variance. Provides a measure of spread in the same units as the data. $\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2}$
-    * **Percentiles and Quartiles:** Describe the position of a value relative to the rest of the data.
-    * **Covariance and Correlation (Intuition):**
-        * **Covariance:** Measures the joint variability of two random variables. Indicates if they tend to increase or decrease together.
-        * **Correlation:** A normalized version of covariance, ranging from -1 to 1. Describes the strength and direction of a linear relationship between two variables.
-* **4.3.2. Probability Theory:**
-    * **Events, Sample Space:**
-        * **Sample Space ($\Omega$):** The set of all possible outcomes of an experiment.
-        * **Event:** A subset of the sample space.
-    * **Probability of an Event ($P(A)$):** The likelihood of an event occurring, between 0 and 1.
-    * **Conditional Probability ($P(A|B)$):** The probability of event A occurring, given that event B has already occurred.
-        $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
-    * **Independent and Dependent Events:**
-        * **Independent:** The occurrence of one event does not affect the probability of the other. $P(A \cap B) = P(A)P(B)$.
-        * **Dependent:** The occurrence of one event influences the probability of the other.
-    * **Bayes' Theorem (Conceptual introduction - for Naive Bayes):**
-        * A fundamental theorem that describes how to update the probability of a hypothesis based on new evidence. Crucial for probabilistic models like Naive Bayes.
-        $$P(H|E) = \frac{P(E|H) P(H)}{P(E)}$$
-        * *Where $P(H|E)$ is the posterior probability, $P(E|H)$ is the likelihood, $P(H)$ is the prior probability, and $P(E)$ is the evidence.*
-* **4.3.3. Probability Distributions:**
-    * **Normal (Gaussian) Distribution:**
-        * A very common and important continuous probability distribution, characterized by its bell-shaped curve. Many natural phenomena and statistical samples approximate this distribution. Defined by its mean ($\mu$) and standard deviation ($\sigma$).
-    * **Binomial Distribution (Brief mention):
-        * A discrete probability distribution that models the number of successes in a fixed number of independent Bernoulli trials (e.g., coin flips).
-* **Why Probability & Statistics are crucial in ML:**
-    * **Understanding Data:** Descriptive statistics help summarize and understand the properties of your dataset.
-    * **Model Assumptions:** Many ML algorithms (e.g., Linear Regression, Naive Bayes) make assumptions about the underlying distribution of data.
-    * **Uncertainty and Confidence:** Statistical methods allow us to quantify the uncertainty in our predictions and build confidence intervals.
-    * **Model Evaluation:** Metrics like p-values, confidence intervals, and hypothesis testing (though less common for daily ML practice, they form the bedrock) are rooted in statistics.
-    * **Generative Models:** Probabilistic models explicitly model the underlying data distribution.
