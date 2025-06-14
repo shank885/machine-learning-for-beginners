@@ -623,18 +623,90 @@ SVMs are powerful and versatile supervised learning models used for both classif
 ---
 
 ## 6. Unsupervised Learning Algorithms (Concepts & Math)
-### 6.1. Clustering Algorithms:
-* **K-Means Clustering:**
-    * How it works (Centroids, Iterative process)
-    * Choosing K (Elbow Method - Conceptual)
-    * Distance Metric (Euclidean)
-    * Advantages and Disadvantages
-* **Hierarchical Clustering:** (Brief conceptual overview)
-### 6.2. Dimensionality Reduction:
-* **Principal Component Analysis (PCA):** (Conceptual and Linear Algebra intuition)
-    * Goal: Reduce dimensions while retaining variance
-    * Eigenvectors and Eigenvalues (Intuition)
-    * Applications
+
+Unsupervised learning deals with analyzing and finding patterns within datasets that do not have pre-assigned labels or target variables. The goal is to uncover hidden structures, relationships, or representations in the data without any explicit guidance.
+
+The main tasks in unsupervised learning include:
+
+* **Clustering:** Grouping similar data points together.
+* **Dimensionality Reduction:** Reducing the number of features while preserving important information.
+
+### 6.1. Clustering Algorithms
+
+Clustering is the task of dividing the data points into a number of specific groups or clusters, such that data points in the same cluster are more similar to each other than to those in other clusters.
+
+#### 6.1.1. K-Means Clustering
+
+K-Means is one of the most popular and simplest unsupervised learning algorithms used for clustering. It aims to partition $N$ observations into $K$ clusters, where each observation belongs to the cluster with the nearest mean (centroid).
+
+* **How it Works (Iterative Process):**
+    1.  **Initialization:** Randomly select $K$ data points from the dataset as initial cluster centroids.
+    2.  **Assignment Step (E-step - Expectation):** Assign each data point to the closest centroid. The "closest" is typically determined using **Euclidean distance** (or squared Euclidean distance).
+        $$ \text{assign } \mathbf{x}^{(i)} \text{ to cluster } j \text{ if } ||\mathbf{x}^{(i)} - \mu_j||^2 \le ||\mathbf{x}^{(i)} - \mu_k||^2 \text{ for all } k \ne j $$
+    3.  **Update Step (M-step - Maximization):** Recalculate the position of each cluster centroid by taking the mean of all data points assigned to that cluster.
+        $$ \mu_j = \frac{1}{|C_j|} \sum_{\mathbf{x} \in C_j} \mathbf{x} $$
+    4.  **Convergence:** Repeat steps 2 and 3 until the centroids no longer move significantly or a maximum number of iterations is reached.
+
+* **Objective Function (Inertia/Within-Cluster Sum of Squares - WCSS):**
+    * K-Means aims to minimize the sum of squared distances between data points and their assigned cluster centroid.
+    $$ J = \sum_{j=1}^{K} \sum_{\mathbf{x} \in C_j} ||\mathbf{x} - \mu_j||^2 $$
+
+* **Choosing K (Elbow Method, Silhouette Score):**
+    * One of the biggest challenges in K-Means is determining the optimal number of clusters, $K$.
+    * **Elbow Method:** Plot the WCSS (or inertia) against different values of $K$. The point where the rate of decrease in WCSS sharply changes, forming an "elbow," is often considered the optimal $K$.
+    * **Silhouette Score:** Measures how similar an object is to its own cluster (cohesion) compared to other clusters (separation). Scores range from -1 to 1, with higher values indicating better clustering.
+
+* **Advantages and Disadvantages:**
+    * **Pros:** Relatively simple to understand and implement, computationally efficient for large datasets, produces tight clusters if they are well-separated.
+    * **Cons:** Requires specifying $K$ in advance, sensitive to initial centroid placement (can converge to local optima), sensitive to outliers, assumes spherical clusters of similar size, struggles with clusters of varying densities or non-convex shapes.
+
+#### 6.1.2. Hierarchical Clustering (Conceptual)
+
+Hierarchical clustering builds a hierarchy of clusters. It doesn't require specifying the number of clusters beforehand, and the result is typically represented as a **dendrogram**.
+
+* **Agglomerative (Bottom-Up) vs. Divisive (Top-Down):**
+    * **Agglomerative:** Starts with each data point as a single cluster and iteratively merges the closest pairs of clusters until all points are in one cluster or a stopping criterion is met. This is more common.
+    * **Divisive:** Starts with all data points in one cluster and recursively splits the most appropriate cluster until each data point is a separate cluster.
+* **Linkage Criteria (How to measure distance between clusters):**
+    * **Single Linkage:** Distance between the closest points in the two clusters.
+    * **Complete Linkage:** Distance between the farthest points in the two clusters.
+    * **Average Linkage:** Average distance between all pairs of points across the two clusters.
+    * **Ward's Method:** Minimizes the total within-cluster variance.
+* **Dendrogram:** A tree-like diagram that records the sequence of merges or splits. You can "cut" the dendrogram at a certain height to obtain a desired number of clusters.
+* **Advantages and Disadvantages:**
+    * **Pros:** Does not require specifying $K$ beforehand, produces a hierarchy of clusters (dendrogram), can uncover nested relationships.
+    * **Cons:** Can be computationally expensive (especially for large datasets), may struggle with large datasets, choosing the "cut" point on the dendrogram can be subjective.
+
+### 6.2. Dimensionality Reduction Algorithms
+
+Dimensionality Reduction techniques reduce the number of features (dimensions) in a dataset while trying to retain as much relevant information as possible. This is useful for visualization, noise reduction, and speeding up subsequent machine learning algorithms.
+
+#### 6.2.1. Principal Component Analysis (PCA)
+
+PCA is a widely used linear dimensionality reduction technique. It transforms the data into a new coordinate system such that the greatest variance by any projection of the data lies on the first coordinate (called the first principal component), the second greatest variance on the second coordinate, and so on.
+
+* **Concept (Variance Maximization, Orthogonal Projection):**
+    * PCA identifies directions (principal components) along which the data varies the most. These principal components are orthogonal (perpendicular) to each other.
+    * It projects the high-dimensional data onto a lower-dimensional subspace spanned by these principal components, thereby reducing dimensionality while preserving the maximum possible variance (information).
+* **Mathematical Foundation (Eigenvectors and Eigenvalues - Conceptual):**
+    * PCA relies on finding the **eigenvectors** and **eigenvalues** of the data's covariance matrix.
+    * **Covariance Matrix ($\Sigma$):** A square matrix that shows the covariance between each pair of features in the dataset.
+        * For a dataset with $n$ features, $\Sigma$ will be an $n \times n$ matrix.
+        $$ \Sigma_{ij} = \text{Cov}(X_i, X_j) = E[(X_i - \mu_i)(X_j - \mu_j)] $$
+    * **Eigenvectors:** These are the principal components themselves. They are the directions of maximum variance in the data.
+    * **Eigenvalues:** Each eigenvector has a corresponding eigenvalue, which quantifies the amount of variance captured along that principal component direction. Larger eigenvalues correspond to more significant principal components.
+* **Steps (High-level):**
+    1.  **Standardize the data:** Scale the features to have zero mean and unit variance. This is crucial as PCA is sensitive to the scale of features.
+    2.  **Compute the covariance matrix:** Calculate the covariance matrix of the standardized data.
+    3.  **Calculate eigenvectors and eigenvalues:** Find the eigenvectors and eigenvalues of the covariance matrix.
+    4.  **Select principal components:** Order the eigenvectors by their corresponding eigenvalues in descending order. Choose the top $k$ eigenvectors (principal components) that capture a sufficient amount of variance (e.g., 95%).
+    5.  **Transform the data:** Project the original (standardized) data onto the selected $k$ principal components.
+* **Scree Plot / Explained Variance Ratio:**
+    * **Explained Variance Ratio:** For each principal component, this indicates the proportion of the total variance in the dataset that is captured by that component.
+    * **Scree Plot:** A plot of the eigenvalues (or explained variance ratio) against the number of principal components. Similar to the Elbow Method, it helps in choosing the optimal number of components.
+* **Advantages and Disadvantages:**
+    * **Pros:** Reduces dimensionality, speeds up algorithms, removes noise (by discarding lower variance components), can help visualize high-dimensional data (e.g., using 2 or 3 components).
+    * **Cons:** Assumes linearity (identifies linear correlations), can be difficult to interpret the new principal components (they are linear combinations of original features), information loss is unavoidable.
 
 ---
 
