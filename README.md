@@ -1,8 +1,6 @@
-![GitHub top language](https://img.shields.io/github/languages/top/shank885/machine-learning-for-beginners)
-
-![GitHub stars](https://img.shields.io/github/stars/shank885/machine-learning-for-beginners?style=social)
-
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Python](https://img.shields.io/badge/Language-Python-blue.svg)
+[![GitHub Stars](https://img.shields.io/github/stars/shank885/machine-learning-for-beginners.svg?style=social)](https://github.com/shank885/machine-learning-for-beginners/stargazers)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![alt_text](assets/image.png)
 
