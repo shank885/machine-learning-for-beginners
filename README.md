@@ -224,7 +224,7 @@ This describes the core process of building and assessing an ML model.
 
         -   **Mean Squared Error (MSE):** Average of the squared differences between predicted and actual values. Penalizes larger errors more.
 
-            $$\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$
+                $$\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$
 
             * **N**: The total number of data points or observations.
             * **$Y_i$**: The actual or observed value for the *i*-th data point.
