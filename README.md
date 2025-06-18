@@ -2,7 +2,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/shank885/machine-learning-for-beginners.svg?style=social)](https://github.com/shank885/machine-learning-for-beginners/stargazers)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![alt_text](assets/image.png)
+<!-- ![alt_text](assets/image.png) -->
 
 # Machine Learning For Beginners
 
