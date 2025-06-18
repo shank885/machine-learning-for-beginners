@@ -2,6 +2,8 @@
 [![GitHub Stars](https://img.shields.io/github/stars/shank885/machine-learning-for-beginners.svg?style=social)](https://github.com/shank885/machine-learning-for-beginners/stargazers)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+-------
+
 <!-- ![alt_text](assets/image.png) -->
 
 # Machine Learning For Beginners
@@ -91,7 +93,7 @@ Machine Learning isn't just a buzzword; it's a transformative technology impacti
 
 Machine learning problems are broadly categorized based on the nature of the training data and the task the algorithm is designed to perform.
 
-* Supervised Learning
+* **Supervised Learning**
     - **Definition:** The algorithm learns from **labeled data**, meaning each training example includes both the input features and the correct output (label). The goal is to learn a mapping from inputs to outputs so that the model can predict outputs for new, unseen inputs.
     - **Analogy:** Learning with a teacher who provides correct answers.
     - **Common Tasks:**
@@ -99,7 +101,7 @@ Machine learning problems are broadly categorized based on the nature of the tra
         - **Classification:** Predicting a discrete category or class (e.g., spam/not-spam, disease/no-disease).
     - **Examples:** Image classification (cat/dog), spam detection, predicting house prices, credit risk assessment.
 
-* Unsupervised Learning
+* **Unsupervised Learning**
 
     - **Definition:** The algorithm learns from **unlabeled data**, where only input features are provided without any corresponding output labels. The goal is to find hidden patterns, structures, or relationships within the data.
     - **Analogy:** Learning without a teacher, discovering patterns on your own.
@@ -109,13 +111,13 @@ Machine learning problems are broadly categorized based on the nature of the tra
         - **Association Rule Mining:** Discovering relationships between variables in large datasets (e.g., "customers who buy X also buy Y").
     - **Examples:** Market segmentation, anomaly detection, topic modeling in documents.
 
-* Reinforcement Learning (Brief Introduction)
+* **Reinforcement Learning (Brief Introduction)**
 
     - **Definition:** An agent learns to make decisions by performing actions in an environment to maximize a cumulative reward. It learns through trial and error, getting positive or negative feedback for its actions.
     - **Analogy:** Training a pet with rewards.
     - **Examples:** Game AI (AlphaGo), robotics, autonomous driving.
 
-* Semi-supervised Learning (Brief Introduction)
+* **Semi-supervised Learning (Brief Introduction)**
 
     - **Definition:** Uses a combination of a small amount of labeled data and a large amount of unlabeled data during training. It can be useful when obtaining labeled data is expensive or time-consuming.
     - **Example:** Image classification where only a few images are manually tagged, and the algorithm uses unlabeled images to improve its understanding.
@@ -124,7 +126,7 @@ Machine learning problems are broadly categorized based on the nature of the tra
 
 ## 2. Prerequisites for Machine Learning
 
-Before diving deep into the fascinating world of Machine Learning, having a foundational understanding of a few key areas will significantly enhance your learning experience. Don't worry if you're not an expert in all of these; the goal here is to establish a working knowledge.
+Before diving deep into the fascinating world of Machine Learning, having a foundational understanding of a few key areas will significantly enhance your learning experience.
 
 ### Python Basics:
 
@@ -210,7 +212,7 @@ This describes the core process of building and assessing an ML model.
         -   This is a central concept in understanding model performance.
         -   **Bias:**  The error introduced by approximating a real-world problem, which may be complex, by a simplified model. High bias leads to underfitting.
         -   **Variance:** The amount that the estimate of the target function will change if different training data was used. High variance leads to overfitting.
-        -   **Tradeoff:** There's an inverse relationship between bias and variance. Reducing one often increases the other. The goal is to find a balance that minimizes the total error (Bias$^2$ + Variance + Irreducible Error).
+        -   **Tradeoff:** There's an inverse relationship between bias and variance. Reducing one often increases the other. The goal is to find a balance that minimizes the total error (Bias^2 + Variance + Irreducible Error).
 
             **$$Total Error = Bias^2 + Variance + Irreducible Error$$**
 
@@ -223,6 +225,16 @@ This describes the core process of building and assessing an ML model.
         -   **Mean Squared Error (MSE):** Average of the squared differences between predicted and actual values. Penalizes larger errors more.
 
             **$$\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$**
+
+            * **n**: The total number of data points or observations.
+            * **$Y_i$**: The actual or observed value for the *i*-th data point.
+            * **$\hat{Y}_i$**: The predicted value for the *i*-th data point, as generated by the model.
+            * **$(Y_i - \hat{Y}_i)$**: This is the error (or residual) for the *i*-th prediction. It represents the difference between the actual value and the predicted value.
+            * **$(Y_i - \hat{Y}_i)^2$**: The error for each prediction is squared. This has two important consequences:
+                1.  **Positive Values:** Squaring ensures that all error terms are positive. This prevents negative and positive errors from canceling each other out.
+                2.  **Penalizing Larger Errors:** Squaring gives a higher weight to larger errors. A large discrepancy between the actual and predicted value will result in a significantly larger squared error than a small discrepancy.
+            * **$\sum_{i=1}^{n}$**: This is the summation symbol, indicating that the squared errors for all *n* data points are added together.
+            * **$\frac{1}{n}$**: The sum of the squared errors is then divided by the number of data points to get the average or mean.
 
         -   **Mean Absolute Error (MAE):** Average of the absolute differences between predicted and actual values. Less sensitive to outliers than MSE.
 
