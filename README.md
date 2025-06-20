@@ -240,7 +240,7 @@ This describes the core process of building and assessing an ML model.
     * **Mean Absolute Error (MAE):** Average of the absolute differences between predicted and actual values. Less sensitive to outliers than MSE.
 
       <p align="center">
-      **$$\text{MAE} = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i|$$**
+      $$\text{MAE} = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i|$$
       </p>
 
       * **N**: The total number of data points or observations.
