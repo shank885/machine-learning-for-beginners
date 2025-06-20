@@ -250,11 +250,11 @@ This describes the core process of building and assessing an ML model.
 
       $$R^2 = 1 - \frac{SS_{res}}{SS_{total}}$$
 
-      * $SS_{res}: Residual sum of squares = ∑(yᵢ - ŷᵢ)²$
-      * $SS_{tot}: Total sum of squares = ∑(yᵢ - ȳ)²$
-      * $yᵢ: Actual value$
-      * $ŷᵢ: Predicted value$
-      * $ȳ: Mean of actual values$
+      * $SS_{res}:$ Residual sum of squares = $∑(yᵢ - ŷᵢ)²$
+      * $SS_{tot}:$ Total sum of squares = $∑(yᵢ - ȳ)²$
+      * $yᵢ:$ Actual value
+      * $ŷᵢ:$ Predicted value
+      * $ȳ:$ Mean of actual values
 
     * **For Classification:**
 
