@@ -214,7 +214,9 @@ This describes the core process of building and assessing an ML model.
         -   **Variance:** The amount that the estimate of the target function will change if different training data was used. High variance leads to overfitting.
         -   **Tradeoff:** There's an inverse relationship between bias and variance. Reducing one often increases the other. The goal is to find a balance that minimizes the total error (Bias^2 + Variance + Irreducible Error).
 
+            <p align="center">
             **$$Total Error = Bias^2 + Variance + Irreducible Error$$**
+            </p>
 
 * **Model Evaluation Metrics (General Overview for now, detailed later):**
   * After training, we need to assess how well our model performs. Different metrics are used depending on the type of problem (regression vs. classification).
@@ -267,7 +269,7 @@ This describes the core process of building and assessing an ML model.
       * **Accuracy:** The proportion of correctly predicted instances out of the total instances. (Can be misleading with imbalanced datasets).
       * **Precision:** The proportion of correctly predicted positive observations out of all predicted positives. "Of all the times we predicted positive, how many were actually positive?"
       * **Recall (Sensitivity):** The proportion of correctly predicted positive observations out of all actual positives. "Of all the actual positives, how many did we correctly identify?"
-      * ***F1-Score:** The harmonic mean of Precision and Recall. Useful when you need a balance between Precision and Recall.
+      * **F1-Score:** The harmonic mean of Precision and Recall. Useful when you need a balance between Precision and Recall.
       * **Confusion Matrix:** A table that summarizes the performance of a classification model, showing True Positives, True Negatives, False Positives, and False Negatives. (Will be detailed in classification algorithms).
 
 
