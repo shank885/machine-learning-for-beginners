@@ -248,7 +248,9 @@ This describes the core process of building and assessing an ML model.
 
     * **R-squared (R2):** **R-squared error**, more commonly known as $R^2$ **(R-squared)** or the **coefficient of determination** is a statistical measure used to evaluate the **goodness of fit** of a regression model. It tells us how much of the **variance in the dependent variable (target)** is **explained by the independent variable(s)** in the model.
 
-      $$R^2 = 1 - \frac{SS_{res}}{SS_{total}}$$
+      $$
+      R^2 = 1 - \frac{SS_{res}}{SS_{total}}
+      $$
 
       * $SS_{res}:$ Residual sum of squares = $∑(yᵢ - ŷᵢ)²$
       * $SS_{tot}:$ Total sum of squares = $∑(yᵢ - ȳ)²$
