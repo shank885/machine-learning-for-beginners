@@ -335,7 +335,7 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
 
     * **Row Vector:** ![Row vector](https://latex.codecogs.com/svg.image?\mathbf{v}=\begin{pmatrix}v_1&v_2&\dots&v_n\end{pmatrix})
 
-    * **Column Vector:** ![Column vector](https://latex.codecogs.com/svg.image?\mathbf{v}=\begin{pmatrix}v_1\\v_2\\ \vdots\\v_n\end{pmatrix})
+    * **Column Vector:** ![Column vector](https://latex.codecogs.com/svg.image?\mathbf{v}=\begin{pmatrix}v_1\\v_2\\\vdots\\v_n\end{pmatrix})
 
 
 
