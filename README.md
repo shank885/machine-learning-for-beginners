@@ -215,7 +215,7 @@ This describes the core process of building and assessing an ML model.
         -   **Tradeoff:** There's an inverse relationship between bias and variance. Reducing one often increases the other. The goal is to find a balance that minimizes the total error (Bias^2 + Variance + Irreducible Error).
 
             <p align="center">
-            **$$Total Error = Bias^2 + Variance + Irreducible Error$$**
+            $$Total Error = Bias^2 + Variance + Irreducible Error$$
             </p>
 
 * **Model Evaluation Metrics (General Overview for now, detailed later):**
@@ -285,17 +285,21 @@ The process of creating new features or transforming existing ones from raw data
     -   **Scaling:** Adjusting the range of feature values.
         -   **Standardization (Z-score normalization):** Rescales data to have a mean (μ) of 0 and a standard deviation (σ) of 1.
 
-            **$$z = \frac{x - \mu}{\sigma}$$**
+            <p align="center">
+            $$z = \frac{x - \mu}{\sigma}$$
+            </p>
 
         -   **Normalization (Min-Max scaling):** Rescales data to a fixed range, usually between 0 and 1.
 
-            **$$x_{scaled} = \frac{x - x_{min}}{x_{max} - x_{min}}$$**
+            <p align="center">
+            $$x_{scaled} = \frac{x - x_{min}}{x_{max} - x_{min}}$$
+            </p>
 
         -   **Why Scale?** Many ML algorithms (like Gradient Descent, KNN, SVM) are sensitive to the scale of input features because they involve distance calculations or weight updates. Scaling prevents features with larger ranges from dominating the learning process.
 
 ### Optimization:
 
-The process of finding the best set of model parameters that minimize the model's error (cost/loss).
+It is the process of finding the best set of model parameters that minimize the model's error (cost/loss).
 
 -   **Cost/Loss Functions (What they are, why we use them):**
     -   **Definition:** A function that quantifies the "error" or "cost" associated with a model's predictions. The lower the cost, the better the model's performance.
