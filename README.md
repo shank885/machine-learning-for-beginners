@@ -336,11 +336,13 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
     * **Row Vector:** ![Row vector](https://latex.codecogs.com/svg.image?\mathbf{v}=\begin{pmatrix}v_1&v_2&\dots&v_n\end{pmatrix})
 
     * **Column Vector:**  
-**v** =  ( v₁ )
-( v₂ )
-(⋮ )
-( Vₙ )
-
+**v** =  
+(  
+v₁  
+v₂  
+⋮  
+vₙ  
+)
 
 
   * **Matrix:** A rectangular array of numbers arranged in rows and columns. Datasets are often represented as matrices, where rows are data points and columns are features.
