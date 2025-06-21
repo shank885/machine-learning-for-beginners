@@ -372,10 +372,11 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
       <img src="assets/v1dotv2.jpg" alt="Matrix A" width="200"/>
     </p>
 
-
   * In general for $n$ dimensions:
 
+    <p align="center">
     $$\mathbf{v} \cdot \mathbf{w} = \sum_{i=1}^{n} v_i w_i$$
+    </p>
 
 * **Matrix Multiplication (Conceptual and Rule-based):**
 
