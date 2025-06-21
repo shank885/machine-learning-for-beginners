@@ -350,10 +350,16 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
 * **Vector Addition and Scalar Multiplication:**
 
   * **Vector Addition:** Adding two vectors of the same dimension, element-wise.
-    $$\mathbf{v} + \mathbf{w} = \begin{pmatrix} v_1+w_1 \\ v_2+w_2 \end{pmatrix}$$
+
+    <p align="center">
+      <img src="assets/vector_addition.jpg" alt="Matrix A" width="200"/>
+    </p>
 
   * **Scalar Multiplication:** Multiplying a vector (or matrix) by a scalar, element-wise.
-    $$c \mathbf{v} = \begin{pmatrix} c v_1 \\ c v_2 \end{pmatrix}$$
+
+    <p align="center">
+      <img src="assets/scalar_mul.jpg" alt="Matrix A" width="200"/>
+    </p>
 
 * **Dot Product (Vector Multiplication):**
 
