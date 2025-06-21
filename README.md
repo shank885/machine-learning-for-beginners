@@ -363,45 +363,51 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
 
 * **Dot Product (Vector Multiplication):**
 
-    * A fundamental operation that takes two vectors and returns a single scalar. It measures the extent to which two vectors point in the same direction. Crucial for calculating similarity, projections, and weighted sums (e.g., in linear regression or neural networks).
+  * A fundamental operation that takes two vectors and returns a single scalar. It measures the extent to which two vectors point in the same direction. Crucial for calculating similarity, projections, and weighted sums (e.g., in linear regression or neural networks).
 
-    * For $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}$ and $\mathbf{w} = \begin{pmatrix} w_1 \\ w_2 \end{pmatrix}$:
-        $$\mathbf{v} \cdot \mathbf{w} = v_1 w_1 + v_2 w_2$$
-    
-    * In general for $n$ dimensions:
-        $$\mathbf{v} \cdot \mathbf{w} = \sum_{i=1}^{n} v_i w_i$$
+  * For:  
+    ![dot product](assets/v1_v2.jpg)
+
+    <p align="center">
+      <img src="assets/v1dotv2.jpg" alt="Matrix A" width="200"/>
+    </p>
+
+
+  * In general for $n$ dimensions:
+
+    $$\mathbf{v} \cdot \mathbf{w} = \sum_{i=1}^{n} v_i w_i$$
 
 * **Matrix Multiplication (Conceptual and Rule-based):**
 
-    * Multiplies two matrices to produce a third matrix. It's not element-wise multiplication. The number of columns in the first matrix must equal the number of rows in the second.
+  * Multiplies two matrices to produce a third matrix. It's not element-wise multiplication. The number of columns in the first matrix must equal the number of rows in the second.
 
-    * Conceptual: Each element in the resulting matrix is the dot product of a row from the first matrix and a column from the second matrix.
+  * Conceptual: Each element in the resulting matrix is the dot product of a row from the first matrix and a column from the second matrix.
 
-    * Importance: Used extensively in neural networks (layer transformations), transformations in PCA, and solving systems of linear equations.
+  * Importance: Used extensively in neural networks (layer transformations), transformations in PCA, and solving systems of linear equations.
 
 * **Transposition:**
 
-    * Flipping a matrix over its diagonal, converting rows into columns and columns into rows. Denoted by a superscript $T$.
+  * Flipping a matrix over its diagonal, converting rows into columns and columns into rows. Denoted by a superscript $T$.
 
-    * If $\mathbf{A} = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, then $\mathbf{A}^T = \begin{pmatrix} a & c \\ b & d \end{pmatrix}$.
+  * If $\mathbf{A} = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, then $\mathbf{A}^T = \begin{pmatrix} a & c \\ b & d \end{pmatrix}$.
 
 * **Identity Matrix:**
 
-    * A square matrix with ones on the main diagonal and zeros elsewhere. Denoted by $\mathbf{I}$. When multiplied by another matrix, it leaves the other matrix unchanged.
+  * A square matrix with ones on the main diagonal and zeros elsewhere. Denoted by $\mathbf{I}$. When multiplied by another matrix, it leaves the other matrix unchanged.
 
 * **Inverse Matrix (Brief mention):**
 
-    * For a square matrix $\mathbf{A}$, its inverse $\mathbf{A}^{-1}$ is a matrix such that $\mathbf{A} \mathbf{A}^{-1} = \mathbf{I}$. Used in analytical solutions for linear regression (Normal Equation).
+  * For a square matrix $\mathbf{A}$, its inverse $\mathbf{A}^{-1}$ is a matrix such that $\mathbf{A} \mathbf{A}^{-1} = \mathbf{I}$. Used in analytical solutions for linear regression (Normal Equation).
 
 * **Why Linear Algebra is crucial in ML:**
 
-    * **Data Representation:** Datasets are represented as matrices. Individual data points are vectors.
+  * **Data Representation:** Datasets are represented as matrices. Individual data points are vectors.
 
-    * **Feature Transformations:** Many preprocessing steps (like scaling, PCA) involve matrix operations.
+  * **Feature Transformations:** Many preprocessing steps (like scaling, PCA) involve matrix operations.
 
-    * **Model Parameters:** Weights and biases in models (e.g., linear regression, neural networks) are often vectors or matrices.
+  * **Model Parameters:** Weights and biases in models (e.g., linear regression, neural networks) are often vectors or matrices.
 
-    * **Algorithm Operations:** Core operations of many algorithms (e.g., dot products for predictions, matrix multiplications in neural networks) are linear algebraic.
+  * **Algorithm Operations:** Core operations of many algorithms (e.g., dot products for predictions, matrix multiplications in neural networks) are linear algebraic.
 
 ### 4.2. Calculus:
 
