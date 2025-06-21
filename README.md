@@ -375,7 +375,7 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
   * In general for $n$ dimensions:
 
     <p align="center">
-    $$\mathbf{v} \cdot \mathbf{w} = \sum_{i=1}^{n} v_i w_i$$
+      $$\mathbf{v} \cdot \mathbf{w} = \sum_{i=1}^{n} v_i w_i$$
     </p>
 
 * **Matrix Multiplication (Conceptual and Rule-based):**
@@ -390,7 +390,11 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
 
   * Flipping a matrix over its diagonal, converting rows into columns and columns into rows. Denoted by a superscript $T$.
 
-  * If $\mathbf{A} = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, then $\mathbf{A}^T = \begin{pmatrix} a & c \\ b & d \end{pmatrix}$.
+  * If:
+
+    <p align="center">
+      <img src="assets/transpose.jpg" alt="Matrix A" width="200"/>
+    </p>
 
 * **Identity Matrix:**
 
