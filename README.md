@@ -338,7 +338,7 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
     * **Column Vector:** 
 
     <p align="center">
-      <img src="assets/columnvector.jpgg" alt="Matrix A" width="200"/>
+      <img src="assets/columnvector.jpg" alt="Matrix A" width="200"/>
     </p>
 
   * **Matrix:** A rectangular array of numbers arranged in rows and columns. Datasets are often represented as matrices, where rows are data points and columns are features.
