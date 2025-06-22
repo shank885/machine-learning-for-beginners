@@ -414,6 +414,7 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
 
   * **Algorithm Operations:** Core operations of many algorithms (e.g., dot products for predictions, matrix multiplications in neural networks) are linear algebraic.
 
+
 ### 4.2. Calculus:
 
 Calculus is the study of change. In Machine Learning, it's primarily used for **optimization** – finding the best possible parameters for a model by minimizing a cost function.
@@ -433,7 +434,12 @@ Calculus is the study of change. In Machine Learning, it's primarily used for **
         * Example: For $f(x, y) = x^2 + y^3$, the partial derivative with respect to $x$ is $\frac{\partial f}{\partial x} = 2x$.
 * **Gradients (Vector of partial derivatives):**
     * For a function with multiple variables, the gradient is a vector containing all its partial derivatives. It points in the direction of the steepest ascent of the function.
-    * The gradient of $J(\theta_0, \theta_1)$ is $\nabla J = \begin{pmatrix} \frac{\partial J}{\partial \theta_0} \\ \frac{\partial J}{\partial \theta_1} \end{pmatrix}$.
+    * The gradient of $J(\theta_0, \theta_1)$ is:
+
+    <p align="center">
+      <img src="assets/gradients.jpg" alt="Matrix A" width="100"/>
+    </p>
+
 * **Minima and Maxima (How derivatives help find them):**
     * At local minima or maxima of a function, the derivative (or gradient for multi-variable functions) is zero. This is why Gradient Descent aims to reach a point where the gradient is zero or very close to zero.
 * **Why Calculus is crucial in ML:**
