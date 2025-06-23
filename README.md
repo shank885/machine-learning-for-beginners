@@ -470,15 +470,21 @@ Probability deals with the likelihood of events, and statistics deals with colle
         * **Event:** A subset of the sample space.
     * **Probability of an Event (P(A)):** The likelihood of an event occurring, between 0 and 1.
     * **Conditional Probability (P(A|B)):** The probability of event A occurring, given that event B has already occurred.
-        $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
+        
+        <p align="center">
+          $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
+        </p>
+  
     * **Independent and Dependent Events:**
         * **Independent:** The occurrence of one event does not affect the probability of the other. $P(A \cap B) = P(A)P(B)$.
         * **Dependent:** The occurrence of one event influences the probability of the other.
     * **Bayes' Theorem (Conceptual introduction - for Naive Bayes):**
         * A fundamental theorem that describes how to update the probability of a hypothesis based on new evidence. Crucial for probabilistic models like Naive Bayes.
-        
-        $$P(H|E) = \frac{P(E|H) P(H)}{P(E)}$$
-        
+
+        <p align="center">
+          $$P(H|E) = \frac{P(E|H) P(H)}{P(E)}$$
+        </p>
+
         * *Where P(H|E) is the posterior probability, P(E|H) is the likelihood, P(H) is the prior probability, and P(E) is the evidence.
 
 * **4.3.3. Probability Distributions:**
