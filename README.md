@@ -522,7 +522,9 @@ Linear Regression is one of the simplest and most fundamental algorithms in mach
 * **Simple Linear Regression (Equation, Assumptions):**
   * **Equation:** For a single feature $x$, the relationship is modeled as a straight line:
 
-      $$h_\theta(x) = \theta_0 + \theta_1 x$$
+      <p align="center">
+        $$h_\theta(x) = \theta_0 + \theta_1 x$$
+      </p>
 
     Where:
     * $h_\theta(x)$ (or $\hat{y}$) is the predicted output.
