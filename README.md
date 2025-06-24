@@ -541,9 +541,16 @@ Linear Regression is one of the simplest and most fundamental algorithms in mach
 
 * **Multiple Linear Regression:**
     * Extends simple linear regression to include multiple features. The equation becomes:
-        $$h_\theta(\mathbf{x}) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \dots + \theta_n x_n$$
+
+        <p align="center">
+            $$h_\theta(\mathbf{x}) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \dots + \theta_n x_n$$
+        </p>
+
         In a more compact **vectorized form**, where $\mathbf{x}$ is a vector of features (with $x_0=1$ for the intercept term) and $\theta$ is a vector of parameters:
-        $$h_\theta(\mathbf{x}) = \theta^T \mathbf{x}$$
+
+        <p align="center">
+            $$h_\theta(\mathbf{x}) = \theta^T \mathbf{x}$$
+        </p>
 
 * **Cost Function (Mean Squared Error - MSE):**
     * To find the "best" line, we need to define what "best" means. This is done by a **Cost Function**, which measures the difference between our model's predictions and the actual target values. For Linear Regression, the **Mean Squared Error (MSE)** is commonly used. Our goal is to find the values of $\theta$ that minimize this cost.
