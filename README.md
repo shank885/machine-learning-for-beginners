@@ -520,24 +520,23 @@ Regression algorithms are used when the target variable is a continuous numerica
 Linear Regression is one of the simplest and most fundamental algorithms in machine learning. It models the relationship between a dependent variable (label) and one or more independent variables (features) by fitting a linear equation to the observed data.
 
 * **Simple Linear Regression (Equation, Assumptions):**
-    * **Equation:** For a single feature $x$, the relationship is modeled as a straight line:
+  * **Equation:** For a single feature $x$, the relationship is modeled as a straight line:
+    <p align="center>
+      $$h_\theta(x) = \theta_0 + \theta_1 x$$
+    </p>
 
-        <p align="center>
-          $$h_\theta(x) = \theta_0 + \theta_1 x$$
-        </p>
+    Where:
+    * $h_\theta(x)$ (or $\hat{y}$) is the predicted output.
+    * $\theta_0$ (theta-zero) is the y-intercept (the value of $y$ when $x=0$).
+    * $\theta_1$ (theta-one) is the slope of the line (how much $y$ changes for a unit change in $x$).
+    * $x$ is the input feature.
 
-        Where:
-        * $h_\theta(x)$ (or $\hat{y}$) is the predicted output.
-        * $\theta_0$ (theta-zero) is the y-intercept (the value of $y$ when $x=0$).
-        * $\theta_1$ (theta-one) is the slope of the line (how much $y$ changes for a unit change in $x$).
-        * $x$ is the input feature.
-
-    * **Assumptions (Key ones for valid inference, less strict for pure prediction):**
-        * **Linearity:** The relationship between features and the target is linear.
-        * **Independence:** Observations are independent of each other.
-        * **Homoscedasticity:** The variance of the residuals (errors) is constant across all levels of the independent variables.
-        * **Normality of Residuals:** Residuals are normally distributed.
-        * **No or Little Multicollinearity:** Independent variables are not highly correlated with each other.
+  * **Assumptions (Key ones for valid inference, less strict for pure prediction):**
+    * **Linearity:** The relationship between features and the target is linear.
+    * **Independence:** Observations are independent of each other.
+    * **Homoscedasticity:** The variance of the residuals (errors) is constant across all levels of the independent variables.
+    * **Normality of Residuals:** Residuals are normally distributed.
+    * **No or Little Multicollinearity:** Independent variables are not highly correlated with each other.
 
 * **Multiple Linear Regression:**
     * Extends simple linear regression to include multiple features. The equation becomes:
