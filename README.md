@@ -521,9 +521,9 @@ Linear Regression is one of the simplest and most fundamental algorithms in mach
 
 * **Simple Linear Regression (Equation, Assumptions):**
     * **Equation:** For a single feature $x$, the relationship is modeled as a straight line:
-        
+
         <p align="center>
-            $$h_\theta(x) = \theta_0 + \theta_1 x$$
+          $$h_\theta(x) = \theta_0 + \theta_1 x$$
         </p>
 
         Where:
@@ -531,6 +531,7 @@ Linear Regression is one of the simplest and most fundamental algorithms in mach
         * $\theta_0$ (theta-zero) is the y-intercept (the value of $y$ when $x=0$).
         * $\theta_1$ (theta-one) is the slope of the line (how much $y$ changes for a unit change in $x$).
         * $x$ is the input feature.
+
     * **Assumptions (Key ones for valid inference, less strict for pure prediction):**
         * **Linearity:** The relationship between features and the target is linear.
         * **Independence:** Observations are independent of each other.
