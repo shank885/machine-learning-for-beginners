@@ -592,7 +592,7 @@ Linear Regression is one of the simplest and most fundamental algorithms in mach
 
 * **Normal Equation (Alternative for analytical solution):**
     * For linear regression, there's a closed-form solution to find the optimal $\theta$ values without iteration. This is called the **Normal Equation**.
-    
+
         <p align="center">
             $$\theta = (X^T X)^{-1} X^T \mathbf{y}$$
         </p>
@@ -608,11 +608,23 @@ Linear Regression is one of the simplest and most fundamental algorithms in mach
 
 * **Evaluation Metrics (Revisit from Section 3, now in context):**
     * **Mean Squared Error (MSE):** Already discussed as the cost function.
-        $$\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$
+        
+        <p align="center">
+            $$\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$
+        </p>
+    
     * **Mean Absolute Error (MAE):**
-        $$MAE = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i|$$
+        
+        <p align="center">
+            $$MAE = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i|$$
+        </p>
+    
     * **R-squared ($R^2$):** Also known as the coefficient of determination. It measures the proportion of the variance in the dependent variable that can be explained by the independent variables. Values range from 0 to 1, with 1 indicating a perfect fit.
-        $$R^2 = 1 - \frac{\sum_{i=1}^{N} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{N} (y_i - \bar{y})^2}$$
+
+        <p align="center">
+            $$R^2 = 1 - \frac{\sum_{i=1}^{N} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{N} (y_i - \bar{y})^2}$$
+        </p>
+
         * The numerator is the sum of squared residuals (SSR) and the denominator is the total sum of squares (SST).
 
 #### 5.1.2. Polynomial Regression (Brief overview, transformation of linear regression)
