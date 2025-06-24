@@ -555,7 +555,11 @@ Linear Regression is one of the simplest and most fundamental algorithms in mach
 * **Cost Function (Mean Squared Error - MSE):**
     * To find the "best" line, we need to define what "best" means. This is done by a **Cost Function**, which measures the difference between our model's predictions and the actual target values. For Linear Regression, the **Mean Squared Error (MSE)** is commonly used. Our goal is to find the values of $\theta$ that minimize this cost.
     * The cost function $J(\theta)$ for $m$ training examples is:
-        $$J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2$$
+
+        <p align="center">
+            $$J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2$$
+        </p>
+
         Where:
         * $m$ is the number of training examples.
         * $h_\theta(x^{(i)})$ is the model's prediction for the $i$-th training example.
@@ -564,7 +568,11 @@ Linear Regression is one of the simplest and most fundamental algorithms in mach
 * **Gradient Descent for Linear Regression (Derivations & Update Rules):**
     * **Gradient Descent** is an iterative optimization algorithm used to find the values of $\theta$ (parameters) that minimize the cost function $J(\theta)$. It repeatedly adjusts the parameters in the direction opposite to the gradient of the cost function.
     * The **update rule** for each parameter $\theta_j$ is:
-        $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
+
+        <p align="center">
+            $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
+        </p>
+
         Where:
         * $\alpha$ (alpha) is the **learning rate**, a hyperparameter that controls the step size of each update.
         * $\frac{\partial}{\partial \theta_j} J(\theta)$ is the partial derivative of the cost function with respect to parameter $\theta_j$. This derivative tells us the slope (gradient) of the cost function with respect to that parameter.
