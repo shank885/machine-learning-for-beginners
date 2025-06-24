@@ -579,13 +579,24 @@ Linear Regression is one of the simplest and most fundamental algorithms in mach
 
     * **Partial Derivatives for Linear Regression Cost Function:**
         * For $\theta_0$ (intercept):
+
+        <p align="center">
             $$\frac{\partial}{\partial \theta_0} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})$$
+        </p>
+
         * For $\theta_j$ (for $j=1, \dots, n$ features):
+        
+        <p align="center">
             $$\frac{\partial}{\partial \theta_j} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}$$
+        </p>
 
 * **Normal Equation (Alternative for analytical solution):**
     * For linear regression, there's a closed-form solution to find the optimal $\theta$ values without iteration. This is called the **Normal Equation**.
-    * $$\theta = (X^T X)^{-1} X^T \mathbf{y}$$
+    
+        <p align="center">
+            $$\theta = (X^T X)^{-1} X^T \mathbf{y}$$
+        </p>
+    
         Where:
         * $\theta$ is the vector of optimal parameters.
         * $X$ is the design matrix (matrix of features, with a column of ones for the intercept).
