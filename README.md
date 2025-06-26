@@ -647,30 +647,58 @@ Classification algorithms are used when the target variable is a discrete catego
 Despite its name, Logistic Regression is a fundamental **classification algorithm**, not a regression algorithm. It's used for predicting the probability that an instance belongs to a particular class (e.g., 0 or 1, true or false).
 
 * **Binary Classification (Sigmoid Function):**
-    * For binary classification, Logistic Regression uses the **Sigmoid function** (also called the Logistic function) to squash the output of a linear equation into a probability between 0 and 1.
-    * The linear part is: $z = \theta^T \mathbf{x}$
-    * The Sigmoid function $\sigma(z)$ is:
-        $$\sigma(z) = \frac{1}{1 + e^{-z}}$$
-    * The predicted probability $\hat{p}$ for class 1 is:
-        $$\hat{p} = h_\theta(\mathbf{x}) = \sigma(\theta^T \mathbf{x})$$
-    * If $\hat{p} \geq 0.5$, classify as 1 (positive class); otherwise, classify as 0 (negative class).
+  
+  * For binary classification, Logistic Regression uses the **Sigmoid function** (also called the Logistic function) to squash the output of a linear equation into a probability between 0 and 1.
+  
+  * The linear part is: $z = \theta^T \mathbf{x}$
+  
+  * The Sigmoid function $\sigma(z)$ is:
+    
+    <p align="center">
+      $$\sigma(z) = \frac{1}{1 + e^{-z}}$$
+    </p>
+
+  * The predicted probability $\hat{p}$ for class 1 is:
+
+    <p align="center">
+      $$\hat{p} = h_\theta(\mathbf{x}) = \sigma(\theta^T \mathbf{x})$$
+    </p>
+
+  * If $\hat{p} \geq 0.5$, classify as 1 (positive class); otherwise, classify as 0 (negative class).
 
 * **Multi-class Classification (Softmax - Brief):**
-    * For problems with more than two classes, Logistic Regression can be extended using the **Softmax function** (also known as multinomial logistic regression). Softmax outputs a probability distribution over multiple classes, ensuring the probabilities sum to 1.
+
+  * For problems with more than two classes, Logistic Regression can be extended using the **Softmax function** (also known as multinomial logistic regression). Softmax outputs a probability distribution over multiple classes, ensuring the probabilities sum to 1.
 
 * **Cost Function (Cross-Entropy/Log Loss):**
-    * Instead of MSE, Logistic Regression uses a cost function called **Log Loss** or **Binary Cross-Entropy**. This cost function penalizes confident wrong predictions heavily and is convex for Logistic Regression, allowing Gradient Descent to find the global minimum.
-    * For a single training example $(x^{(i)}, y^{(i)})$ where $y^{(i)} \in \{0, 1\}$:
-        $$Cost(h_\theta(x^{(i)}), y^{(i)}) = \begin{cases} -\log(h_\theta(x^{(i)})) & \text{if } y^{(i)} = 1 \\ -\log(1 - h_\theta(x^{(i)})) & \text{if } y^{(i)} = 0 \end{cases}$$
-    * The overall cost function $J(\theta)$ for $m$ training examples is the average of these costs:
-        $$J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_\theta(x^{(i)})) \right]$$
+
+  * Instead of MSE, Logistic Regression uses a cost function called **Log Loss** or **Binary Cross-Entropy**. This cost function penalizes confident wrong predictions heavily and is convex for Logistic Regression, allowing Gradient Descent to find the global minimum.
+
+  * For a single training example $(x^{(i)}, y^{(i)})$ where $y^{(i)} \in \{0, 1\}$:
+
+    <p align="center">
+      <img src="assets/lr_cf_1.jpg" alt="Matrix A" width="300"/>
+    </p>
+
+  * The overall cost function $J(\theta)$ for $m$ training examples is the average of these costs:
+    
+    <p align="center">
+      <img src="assets/lr_cf_2.jpg" alt="Matrix A" width="300"/>
+    </p>
+
 
 * **Gradient Descent for Logistic Regression (Derivations & Update Rules):**
-    * Similar to linear regression, Gradient Descent is used to minimize the cross-entropy cost function.
-    * The **update rule** for each parameter $\theta_j$ is still:
-        $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
-    * Interestingly, the partial derivative for Logistic Regression takes a very similar form to Linear Regression, despite the different cost function:
-        $$\frac{\partial}{\partial \theta_j} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}$$
+
+  * Similar to linear regression, Gradient Descent is used to minimize the cross-entropy cost function.
+  
+  * The **update rule** for each parameter $\theta_j$ is still:
+    
+    $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
+    
+  * Interestingly, the partial derivative for Logistic Regression takes a very similar form to Linear Regression, despite the different cost function:
+    
+    $$\frac{\partial}{\partial \theta_j} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}$$
+
 
 * **Decision Boundary:**
     * Logistic Regression creates a **linear decision boundary** in the feature space. This is a line (or hyperplane in higher dimensions) that separates the different classes. Instances falling on one side of the boundary are classified into one class, and instances on the other side into the other class.
