@@ -768,7 +768,10 @@ KNN is a simple, non-parametric, lazy learning algorithm used for both classific
         * For **classification:** The new point is assigned the class that is most common among its `K` nearest neighbors (majority vote).
         * For **regression:** The new point's value is the average (or weighted average) of the values of its `K` nearest neighbors.
     * **Euclidean Distance** between two points $P=(p_1, p_2, \dots, p_n)$ and $Q=(q_1, q_2, \dots, q_n)$:
-        $$d(P, Q) = \sqrt{\sum_{i=1}^{n} (p_i - q_i)^2}$$
+        
+        <p align="center">
+         $$d(P, Q) = \sqrt{\sum_{i=1}^{n} (p_i - q_i)^2}$$
+        </p>
 
 * **Choosing K:**
     * `K` is a crucial hyperparameter.
