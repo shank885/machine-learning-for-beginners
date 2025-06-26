@@ -705,40 +705,56 @@ Despite its name, Logistic Regression is a fundamental **classification algorith
 
 
 * **Decision Boundary:**
-    * Logistic Regression creates a **linear decision boundary** in the feature space. This is a line (or hyperplane in higher dimensions) that separates the different classes. Instances falling on one side of the boundary are classified into one class, and instances on the other side into the other class.
+
+  * Logistic Regression creates a **linear decision boundary** in the feature space. This is a line (or hyperplane in higher dimensions) that separates the different classes. Instances falling on one side of the boundary are classified into one class, and instances on the other side into the other class.
 
 * **Evaluation Metrics (Specific to Classification):**
-    * **Confusion Matrix:** A table that summarizes the performance of a classification model. It shows the number of:
-        * **True Positives (TP):** Correctly predicted positive cases.
-        * **True Negatives (TN):** Correctly predicted negative cases.
-        * **False Positives (FP) / Type I Error:** Incorrectly predicted positive cases (model predicted positive, but actual was negative).
-        * **False Negatives (FN) / Type II Error:** Incorrectly predicted negative cases (model predicted negative, but actual was positive).
-        $$
-        \begin{array}{|c|c|c|}
-        \hline
-        & \text{Predicted Positive} & \text{Predicted Negative} \\
-        \hline
-        \text{Actual Positive} & \text{TP} & \text{FN} \\
-        \hline
-        \text{Actual Negative} & \text{FP} & \text{TN} \\
-        \hline
-        \end{array}
-        $$
+  
+  * **Confusion Matrix:** A table that summarizes the performance of a classification model. It shows the number of:
+    * **True Positives (TP):** Correctly predicted positive cases.
+    * **True Negatives (TN):** Correctly predicted negative cases.
+    * **False Positives (FP) / Type I Error:** Incorrectly predicted positive cases (model predicted positive, but actual was negative).
+    * **False Negatives (FN) / Type II Error:** Incorrectly predicted negative cases (model predicted negative, but actual was positive).
 
-    * **Accuracy:** Overall correctness.
-        $$\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}$$
-        * *Limitations:* Can be misleading with imbalanced datasets. If 95% of emails are not spam, a model that always predicts "not spam" will have 95% accuracy but be useless.
-    * **Precision:** Of all positive predictions, how many were correct?
-        $$\text{Precision} = \frac{TP}{TP + FP}$$
-        * *High precision is important when false positives are costly (e.g., medical diagnosis, spam filter).*
-    * **Recall (Sensitivity):** Of all actual positive cases, how many were correctly identified?
-        $$\text{Recall} = \frac{TP}{TP + FN}$$
-        * *High recall is important when false negatives are costly (e.g., fraud detection, finding all sick patients).*
-    * **F1-Score:** The harmonic mean of Precision and Recall. Provides a single score that balances both. Useful for imbalanced datasets.
-        $$\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
-    * **ROC Curve and AUC (Conceptual):**
-        * **Receiver Operating Characteristic (ROC) Curve:** A plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied. It plots the True Positive Rate (Recall) against the False Positive Rate (1 - Specificity).
-        * **Area Under the Curve (AUC):** The area under the ROC curve. It provides a single number summary of the classifier's performance across all possible classification thresholds. An AUC of 1.0 means a perfect classifier, while 0.5 means it's no better than random guessing.
+    <p align="center">
+      <img src="assets/confusion_matrix.jpg" alt="Matrix A" width="400"/>
+    </p>
+
+  * **Accuracy:** Overall correctness.
+
+    <p align="center">
+      $$\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}$$
+    </p>
+
+    * *Limitations:* Can be misleading with imbalanced datasets. If 95% of emails are not spam, a model that always predicts "not spam" will have 95% accuracy but be useless.
+    
+  * **Precision:** Of all positive predictions, how many were correct?
+
+    <p align="center">
+      $$\text{Precision} = \frac{TP}{TP + FP}$$
+    </p>
+
+    * *High precision is important when false positives are costly (e.g., medical diagnosis, spam filter).*
+
+  * **Recall (Sensitivity):** Of all actual positive cases, how many were correctly identified?
+
+    <p align="center">
+      $$\text{Recall} = \frac{TP}{TP + FN}$$
+    </p>
+
+    * *High recall is important when false negatives are costly (e.g., fraud detection, finding all sick patients).*
+
+  * **F1-Score:** The harmonic mean of Precision and Recall. Provides a single score that balances both. Useful for imbalanced datasets.
+
+    <p align="center">
+      $$\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
+    <p>
+
+  * **ROC Curve and AUC (Conceptual):**
+
+    * **Receiver Operating Characteristic (ROC) Curve:** A plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied. It plots the True Positive Rate (Recall) against the False Positive Rate (1 - Specificity).
+
+    * **Area Under the Curve (AUC):** The area under the ROC curve. It provides a single number summary of the classifier's performance across all possible classification thresholds. An AUC of 1.0 means a perfect classifier, while 0.5 means it's no better than random guessing.
 
 #### 5.2.2. K-Nearest Neighbors (KNN)
 
