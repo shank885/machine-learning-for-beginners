@@ -677,13 +677,13 @@ Despite its name, Logistic Regression is a fundamental **classification algorith
   * For a single training example $(x^{(i)}, y^{(i)})$ where $y^{(i)} \in \{0, 1\}$:
 
     <p align="center">
-      <img src="assets/lr_cf_1.jpg" alt="Matrix A" width="300"/>
+      <img src="assets/lr_cf_1.jpg" alt="Matrix A" width="400"/>
     </p>
 
   * The overall cost function $J(\theta)$ for $m$ training examples is the average of these costs:
     
     <p align="center">
-      <img src="assets/lr_cf_2.jpg" alt="Matrix A" width="300"/>
+      <img src="assets/lr_cf_2.jpg" alt="Matrix A" width="400"/>
     </p>
 
 
