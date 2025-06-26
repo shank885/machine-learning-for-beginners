@@ -692,12 +692,16 @@ Despite its name, Logistic Regression is a fundamental **classification algorith
   * Similar to linear regression, Gradient Descent is used to minimize the cross-entropy cost function.
   
   * The **update rule** for each parameter $\theta_j$ is still:
-    
-    $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
-    
+
+    <p align="center">
+      $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
+    </p>
+
   * Interestingly, the partial derivative for Logistic Regression takes a very similar form to Linear Regression, despite the different cost function:
-    
-    $$\frac{\partial}{\partial \theta_j} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}$$
+
+    <p align="center">
+      $$\frac{\partial}{\partial \theta_j} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}$$
+    </p>
 
 
 * **Decision Boundary:**
