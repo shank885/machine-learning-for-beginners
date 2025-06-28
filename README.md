@@ -510,10 +510,13 @@ Supervised learning problems are broadly categorized into:
 * **Regression:** Predicting a continuous numerical value.
 * **Classification:** Predicting a discrete category or class.
 
+---
 
 ### 5.1. Regression Algorithms:
 
 Regression algorithms are used when the target variable is a continuous numerical value. The model learns to predict this value based on the input features.
+
+---
 
 #### **Linear Regression:**
 
@@ -627,6 +630,8 @@ Linear Regression is one of the simplest and most fundamental algorithms in mach
 
         * The numerator is the sum of squared residuals (SSR) and the denominator is the total sum of squares (SST).
 
+---
+
 #### 5.1.2. Polynomial Regression (Brief overview, transformation of linear regression)
 
 * **Concept:** Polynomial Regression is a form of linear regression where the relationship between the independent variable $x$ and the dependent variable $y$ is modeled as an $n$-th degree polynomial. It's still considered "linear" because it's linear in terms of its parameters ($\theta$).
@@ -638,9 +643,13 @@ Linear Regression is one of the simplest and most fundamental algorithms in mach
     
     * You effectively create new features by taking powers of the original features. Once these polynomial features are created, the model is trained using the same linear regression techniques (e.g., Gradient Descent or Normal Equation).
 
+---
+
 ### 5.2. Classification Algorithms:
 
 Classification algorithms are used when the target variable is a discrete category or class. The model learns to assign new data points to one of these predefined categories.
+
+---
 
 #### 5.2.1. Logistic Regression
 
@@ -756,6 +765,8 @@ Despite its name, Logistic Regression is a fundamental **classification algorith
 
     * **Area Under the Curve (AUC):** The area under the ROC curve. It provides a single number summary of the classifier's performance across all possible classification thresholds. An AUC of 1.0 means a perfect classifier, while 0.5 means it's no better than random guessing.
 
+---
+
 #### 5.2.2. K-Nearest Neighbors (KNN)
 
 KNN is a simple, non-parametric, lazy learning algorithm used for both classification and regression.
@@ -783,6 +794,7 @@ KNN is a simple, non-parametric, lazy learning algorithm used for both classific
     * **Pros:** Simple to understand and implement, no training phase (lazy), easily adapts to new training data.
     * **Cons:** Can be computationally expensive during prediction (has to calculate distances to all training points), sensitive to irrelevant features, scales poorly with high-dimensional data ("curse of dimensionality"), sensitive to feature scaling.
 
+---
 
 #### 5.2.3. Decision Trees
 
@@ -828,6 +840,7 @@ Decision Trees are versatile non-parametric supervised learning algorithms used 
     
     * **Post-pruning:** Grow the full tree and then remove branches that don't contribute significantly to accuracy.
 
+---
 
 #### 5.2.4. Support Vector Machines (SVM): (Conceptual Introduction)
 
