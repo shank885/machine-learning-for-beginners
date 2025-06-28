@@ -789,24 +789,45 @@ KNN is a simple, non-parametric, lazy learning algorithm used for both classific
 Decision Trees are versatile non-parametric supervised learning algorithms used for both classification and regression. They make predictions by learning simple decision rules inferred from the data features.
 
 * **How they work (Splitting criteria - Gini Impurity, Entropy/Information Gain):**
-    * A decision tree is a flowchart-like structure where each internal node represents a "test" on a feature (e.g., "Is outlook sunny?"), each branch represents the outcome of the test, and each leaf node represents a class label (for classification) or a numerical value (for regression).
-    * The process of building a tree involves recursively splitting the data into subsets based on the feature that provides the "best" split.
-    * **Splitting Criteria (for Classification Trees):** Measures used to decide which feature and which threshold to split on to create the purest possible child nodes.
-        * **Gini Impurity:** Measures how often a randomly chosen element from the set would be incorrectly labeled if it were randomly labeled according to the distribution of labels in the subset. A lower Gini impurity means higher purity.
-            $$G = 1 - \sum_{k=1}^{C} p_k^2$$
-        * **Entropy / Information Gain:**
-            * **Entropy:** Measures the impurity or disorder in a set of data. A higher entropy means more disorder.
-                $$H = - \sum_{k=1}^{C} p_k \log_2(p_k)$$
-            * **Information Gain (IG):** The reduction in entropy (or Gini impurity) after a dataset is split on an attribute. The attribute with the highest information gain is chosen for the split.
-                $$IG(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)$$
+
+  * A decision tree is a flowchart-like structure where each internal node represents a "test" on a feature (e.g., "Is outlook sunny?"), each branch represents the outcome of the test, and each leaf node represents a class label (for classification) or a numerical value (for regression).
+
+  * The process of building a tree involves recursively splitting the data into subsets based on the feature that provides the "best" split.
+
+  * **Splitting Criteria (for Classification Trees):** Measures used to decide which feature and which threshold to split on to create the purest possible child nodes.
+
+    * **Gini Impurity:** Measures how often a randomly chosen element from the set would be incorrectly labeled if it were randomly labeled according to the distribution of labels in the subset. A lower Gini impurity means higher purity.
+
+      <p align="center">
+        $$G = 1 - \sum_{k=1}^{C} p_k^2$$
+      </p>
+
+    * **Entropy / Information Gain:**
+
+      * **Entropy:** Measures the impurity or disorder in a set of data. A higher entropy means more disorder.
+
+        <p align="center">
+          $$H = - \sum_{k=1}^{C} p_k \log_2(p_k)$$
+        </p>
+
+      * **Information Gain (IG):** The reduction in entropy (or Gini impurity) after a dataset is split on an attribute. The attribute with the highest information gain is chosen for the split.
+
+        <p align="center">
+          $$IG(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)$$
+        </p>
 
 * **Overfitting in Decision Trees:**
-    * Decision trees are prone to overfitting, especially when they are allowed to grow very deep. A very deep tree can learn the training data too specifically, including noise, and fail to generalize to new data.
+
+  * Decision trees are prone to overfitting, especially when they are allowed to grow very deep. A very deep tree can learn the training data too specifically, including noise, and fail to generalize to new data.
 
 * **Pruning:**
-    * Techniques used to reduce the size of decision trees by removing sections of the tree that provide little power to classify instances. This helps to prevent overfitting.
-        * **Pre-pruning (Early Stopping):** Stop the tree growth early (e.g., limit max depth, min samples per leaf).
-        * **Post-pruning:** Grow the full tree and then remove branches that don't contribute significantly to accuracy.
+
+  * Techniques used to reduce the size of decision trees by removing sections of the tree that provide little power to classify instances. This helps to prevent overfitting.
+
+    * **Pre-pruning (Early Stopping):** Stop the tree growth early (e.g., limit max depth, min samples per leaf).
+    
+    * **Post-pruning:** Grow the full tree and then remove branches that don't contribute significantly to accuracy.
+
 
 #### 5.2.4. Support Vector Machines (SVM): (Conceptual Introduction)
 
