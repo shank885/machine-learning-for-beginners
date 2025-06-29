@@ -872,6 +872,8 @@ The main tasks in unsupervised learning include:
 
 Clustering is the task of dividing the data points into a number of specific groups or clusters, such that data points in the same cluster are more similar to each other than to those in other clusters.
 
+---
+
 #### 6.1.1. K-Means Clustering
 
 K-Means is one of the most popular and simplest unsupervised learning algorithms used for clustering. It aims to partition $N$ observations into $K$ clusters, where each observation belongs to the cluster with the nearest mean (centroid).
@@ -916,43 +918,68 @@ K-Means is one of the most popular and simplest unsupervised learning algorithms
 
   * **Cons:** Requires specifying $K$ in advance, sensitive to initial centroid placement (can converge to local optima), sensitive to outliers, assumes spherical clusters of similar size, struggles with clusters of varying densities or non-convex shapes.
 
+---
 
 #### 6.1.2. Hierarchical Clustering (Conceptual)
 
 Hierarchical clustering builds a hierarchy of clusters. It doesn't require specifying the number of clusters beforehand, and the result is typically represented as a **dendrogram**.
 
 * **Agglomerative (Bottom-Up) vs. Divisive (Top-Down):**
-    * **Agglomerative:** Starts with each data point as a single cluster and iteratively merges the closest pairs of clusters until all points are in one cluster or a stopping criterion is met. This is more common.
-    * **Divisive:** Starts with all data points in one cluster and recursively splits the most appropriate cluster until each data point is a separate cluster.
+
+  * **Agglomerative:** Starts with each data point as a single cluster and iteratively merges the closest pairs of clusters until all points are in one cluster or a stopping criterion is met. This is more common.
+
+  * **Divisive:** Starts with all data points in one cluster and recursively splits the most appropriate cluster until each data point is a separate cluster.
+
 * **Linkage Criteria (How to measure distance between clusters):**
-    * **Single Linkage:** Distance between the closest points in the two clusters.
-    * **Complete Linkage:** Distance between the farthest points in the two clusters.
-    * **Average Linkage:** Average distance between all pairs of points across the two clusters.
-    * **Ward's Method:** Minimizes the total within-cluster variance.
+
+  * **Single Linkage:** Distance between the closest points in the two clusters.
+
+  * **Complete Linkage:** Distance between the farthest points in the two clusters.
+
+  * **Average Linkage:** Average distance between all pairs of points across the two clusters.
+
+  * **Ward's Method:** Minimizes the total within-cluster variance.
+
 * **Dendrogram:** A tree-like diagram that records the sequence of merges or splits. You can "cut" the dendrogram at a certain height to obtain a desired number of clusters.
+
 * **Advantages and Disadvantages:**
-    * **Pros:** Does not require specifying $K$ beforehand, produces a hierarchy of clusters (dendrogram), can uncover nested relationships.
-    * **Cons:** Can be computationally expensive (especially for large datasets), may struggle with large datasets, choosing the "cut" point on the dendrogram can be subjective.
+  * **Pros:** Does not require specifying $K$ beforehand, produces a hierarchy of clusters (dendrogram), can uncover nested relationships.
+
+  * **Cons:** Can be computationally expensive (especially for large datasets), may struggle with large datasets, choosing the "cut" point on the dendrogram can be subjective.
+
+---
 
 ### 6.2. Dimensionality Reduction Algorithms
 
 Dimensionality Reduction techniques reduce the number of features (dimensions) in a dataset while trying to retain as much relevant information as possible. This is useful for visualization, noise reduction, and speeding up subsequent machine learning algorithms.
+
+---
 
 #### 6.2.1. Principal Component Analysis (PCA)
 
 PCA is a widely used linear dimensionality reduction technique. It transforms the data into a new coordinate system such that the greatest variance by any projection of the data lies on the first coordinate (called the first principal component), the second greatest variance on the second coordinate, and so on.
 
 * **Concept (Variance Maximization, Orthogonal Projection):**
-    * PCA identifies directions (principal components) along which the data varies the most. These principal components are orthogonal (perpendicular) to each other.
-    * It projects the high-dimensional data onto a lower-dimensional subspace spanned by these principal components, thereby reducing dimensionality while preserving the maximum possible variance (information).
+
+  * PCA identifies directions (principal components) along which the data varies the most. These principal components are orthogonal (perpendicular) to each other.
+
+  * It projects the high-dimensional data onto a lower-dimensional subspace spanned by these principal components, thereby reducing dimensionality while preserving the maximum possible variance (information).
 
 * **Mathematical Foundation (Eigenvectors and Eigenvalues - Conceptual):**
-    * PCA relies on finding the **eigenvectors** and **eigenvalues** of the data's covariance matrix.
-    * **Covariance Matrix ($\Sigma$):** A square matrix that shows the covariance between each pair of features in the dataset.
-        * For a dataset with $n$ features, $\Sigma$ will be an $n \times n$ matrix.
-        $$ \Sigma_{ij} = \text{Cov}(X_i, X_j) = E[(X_i - \mu_i)(X_j - \mu_j)] $$
-    * **Eigenvectors:** These are the principal components themselves. They are the directions of maximum variance in the data.
-    * **Eigenvalues:** Each eigenvector has a corresponding eigenvalue, which quantifies the amount of variance captured along that principal component direction. Larger eigenvalues correspond to more significant principal components.
+
+  * PCA relies on finding the **eigenvectors** and **eigenvalues** of the data's covariance matrix.
+
+  * **Covariance Matrix ($\Sigma$):** A square matrix that shows the covariance between each pair of features in the dataset.
+    
+    * For a dataset with $n$ features, $\Sigma$ will be an $n \times n$ matrix.
+
+      <p align="center">
+        <img src="assets/k-means_obj_func.jpg" alt="Matrix A" width="200"/>
+      </p>
+
+  * **Eigenvectors:** These are the principal components themselves. They are the directions of maximum variance in the data.
+
+  * **Eigenvalues:** Each eigenvector has a corresponding eigenvalue, which quantifies the amount of variance captured along that principal component direction. Larger eigenvalues correspond to more significant principal components.
 
 * **Steps (High-level):**
     1.  **Standardize the data:** Scale the features to have zero mean and unit variance. This is crucial as PCA is sensitive to the scale of features.
