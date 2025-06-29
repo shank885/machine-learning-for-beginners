@@ -883,7 +883,7 @@ K-Means is one of the most popular and simplest unsupervised learning algorithms
   2.  **Assignment Step (E-step - Expectation):** Assign each data point to the closest centroid. The "closest" is typically determined using **Euclidean distance** (or squared Euclidean distance).
 
     <p align="center">
-      <img src="assets/k-means_assignment.jpg" alt="Matrix A" width="200"/>
+      <img src="assets/k-means_assignment.jpg" alt="Matrix A" width="500"/>
     </p>
 
   3.  **Update Step (M-step - Maximization):** Recalculate the position of each cluster centroid by taking the mean of all data points assigned to that cluster.
