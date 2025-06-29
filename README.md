@@ -866,6 +866,8 @@ The main tasks in unsupervised learning include:
 * **Clustering:** Grouping similar data points together.
 * **Dimensionality Reduction:** Reducing the number of features while preserving important information.
 
+---
+
 ### 6.1. Clustering Algorithms
 
 Clustering is the task of dividing the data points into a number of specific groups or clusters, such that data points in the same cluster are more similar to each other than to those in other clusters.
@@ -875,25 +877,45 @@ Clustering is the task of dividing the data points into a number of specific gro
 K-Means is one of the most popular and simplest unsupervised learning algorithms used for clustering. It aims to partition $N$ observations into $K$ clusters, where each observation belongs to the cluster with the nearest mean (centroid).
 
 * **How it Works (Iterative Process):**
-    1.  **Initialization:** Randomly select $K$ data points from the dataset as initial cluster centroids.
-    2.  **Assignment Step (E-step - Expectation):** Assign each data point to the closest centroid. The "closest" is typically determined using **Euclidean distance** (or squared Euclidean distance).
-        $$ \text{assign } \mathbf{x}^{(i)} \text{ to cluster } j \text{ if } ||\mathbf{x}^{(i)} - \mu_j||^2 \le ||\mathbf{x}^{(i)} - \mu_k||^2 \text{ for all } k \ne j $$
-    3.  **Update Step (M-step - Maximization):** Recalculate the position of each cluster centroid by taking the mean of all data points assigned to that cluster.
-        $$ \mu_j = \frac{1}{|C_j|} \sum_{\mathbf{x} \in C_j} \mathbf{x} $$
-    4.  **Convergence:** Repeat steps 2 and 3 until the centroids no longer move significantly or a maximum number of iterations is reached.
+
+  1.  **Initialization:** Randomly select $K$ data points from the dataset as initial cluster centroids.
+
+  2.  **Assignment Step (E-step - Expectation):** Assign each data point to the closest centroid. The "closest" is typically determined using **Euclidean distance** (or squared Euclidean distance).
+
+    <p align="center">
+      <img src="assets/k-means_assignment.jpg" alt="Matrix A" width="200"/>
+    </p>
+
+  3.  **Update Step (M-step - Maximization):** Recalculate the position of each cluster centroid by taking the mean of all data points assigned to that cluster.
+
+    <p align="center">
+      <img src="assets/k-means_update.jpg" alt="Matrix A" width="200"/>
+    </p>
+
+  4.  **Convergence:** Repeat steps 2 and 3 until the centroids no longer move significantly or a maximum number of iterations is reached.
 
 * **Objective Function (Inertia/Within-Cluster Sum of Squares - WCSS):**
-    * K-Means aims to minimize the sum of squared distances between data points and their assigned cluster centroid.
-    $$ J = \sum_{j=1}^{K} \sum_{\mathbf{x} \in C_j} ||\mathbf{x} - \mu_j||^2 $$
+
+  * K-Means aims to minimize the sum of squared distances between data points and their assigned cluster centroid.
+
+    <p align="center">
+      <img src="assets/k-means_obj_func.jpg" alt="Matrix A" width="200"/>
+    </p>
 
 * **Choosing K (Elbow Method, Silhouette Score):**
-    * One of the biggest challenges in K-Means is determining the optimal number of clusters, $K$.
-    * **Elbow Method:** Plot the WCSS (or inertia) against different values of $K$. The point where the rate of decrease in WCSS sharply changes, forming an "elbow," is often considered the optimal $K$.
-    * **Silhouette Score:** Measures how similar an object is to its own cluster (cohesion) compared to other clusters (separation). Scores range from -1 to 1, with higher values indicating better clustering.
+
+  * One of the biggest challenges in K-Means is determining the optimal number of clusters, $K$.
+
+  * **Elbow Method:** Plot the WCSS (or inertia) against different values of $K$. The point where the rate of decrease in WCSS sharply changes, forming an "elbow," is often considered the optimal $K$.
+
+  * **Silhouette Score:** Measures how similar an object is to its own cluster (cohesion) compared to other clusters (separation). Scores range from -1 to 1, with higher values indicating better clustering.
 
 * **Advantages and Disadvantages:**
-    * **Pros:** Relatively simple to understand and implement, computationally efficient for large datasets, produces tight clusters if they are well-separated.
-    * **Cons:** Requires specifying $K$ in advance, sensitive to initial centroid placement (can converge to local optima), sensitive to outliers, assumes spherical clusters of similar size, struggles with clusters of varying densities or non-convex shapes.
+
+  * **Pros:** Relatively simple to understand and implement, computationally efficient for large datasets, produces tight clusters if they are well-separated.
+
+  * **Cons:** Requires specifying $K$ in advance, sensitive to initial centroid placement (can converge to local optima), sensitive to outliers, assumes spherical clusters of similar size, struggles with clusters of varying densities or non-convex shapes.
+
 
 #### 6.1.2. Hierarchical Clustering (Conceptual)
 
