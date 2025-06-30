@@ -1011,36 +1011,67 @@ PCA is a widely used linear dimensionality reduction technique. It transforms th
 
 Reinforcement Learning (RL) is a paradigm of machine learning concerned with how intelligent agents ought to take actions in an environment to maximize the notion of cumulative reward. Unlike supervised learning (which learns from labeled data) and unsupervised learning (which finds patterns in unlabeled data), RL learns through trial and error, getting feedback in the form of rewards or penalties from its actions.
 
+---
+
 ### 7.1. Core Concepts in Reinforcement Learning
 
 Understanding the fundamental components of an RL system is crucial before diving into algorithms.
 
 * **Agent:** The learner or decision-maker that interacts with the environment.
+
 * **Environment:** Everything outside the agent that the agent interacts with. It provides observations to the agent and responds to the agent's actions.
+
 * **State ($S$):** A complete description of the current situation in the environment. It captures all relevant information the agent needs to make a decision.
-    * Example: In a chess game, the state is the current position of all pieces on the board.
+
+  * Example: In a chess game, the state is the current position of all pieces on the board.
+
 * **Action ($A$):** A move or decision made by the agent within a given state. The set of all possible actions for a given state is called the action space.
-    * Example: In chess, moving a pawn to a specific square.
+
+  * Example: In chess, moving a pawn to a specific square.
+
 * **Reward ($R$):** A scalar feedback signal from the environment to the agent after performing an action in a state. The agent's goal is to maximize the cumulative reward over time.
-    * Rewards can be immediate or delayed.
-    * Example: +1 for winning a game, -1 for losing, 0 for any non-terminal move.
+
+  * Rewards can be immediate or delayed.
+
+  * Example: +1 for winning a game, -1 for losing, 0 for any non-terminal move.
+
 * **Policy ($\pi$):** The agent's strategy, which defines how the agent behaves given a state. It maps states to actions (or probabilities of taking actions).
-    * **Deterministic Policy:** $\pi(s) = a$ (for a given state $s$, always take action $a$).
-    * **Stochastic Policy:** $\pi(a|s)$ (for a given state $s$, take action $a$ with a certain probability).
+
+  * **Deterministic Policy:** $\pi(s) = a$ (for a given state $s$, always take action $a$).
+
+  * **Stochastic Policy:** $\pi(a|s)$ (for a given state $s$, take action $a$ with a certain probability).
+
 * **Value Function ($V^\pi(s)$):** Represents the expected total cumulative reward an agent can expect to get starting from a given state $s$ and following a specific policy $\pi$. It quantifies "how good" a state is.
+
+  <p align="center">
     $$V^\pi(s) = E_\pi \left[ \sum_{t=0}^{\infty} \gamma^t R_{t+1} \middle| S_0 = s \right]$$
+  </p>
+
 * **Q-Value Function ($Q^\pi(s, a)$):** Also known as the **action-value function**. Represents the expected total cumulative reward an agent can expect to get starting from a given state $s$, taking a specific action $a$, and thereafter following policy $\pi$. It quantifies "how good" it is to take a particular action in a particular state.
+
+  <p align="center">
     $$Q^\pi(s, a) = E_\pi \left[ \sum_{t=0}^{\infty} \gamma^t R_{t+1} \middle| S_0 = s, A_0 = a \right]$$
+  </p>
+
 * **Discount Factor ($\gamma$ - gamma):** A value between 0 and 1. It determines the present value of future rewards.
-    * A high $\gamma$ (closer to 1) means the agent cares more about future rewards (long-term thinking).
-    * A low $\gamma$ (closer to 0) means the agent cares more about immediate rewards (short-term thinking).
-    * The sum $\sum_{t=0}^{\infty} \gamma^t R_{t+1}$ ensures that rewards further in the future are "discounted" and weigh less.
+
+  * A high $\gamma$ (closer to 1) means the agent cares more about future rewards (long-term thinking).
+
+  * A low $\gamma$ (closer to 0) means the agent cares more about immediate rewards (short-term thinking).
+
+  * The sum $\sum_{t=0}^{\infty} \gamma^t R_{t+1}$ ensures that rewards further in the future are "discounted" and weigh less.
+
+---
 
 ### 7.2. Key Reinforcement Learning Algorithms
 
 RL algorithms are broadly categorized into:
+
 * **Model-Free vs. Model-Based:** Model-free algorithms learn directly from experience (trial and error) without explicitly understanding the environment's dynamics. Model-based algorithms try to learn a model of the environment (how states and rewards transition based on actions).
+
 * **Value-Based vs. Policy-Based:** Value-based methods learn an optimal value function (or Q-value function) and derive a policy from it. Policy-based methods directly learn the optimal policy.
+
+---
 
 #### 7.2.1. Q-Learning (Value-Based, Model-Free)
 
