@@ -982,19 +982,28 @@ PCA is a widely used linear dimensionality reduction technique. It transforms th
   * **Eigenvalues:** Each eigenvector has a corresponding eigenvalue, which quantifies the amount of variance captured along that principal component direction. Larger eigenvalues correspond to more significant principal components.
 
 * **Steps (High-level):**
-    1.  **Standardize the data:** Scale the features to have zero mean and unit variance. This is crucial as PCA is sensitive to the scale of features.
-    2.  **Compute the covariance matrix:** Calculate the covariance matrix of the standardized data.
-    3.  **Calculate eigenvectors and eigenvalues:** Find the eigenvectors and eigenvalues of the covariance matrix.
-    4.  **Select principal components:** Order the eigenvectors by their corresponding eigenvalues in descending order. Choose the top $k$ eigenvectors (principal components) that capture a sufficient amount of variance (e.g., 95%).
-    5.  **Transform the data:** Project the original (standardized) data onto the selected $k$ principal components.
+
+  1.  **Standardize the data:** Scale the features to have zero mean and unit variance. This is crucial as PCA is sensitive to the scale of features.
+  
+  2.  **Compute the covariance matrix:** Calculate the covariance matrix of the standardized data.
+  
+  3.  **Calculate eigenvectors and eigenvalues:** Find the eigenvectors and eigenvalues of the covariance matrix.
+  
+  4.  **Select principal components:** Order the eigenvectors by their corresponding eigenvalues in descending order. Choose the top $k$ eigenvectors (principal components) that capture a sufficient amount of variance (e.g., 95%).
+  
+  5.  **Transform the data:** Project the original (standardized) data onto the selected $k$ principal components.
 
 * **Scree Plot / Explained Variance Ratio:**
-    * **Explained Variance Ratio:** For each principal component, this indicates the proportion of the total variance in the dataset that is captured by that component.
-    * **Scree Plot:** A plot of the eigenvalues (or explained variance ratio) against the number of principal components. Similar to the Elbow Method, it helps in choosing the optimal number of components.
+
+  * **Explained Variance Ratio:** For each principal component, this indicates the proportion of the total variance in the dataset that is captured by that component.
+
+  * **Scree Plot:** A plot of the eigenvalues (or explained variance ratio) against the number of principal components. Similar to the Elbow Method, it helps in choosing the optimal number of components.
 
 * **Advantages and Disadvantages:**
-    * **Pros:** Reduces dimensionality, speeds up algorithms, removes noise (by discarding lower variance components), can help visualize high-dimensional data (e.g., using 2 or 3 components).
-    * **Cons:** Assumes linearity (identifies linear correlations), can be difficult to interpret the new principal components (they are linear combinations of original features), information loss is unavoidable.
+
+  * **Pros:** Reduces dimensionality, speeds up algorithms, removes noise (by discarding lower variance components), can help visualize high-dimensional data (e.g., using 2 or 3 components).
+
+  * **Cons:** Assumes linearity (identifies linear correlations), can be difficult to interpret the new principal components (they are linear combinations of original features), information loss is unavoidable.
 
 ---
 
