@@ -1078,32 +1078,56 @@ RL algorithms are broadly categorized into:
 Q-Learning is a popular off-policy, value-based reinforcement learning algorithm. "Off-policy" means it can learn the optimal policy even while following a different exploration policy.
 
 * **Concept:** Q-Learning learns the optimal Q-value function, $Q^*(s,a)$, which represents the maximum expected future reward for taking action $a$ in state $s$. Once $Q^*(s,a)$ is learned, the optimal policy is simply to take the action with the highest Q-value in any given state.
-    $$\pi^*(s) = \arg\max_a Q^*(s,a)$$
+
+  $$\pi^*(s) = \arg\max_a Q^*(s,a)$$
+
 * **Q-Table:** For environments with a discrete and relatively small number of states and actions, Q-Learning often uses a **Q-table** to store the Q-values. The table has states as rows and actions as columns, with each cell $Q(s,a)$ holding the current estimate of the Q-value.
+
 * **Bellman Equation for Optimality (Conceptual):**
-    * The core of Q-Learning lies in the **Bellman Optimality Equation**, which states that the optimal Q-value for a state-action pair is the immediate reward plus the discounted maximum Q-value of the next state.
-    $$Q^*(s,a) = R_{t+1} + \gamma \max_{a'} Q^*(s',a')$$
+
+  * The core of Q-Learning lies in the **Bellman Optimality Equation**, which states that the optimal Q-value for a state-action pair is the immediate reward plus the discounted maximum Q-value of the next state.
+
+  $$Q^*(s,a) = R_{t+1} + \gamma \max_{a'} Q^*(s',a')$$
+
 * **Q-Learning Update Rule:**
-    * The algorithm iteratively updates the Q-values based on the agent's experience (state, action, reward, next state).
-    $$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ R + \gamma \max_{a'} Q(s',a') - Q(s,a) \right]$$
-        Where:
-        * $Q(s,a)$ is the current estimate of the Q-value for state $s$ and action $a$.
-        * $\alpha$ (alpha) is the **learning rate** (similar to gradient descent), controlling how much new information overrides old information.
-        * $R$ is the immediate reward received after taking action $a$ in state $s$.
-        * $\gamma$ (gamma) is the **discount factor**.
-        * $\max_{a'} Q(s',a')$ is the maximum Q-value for the next state $s'$ over all possible next actions $a'$. This is the "target" Q-value.
-        * The term in the square brackets is the **Temporal Difference (TD) Error**, representing the difference between the current Q-value estimate and the updated (more accurate) estimate.
+
+  * The algorithm iteratively updates the Q-values based on the agent's experience (state, action, reward, next state).
+
+  $$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ R + \gamma \max_{a'} Q(s',a') - Q(s,a) \right]$$
+    Where:
+
+    * $Q(s,a)$ is the current estimate of the Q-value for state $s$ and action $a$.
+
+    * $\alpha$ (alpha) is the **learning rate** (similar to gradient descent), controlling how much new information overrides old information.
+
+    * $R$ is the immediate reward received after taking action $a$ in state $s$.
+
+    * $\gamma$ (gamma) is the **discount factor**.
+
+    * $\max_{a'} Q(s',a')$ is the maximum Q-value for the next state $s'$ over all possible next actions $a'$. This is the "target" Q-value.
+
+    * The term in the square brackets is the **Temporal Difference (TD) Error**, representing the difference between the current Q-value estimate and the updated (more accurate) estimate.
+
 
 * **Exploration vs. Exploitation (Epsilon-Greedy Strategy):**
-    * A crucial challenge in RL is balancing **exploration** (trying new actions to discover potentially better rewards) and **exploitation** (taking actions known to yield high rewards).
-    * **Epsilon-Greedy:** A common strategy where the agent:
-        * With probability $\epsilon$ (epsilon), chooses a random action (exploration).
-        * With probability $1-\epsilon$, chooses the action with the highest Q-value (exploitation).
-    * $\epsilon$ typically starts high and decays over time, allowing for more exploration initially and more exploitation as the agent learns.
+
+  * A crucial challenge in RL is balancing **exploration** (trying new actions to discover potentially better rewards) and **exploitation** (taking actions known to yield high rewards).
+
+  * **Epsilon-Greedy:** A common strategy where the agent:
+
+    * With probability $\epsilon$ (epsilon), chooses a random action (exploration).
+
+    * With probability $1-\epsilon$, chooses the action with the highest Q-value (exploitation).
+
+  * $\epsilon$ typically starts high and decays over time, allowing for more exploration initially and more exploitation as the agent learns.
 
 * **Advantages and Disadvantages:**
-    * **Pros:** Model-free (doesn't need to know environment dynamics), off-policy (can learn optimal policy while exploring), guaranteed to converge to optimal Q-values under certain conditions.
-    * **Cons:** Can be slow to converge for large state/action spaces (Q-table becomes too large), struggles with continuous state/action spaces (needs discretization or function approximation).
+
+  * **Pros:** Model-free (doesn't need to know environment dynamics), off-policy (can learn optimal policy while exploring), guaranteed to converge to optimal Q-values under certain conditions.
+
+  * **Cons:** Can be slow to converge for large state/action spaces (Q-table becomes too large), struggles with continuous state/action spaces (needs discretization or function approximation).
+
+---
 
 #### 7.2.2. SARSA (State-Action-Reward-State-Action) (Value-Based, Model-Free)
 
