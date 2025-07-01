@@ -1077,9 +1077,12 @@ RL algorithms are broadly categorized into:
 
 Q-Learning is a popular off-policy, value-based reinforcement learning algorithm. "Off-policy" means it can learn the optimal policy even while following a different exploration policy.
 
-* **Concept:** Q-Learning learns the optimal Q-value function, $Q^*(s,a)$, which represents the maximum expected future reward for taking action $a$ in state $s$. Once $Q^*(s,a)$ is learned, the optimal policy is simply to take the action with the highest Q-value in any given state.
+* **Concept:** Q-Learning learns the optimal Q-value function, Q*(s, a), which represents the maximum expected future reward for taking action `a` in state `s`. Once Q*(s, a) is learned, the optimal policy is simply to take the action with the highest Q-value in any given state.
 
-  $$\pi^*(s) = \arg\max_a Q^*(s,a)$$
+
+  <p align="center">
+    <img src="assets/q_learning_concepts.jpg" alt="Matrix A" width="200"/>
+  </p>
 
 * **Q-Table:** For environments with a discrete and relatively small number of states and actions, Q-Learning often uses a **Q-table** to store the Q-values. The table has states as rows and actions as columns, with each cell $Q(s,a)$ holding the current estimate of the Q-value.
 
@@ -1087,7 +1090,9 @@ Q-Learning is a popular off-policy, value-based reinforcement learning algorithm
 
   * The core of Q-Learning lies in the **Bellman Optimality Equation**, which states that the optimal Q-value for a state-action pair is the immediate reward plus the discounted maximum Q-value of the next state.
 
-  $$Q^*(s,a) = R_{t+1} + \gamma \max_{a'} Q^*(s',a')$$
+  <p align="center">
+    <img src="assets/bellmans_equation.jpg" alt="Matrix A" width="200"/>
+  </p>
 
 * **Q-Learning Update Rule:**
 
