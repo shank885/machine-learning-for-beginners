@@ -1041,13 +1041,13 @@ Understanding the fundamental components of an RL system is crucial before divin
 
   * **Stochastic Policy:** $\pi(a|s)$ (for a given state $s$, take action $a$ with a certain probability).
 
-* **Value Function ($V^\pi(s)$):** Represents the expected total cumulative reward an agent can expect to get starting from a given state $s$ and following a specific policy $\pi$. It quantifies "how good" a state is.
+* **Value Function (V<sup>π</sup>(s)):** Represents the expected total cumulative reward an agent can expect to get starting from a given state $s$ and following a specific policy $\pi$. It quantifies "how good" a state is.
 
   <p align="center">
     $$V^\pi(s) = E_\pi \left[ \sum_{t=0}^{\infty} \gamma^t R_{t+1} \middle| S_0 = s \right]$$
   </p>
 
-* **Q-Value Function ($Q^\pi(s, a)$):** Also known as the **action-value function**. Represents the expected total cumulative reward an agent can expect to get starting from a given state $s$, taking a specific action $a$, and thereafter following policy $\pi$. It quantifies "how good" it is to take a particular action in a particular state.
+* **Q-Value Function (Q<sup>π</sup>(s, a)):** Also known as the **action-value function**. Represents the expected total cumulative reward an agent can expect to get starting from a given state $s$, taking a specific action $a$, and thereafter following policy $\pi$. It quantifies "how good" it is to take a particular action in a particular state.
 
   <p align="center">
     $$Q^\pi(s, a) = E_\pi \left[ \sum_{t=0}^{\infty} \gamma^t R_{t+1} \middle| S_0 = s, A_0 = a \right]$$
@@ -1081,7 +1081,7 @@ Q-Learning is a popular off-policy, value-based reinforcement learning algorithm
 
 
   <p align="center">
-    <img src="assets/q_learning_concepts.jpg" alt="Matrix A" width="300"/>
+    <img src="assets/q_learning_concepts.jpg" alt="Matrix A" width="250"/>
   </p>
 
 * **Q-Table:** For environments with a discrete and relatively small number of states and actions, Q-Learning often uses a **Q-table** to store the Q-values. The table has states as rows and actions as columns, with each cell $Q(s,a)$ holding the current estimate of the Q-value.
