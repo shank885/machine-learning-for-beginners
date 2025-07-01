@@ -1081,7 +1081,7 @@ Q-Learning is a popular off-policy, value-based reinforcement learning algorithm
 
 
   <p align="center">
-    <img src="assets/q_learning_concepts.jpg" alt="Matrix A" width="200"/>
+    <img src="assets/q_learning_concepts.jpg" alt="Matrix A" width="300"/>
   </p>
 
 * **Q-Table:** For environments with a discrete and relatively small number of states and actions, Q-Learning often uses a **Q-table** to store the Q-values. The table has states as rows and actions as columns, with each cell $Q(s,a)$ holding the current estimate of the Q-value.
@@ -1091,14 +1091,17 @@ Q-Learning is a popular off-policy, value-based reinforcement learning algorithm
   * The core of Q-Learning lies in the **Bellman Optimality Equation**, which states that the optimal Q-value for a state-action pair is the immediate reward plus the discounted maximum Q-value of the next state.
 
   <p align="center">
-    <img src="assets/bellmans_equation.jpg" alt="Matrix A" width="200"/>
+    <img src="assets/bellmans_equation.jpg" alt="Matrix A" width="300"/>
   </p>
 
 * **Q-Learning Update Rule:**
 
   * The algorithm iteratively updates the Q-values based on the agent's experience (state, action, reward, next state).
 
-  $$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ R + \gamma \max_{a'} Q(s',a') - Q(s,a) \right]$$
+  <p align="center">
+    $$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ R + \gamma \max_{a'} Q(s',a') - Q(s,a) \right]$$
+  </p>
+
     Where:
 
     * $Q(s,a)$ is the current estimate of the Q-value for state $s$ and action $a$.
