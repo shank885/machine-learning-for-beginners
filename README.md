@@ -1166,12 +1166,19 @@ SARSA is another popular on-policy, value-based reinforcement learning algorithm
 ### 7.3. Deep Reinforcement Learning (Conceptual)
 
 * **Concept:** When the state and/or action spaces are very large or continuous, using Q-tables becomes impossible. Deep Reinforcement Learning (DRL) combines standard RL algorithms with Deep Neural Networks.
-    * Instead of a Q-table, a **deep neural network (a Q-network)** is used to approximate the Q-value function. The input to the network is the state, and the output can be the Q-value for each possible action, or a single Q-value for a given state-action pair.
-    * The network's weights are updated using a variant of gradient descent on the TD error.
+
+  * Instead of a Q-table, a **deep neural network (a Q-network)** is used to approximate the Q-value function. The input to the network is the state, and the output can be the Q-value for each possible action, or a single Q-value for a given state-action pair.
+
+  * The network's weights are updated using a variant of gradient descent on the TD error.
+
 * **Algorithms:**
-    * **Deep Q-Networks (DQN):** The pioneering DRL algorithm that successfully applied neural networks to Q-Learning, enabling agents to play Atari games from raw pixels.
-    * **Policy Gradient Methods:** Directly learn the optimal policy parameters using gradient ascent.
-    * **Actor-Critic Methods:** Combine elements of both value-based (critic) and policy-based (actor) methods.
+
+  * **Deep Q-Networks (DQN):** The pioneering DRL algorithm that successfully applied neural networks to Q-Learning, enabling agents to play Atari games from raw pixels.
+
+  * **Policy Gradient Methods:** Directly learn the optimal policy parameters using gradient ascent.
+
+  * **Actor-Critic Methods:** Combine elements of both value-based (critic) and policy-based (actor) methods.
+
 * **Why it's crucial:** DRL has enabled RL to tackle complex, high-dimensional problems like robotics, game playing (AlphaGo, AlphaZero), and autonomous driving.
 
 ---
