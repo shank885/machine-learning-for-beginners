@@ -1142,19 +1142,26 @@ Q-Learning is a popular off-policy, value-based reinforcement learning algorithm
 SARSA is another popular on-policy, value-based reinforcement learning algorithm. "On-policy" means it learns the Q-value for the policy currently being followed, including its exploration strategy.
 
 * **Concept:** SARSA is very similar to Q-Learning but with a key difference in how it calculates the "target" Q-value. Instead of taking the maximum Q-value of the next state, SARSA uses the Q-value of the *actual action taken* in the next state, according to the current policy.
+
 * **SARSA Update Rule:**
-    $$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ R + \gamma Q(s',a') - Q(s,a) \right]$$
-        Where:
-        * $s, a, R, s'$ are the current state, action, reward, and next state, respectively.
-        * $a'$ is the **action chosen in the next state $s'$ according to the current policy (e.g., epsilon-greedy)**. This is the crucial difference from Q-Learning, which uses $\max_{a'} Q(s',a')$.
+
+  $$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ R + \gamma Q(s',a') - Q(s,a) \right]$$
+    Where:
+      * $s, a, R, s'$ are the current state, action, reward, and next state, respectively.
+      * $a'$ is the **action chosen in the next state $s'$ according to the current policy (e.g., epsilon-greedy)**. This is the crucial difference from Q-Learning, which uses $\max_{a'} Q(s',a')$.
 
 * **On-Policy vs. Off-Policy (Key Distinction):**
-    * **Q-Learning (Off-Policy):** Learns the optimal Q-function regardless of the policy being followed. It *imagines* taking the optimal action in the next state (the `max` part) even if it didn't actually take it for exploration.
-    * **SARSA (On-Policy):** Learns the Q-function for the *actual policy being followed*. If the agent follows an epsilon-greedy policy, SARSA learns the Q-values for *that* epsilon-greedy policy. If the exploration part leads to a suboptimal action in the next state, SARSA factors that into its learning.
+
+  * **Q-Learning (Off-Policy):** Learns the optimal Q-function regardless of the policy being followed. It *imagines* taking the optimal action in the next state (the `max` part) even if it didn't actually take it for exploration.
+
+  * **SARSA (On-Policy):** Learns the Q-function for the *actual policy being followed*. If the agent follows an epsilon-greedy policy, SARSA learns the Q-values for *that* epsilon-greedy policy. If the exploration part leads to a suboptimal action in the next state, SARSA factors that into its learning.
 
 * **Advantages and Disadvantages:**
-    * **Pros:** Model-free, can converge to optimal Q-values (for the current policy), often considered safer in certain environments because it accounts for exploration steps, leading to less "greedy" paths during training.
-    * **Cons:** Still suffers from the curse of dimensionality for large state/action spaces, learning is tied to the exploration policy (if the exploration policy is poor, learning will be slow).
+  * **Pros:** Model-free, can converge to optimal Q-values (for the current policy), often considered safer in certain environments because it accounts for exploration steps, leading to less "greedy" paths during training.
+
+  * **Cons:** Still suffers from the curse of dimensionality for large state/action spaces, learning is tied to the exploration policy (if the exploration policy is poor, learning will be slow).
+
+---
 
 ### 7.3. Deep Reinforcement Learning (Conceptual)
 
