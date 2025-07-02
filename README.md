@@ -1187,7 +1187,11 @@ SARSA is another popular on-policy, value-based reinforcement learning algorithm
 
 Deep Learning is a subfield of machine learning that is inspired by the structure and function of the human brain, particularly its neural networks. It involves training Artificial Neural Networks (ANNs) with multiple layers (hence "deep") to learn complex patterns and representations from vast amounts of data, often achieving state-of-the-art results in tasks like image recognition, natural language processing, and speech synthesis.
 
+---
+
 ### 8.1. Introduction to Neural Networks
+
+---
 
 #### 8.1.1. The Perceptron (Basic Building Block)
 
