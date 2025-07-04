@@ -1277,7 +1277,7 @@ Activation functions introduce non-linearity into neural networks, allowing them
       <img src="assets/softmax.jpg" alt="Matrix A" width="250"/>
     </p>
 
-    * *Where $\mathbf{z}$ is the vector of outputs from the last layer, $K$ is the number of classes, and $z_k$ is the input for the $k$-th class.*
+    * *Where _**z**_ is the vector of outputs from the last layer, _**K**_ is the number of classes, and __**z_k**_ is the input for the _**k-th**_ class.*
 
 ---
 
