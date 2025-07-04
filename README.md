@@ -1303,7 +1303,6 @@ Backpropagation is the fundamental algorithm for training multi-layered artifici
 
 Deep learning architectures are specialized types of neural networks designed for particular types of data and tasks.
 
----
 
 #### 8.3.1. Feedforward Neural Networks (FNNs) / Multi-Layer Perceptrons (MLPs)
 
