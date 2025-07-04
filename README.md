@@ -1303,6 +1303,7 @@ Backpropagation is the fundamental algorithm for training multi-layered artifici
 
 Deep learning architectures are specialized types of neural networks designed for particular types of data and tasks.
 
+---
 
 #### 8.3.1. Feedforward Neural Networks (FNNs) / Multi-Layer Perceptrons (MLPs)
 
@@ -1361,11 +1362,18 @@ CNNs are specifically designed for processing grid-like data, such as images. Th
 RNNs are designed to process sequential data, where the order of information matters. Unlike FNNs, RNNs have loops, allowing information to persist from one step to the next.
 
 * **Concept:** They have "memory" of previous inputs in a sequence. The output at time $t$ depends not only on the input at time $t$ but also on the hidden state from time $t-1$.
+
 * **Issue: Vanishing/Exploding Gradients:** Standard RNNs struggle with long-term dependencies (remembering information over many time steps) due to vanishing or exploding gradients during backpropagation through time.
+
 * **Specialized RNN Architectures:**
-    * **Long Short-Term Memory (LSTM) Networks:** Address the vanishing gradient problem by introducing "gates" (input, forget, output gates) that control the flow of information into and out of a cell state. This allows LSTMs to selectively remember or forget information over long sequences.
-    * **Gated Recurrent Units (GRUs):** A simplified version of LSTMs, combining the forget and input gates into an update gate, and merging the cell state and hidden state. They often perform similarly to LSTMs but are computationally less intensive.
+
+  * **Long Short-Term Memory (LSTM) Networks:** Address the vanishing gradient problem by introducing "gates" (input, forget, output gates) that control the flow of information into and out of a cell state. This allows LSTMs to selectively remember or forget information over long sequences.
+
+  * **Gated Recurrent Units (GRUs):** A simplified version of LSTMs, combining the forget and input gates into an update gate, and merging the cell state and hidden state. They often perform similarly to LSTMs but are computationally less intensive.
+
 * **Applications:** Natural Language Processing (machine translation, text generation, sentiment analysis), speech recognition, time series prediction.
+
+---
 
 ### 8.4. Training Deep Networks
 
