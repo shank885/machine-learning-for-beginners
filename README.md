@@ -1211,6 +1211,8 @@ The Perceptron is the simplest form of an artificial neuron and the foundational
     $$\hat{y} = \text{activation}(z)$$
 * **Decision Boundary:** A single perceptron can only learn **linearly separable** patterns. It draws a single straight line (or hyperplane in higher dimensions) to separate the data points.
 
+---
+
 #### 8.1.2. Activation Functions
 
 Activation functions introduce non-linearity into neural networks, allowing them to learn complex, non-linear relationships in data. Without them, a neural network, no matter how many layers it has, would essentially just be performing a linear transformation.
@@ -1234,6 +1236,8 @@ Activation functions introduce non-linearity into neural networks, allowing them
         $$\text{Softmax}(\mathbf{z})_k = \frac{e^{z_k}}{\sum_{j=1}^{K} e^{z_j}}$$
         * *Where $\mathbf{z}$ is the vector of outputs from the last layer, $K$ is the number of classes, and $z_k$ is the input for the $k$-th class.*
 
+---
+
 ### 8.2. Backpropagation (Conceptual)
 
 Backpropagation is the fundamental algorithm for training multi-layered artificial neural networks. It's an efficient way to calculate the gradients of the loss function with respect to the weights of the network, which are then used by optimization algorithms (like Gradient Descent) to update the weights.
@@ -1244,6 +1248,8 @@ Backpropagation is the fundamental algorithm for training multi-layered artifici
     3.  **Backward Pass (Backpropagation):** The calculated loss is propagated backward through the network, from the output layer to the input layer. During this process, the algorithm calculates the **gradient** of the loss with respect to each weight and bias in the network using the **chain rule** of calculus.
     4.  **Weight Update:** The gradients inform an optimization algorithm (e.g., Gradient Descent) how to adjust the weights and biases to reduce the loss.
 * **Role of Chain Rule:** Backpropagation leverages the chain rule to efficiently compute gradients across multiple layers. For example, to find how much the loss changes with respect to a weight in an early layer, it multiplies the partial derivatives of each function along the path from that weight to the final loss.
+
+---
 
 ### 8.3. Common Deep Learning Architectures
 
