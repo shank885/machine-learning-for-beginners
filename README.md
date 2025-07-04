@@ -1198,17 +1198,29 @@ Deep Learning is a subfield of machine learning that is inspired by the structur
 The Perceptron is the simplest form of an artificial neuron and the foundational element of neural networks. Invented in 1957 by Frank Rosenblatt, it's a binary linear classifier.
 
 * **Structure:**
-    * Takes multiple binary or real-valued inputs ($x_1, x_2, \dots, x_n$).
-    * Each input is multiplied by a corresponding **weight** ($w_1, w_2, \dots, w_n$), representing its importance.
-    * These weighted inputs are summed up, and a **bias** term ($b$) is added.
-    * The sum is passed through an **activation function** to produce an output.
+
+  * Takes multiple binary or real-valued inputs ($x_1, x_2, \dots, x_n$).
+
+  * Each input is multiplied by a corresponding **weight** ($w_1, w_2, \dots, w_n$), representing its importance.
+
+  * These weighted inputs are summed up, and a **bias** term ($b$) is added.
+
+  * The sum is passed through an **activation function** to produce an output.
+
 * **Mathematical Representation:**
-    The weighted sum is:
-    $$z = \sum_{i=1}^{n} w_i x_i + b$$
-    In vectorized form:
-    $$z = \mathbf{w}^T \mathbf{x} + b$$
-    The output $\hat{y}$ is:
-    $$\hat{y} = \text{activation}(z)$$
+
+  The weighted sum is:
+
+  $$z = \sum_{i=1}^{n} w_i x_i + b$$
+
+  In vectorized form:
+
+  $$z = \mathbf{w}^T \mathbf{x} + b$$
+
+  The output $\hat{y}$ is:
+
+  $$\hat{y} = \text{activation}(z)$$
+
 * **Decision Boundary:** A single perceptron can only learn **linearly separable** patterns. It draws a single straight line (or hyperplane in higher dimensions) to separate the data points.
 
 ---
