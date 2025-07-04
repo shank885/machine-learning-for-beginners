@@ -1236,23 +1236,48 @@ The Perceptron is the simplest form of an artificial neuron and the foundational
 Activation functions introduce non-linearity into neural networks, allowing them to learn complex, non-linear relationships in data. Without them, a neural network, no matter how many layers it has, would essentially just be performing a linear transformation.
 
 * **Role of Activation Functions:**
-    * Transform the summed weighted input ($z$) into the neuron's output.
-    * Introduce non-linearity, enabling the network to approximate complex functions.
-    * Help control the output range of neurons.
+
+  * Transform the summed weighted input ($z$) into the neuron's output.
+
+  * Introduce non-linearity, enabling the network to approximate complex functions.
+
+  * Help control the output range of neurons.
+
 * **Common Activation Functions:**
-    * **Sigmoid (Logistic):** Squashes values between 0 and 1. Used in output layers for binary classification (Logistic Regression).
-        $$\sigma(z) = \frac{1}{1 + e^{-z}}$$
-        * **Issues:** Vanishing gradient problem (gradients become very small for large positive/negative inputs), output not zero-centered.
-    * **ReLU (Rectified Linear Unit):** Most popular choice for hidden layers.
+
+  * **Sigmoid (Logistic):** Squashes values between 0 and 1. Used in output layers for binary classification (Logistic Regression).
+
+    <p align="center">
+      $$\sigma(z) = \frac{1}{1 + e^{-z}}$$
+    </p>
+
+    * **Issues:** Vanishing gradient problem (gradients become very small for large positive/negative inputs), output not zero-centered.
+
+  * **ReLU (Rectified Linear Unit):** Most popular choice for hidden layers.
+  
+    <p align="center">
         $$\text{ReLU}(z) = \max(0, z)$$
-        * **Pros:** Solves vanishing gradient problem (for positive inputs), computationally efficient.
-        * **Cons:** "Dying ReLU" problem (neurons can become inactive if input is always negative).
-    * **Leaky ReLU:** A variant of ReLU that attempts to solve the dying ReLU problem by allowing a small, non-zero gradient for negative inputs.
-        $$\text{Leaky ReLU}(z) = \begin{cases} z & \text{if } z > 0 \\ \alpha z & \text{if } z \le 0 \end{cases}$$
-        * Where $\alpha$ is a small positive constant (e.g., 0.01).
-    * **Softmax:** Used in the output layer for multi-class classification. Converts scores into probabilities that sum to 1.
-        $$\text{Softmax}(\mathbf{z})_k = \frac{e^{z_k}}{\sum_{j=1}^{K} e^{z_j}}$$
-        * *Where $\mathbf{z}$ is the vector of outputs from the last layer, $K$ is the number of classes, and $z_k$ is the input for the $k$-th class.*
+    </p>
+
+    * **Pros:** Solves vanishing gradient problem (for positive inputs), computationally efficient.
+    
+    * **Cons:** "Dying ReLU" problem (neurons can become inactive if input is always negative).
+  
+  * **Leaky ReLU:** A variant of ReLU that attempts to solve the dying ReLU problem by allowing a small, non-zero gradient for negative inputs.
+
+    <p align="center">
+      <img src="assets/leaky_relu.jpg" alt="Matrix A" width="250"/>
+    </p>
+
+    * Where $\alpha$ is a small positive constant (e.g., 0.01).
+    
+  * **Softmax:** Used in the output layer for multi-class classification. Converts scores into probabilities that sum to 1.
+  
+    <p align="center">
+      <img src="assets/softmax.jpg" alt="Matrix A" width="250"/>
+    </p>
+
+    * *Where $\mathbf{z}$ is the vector of outputs from the last layer, $K$ is the number of classes, and $z_k$ is the input for the $k$-th class.*
 
 ---
 
