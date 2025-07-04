@@ -1303,32 +1303,59 @@ Backpropagation is the fundamental algorithm for training multi-layered artifici
 
 Deep learning architectures are specialized types of neural networks designed for particular types of data and tasks.
 
+---
+
 #### 8.3.1. Feedforward Neural Networks (FNNs) / Multi-Layer Perceptrons (MLPs)
 
 * **Structure:** The simplest deep neural network. Consists of an input layer, one or more hidden layers, and an output layer.
-    * **Input Layer:** Receives the raw data.
-    * **Hidden Layers:** Perform non-linear transformations on the data. Each neuron in a hidden layer is fully connected to all neurons in the previous layer.
-    * **Output Layer:** Produces the final prediction.
+
+  * **Input Layer:** Receives the raw data.
+
+  * **Hidden Layers:** Perform non-linear transformations on the data. Each neuron in a hidden layer is fully connected to all neurons in the previous layer.
+
+  * **Output Layer:** Produces the final prediction.
+
 * **How they work:** Information flows in one direction, from the input layer through the hidden layers to the output layer, without loops or cycles.
+
 * **Applications:** Ideal for tabular data, regression tasks, simple classification, and as a component in more complex architectures.
+
 * **Mathematical Operation (for one neuron in a layer):**
+
+  <p align="center">
     $$y_j = \text{activation} \left( \sum_{i} W_{ji} x_i + b_j \right)$$
-    * Where $y_j$ is the output of neuron $j$, $W_{ji}$ are the weights connecting input $x_i$ to neuron $j$, and $b_j$ is the bias for neuron $j$.
+  </p>
+
+  * Where $y_j$ is the output of neuron $j$, $W_{ji}$ are the weights connecting input $x_i$ to neuron $j$, and $b_j$ is the bias for neuron $j$.
+
+---
 
 #### 8.3.2. Convolutional Neural Networks (CNNs)
 
 CNNs are specifically designed for processing grid-like data, such as images. They are excellent at automatically learning spatial hierarchies of features.
 
 * **Key Components:**
-    * **Convolutional Layers:** The core building block. They apply a set of learnable filters (kernels) to the input data (e.g., image). Each filter slides over the input, performing dot products, to create feature maps. This captures local patterns (edges, textures).
-        * **Mathematical intuition (2D convolution):**
-            $$(I * K)(i,j) = \sum_m \sum_n I(i-m, j-n) K(m,n)$$
-            * *Where $I$ is the input image, $K$ is the kernel/filter, and $(i,j)$ are the coordinates in the output feature map.*
-    * **Pooling Layers (e.g., Max Pooling):** Downsample the feature maps, reducing their spatial dimensions and making the network more robust to small shifts/distortions in the input. Max pooling selects the maximum value in a window.
-    * **ReLU Activation:** Typically used after convolutional layers.
-    * **Fully Connected Layers:** At the end of the CNN, flattened feature maps are fed into one or more dense layers for final classification or regression.
+
+  * **Convolutional Layers:** The core building block. They apply a set of learnable filters (kernels) to the input data (e.g., image). Each filter slides over the input, performing dot products, to create feature maps. This captures local patterns (edges, textures).
+    
+    * **Mathematical intuition (2D convolution):**
+
+      <p align="center">
+        $$(I * K)(i,j) = \sum_m \sum_n I(i-m, j-n) K(m,n)$$
+      </p>
+
+      * *Where _**I**_ is the input image, _**K**_ is the kernel/filter, and _**(i,j)**_ are the coordinates in the output feature map.*
+
+  * **Pooling Layers (e.g., Max Pooling):** Downsample the feature maps, reducing their spatial dimensions and making the network more robust to small shifts/distortions in the input. Max pooling selects the maximum value in a window.
+
+  * **ReLU Activation:** Typically used after convolutional layers.
+
+  * **Fully Connected Layers:** At the end of the CNN, flattened feature maps are fed into one or more dense layers for final classification or regression.
+
 * **Why they are powerful:** They leverage the spatial locality of pixels by sharing weights (the same filter is applied across the entire image), making them highly efficient and effective for image-related tasks.
+
 * **Applications:** Image classification, object detection, facial recognition, medical image analysis.
+
+---
 
 #### 8.3.3. Recurrent Neural Networks (RNNs)
 
