@@ -1209,23 +1209,23 @@ The Perceptron is the simplest form of an artificial neuron and the foundational
 
 * **Mathematical Representation:**
 
--  The weighted sum is:
+  -  The weighted sum is:
 
-  <p align="center">
-    $$z = \sum_{i=1}^{n} w_i x_i + b$$
-  </p>
+    <p align="center">
+      $$z = \sum_{i=1}^{n} w_i x_i + b$$
+    </p>
 
--  In vectorized form:
+  -  In vectorized form:
 
-  <p align="center">
-    $$z = \mathbf{w}^T \mathbf{x} + b$$
-  </p>
+    <p align="center">
+      $$z = \mathbf{w}^T \mathbf{x} + b$$
+    </p>
 
--  The output $\hat{y}$ is:
+  -  The output $\hat{y}$ is:
 
-  <p align="center">
-    $$\hat{y} = \text{activation}(z)$$
-  </p>
+    <p align="center">
+      $$\hat{y} = \text{activation}(z)$$
+    </p>
 
 * **Decision Boundary:** A single perceptron can only learn **linearly separable** patterns. It draws a single straight line (or hyperplane in higher dimensions) to separate the data points.
 
