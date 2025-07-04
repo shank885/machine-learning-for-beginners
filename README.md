@@ -1286,10 +1286,15 @@ Activation functions introduce non-linearity into neural networks, allowing them
 Backpropagation is the fundamental algorithm for training multi-layered artificial neural networks. It's an efficient way to calculate the gradients of the loss function with respect to the weights of the network, which are then used by optimization algorithms (like Gradient Descent) to update the weights.
 
 * **Concept:**
-    1.  **Forward Pass:** Input data is fed through the network layer by layer, and predictions are generated.
-    2.  **Loss Calculation:** The difference between the network's predictions and the actual target values is calculated using a **loss function**.
-    3.  **Backward Pass (Backpropagation):** The calculated loss is propagated backward through the network, from the output layer to the input layer. During this process, the algorithm calculates the **gradient** of the loss with respect to each weight and bias in the network using the **chain rule** of calculus.
-    4.  **Weight Update:** The gradients inform an optimization algorithm (e.g., Gradient Descent) how to adjust the weights and biases to reduce the loss.
+
+  1.  **Forward Pass:** Input data is fed through the network layer by layer, and predictions are generated.
+
+  2.  **Loss Calculation:** The difference between the network's predictions and the actual target values is calculated using a **loss function**.
+
+  3.  **Backward Pass (Backpropagation):** The calculated loss is propagated backward through the network, from the output layer to the input layer. During this process, the algorithm calculates the **gradient** of the loss with respect to each weight and bias in the network using the **chain rule** of calculus.
+
+  4.  **Weight Update:** The gradients inform an optimization algorithm (e.g., Gradient Descent) how to adjust the weights and biases to reduce the loss.
+
 * **Role of Chain Rule:** Backpropagation leverages the chain rule to efficiently compute gradients across multiple layers. For example, to find how much the loss changes with respect to a weight in an early layer, it multiplies the partial derivatives of each function along the path from that weight to the final loss.
 
 ---
