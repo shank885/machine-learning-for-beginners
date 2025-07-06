@@ -1380,28 +1380,48 @@ RNNs are designed to process sequential data, where the order of information mat
 Training deep neural networks can be challenging due to their complexity and many parameters. Several techniques are used to make the training process more stable, efficient, and effective.
 
 * **Optimizers (Beyond basic Gradient Descent):**
-    * Basic Gradient Descent (SGD) can be slow and get stuck. Optimizers adapt the learning rate during training or use momentum to speed up convergence and find better minima.
-    * **Momentum:** Accelerates SGD in the relevant direction and dampens oscillations.
-    * **AdaGrad (Adaptive Gradient):** Adapts the learning rate individually for each parameter, scaling it inversely proportional to the square root of the sum of squared past gradients. Good for sparse data.
-    * **RMSprop (Root Mean Square Propagation):** Similar to AdaGrad but uses a moving average of squared gradients, preventing the learning rate from diminishing too quickly.
-    * **Adam (Adaptive Moment Estimation):** Combines ideas from Momentum and RMSprop. It's often the default choice for many deep learning tasks due to its good performance.
+
+  * Basic Gradient Descent (SGD) can be slow and get stuck. Optimizers adapt the learning rate during training or use momentum to speed up convergence and find better minima.
+
+  * **Momentum:** Accelerates SGD in the relevant direction and dampens oscillations.
+
+  * **AdaGrad (Adaptive Gradient):** Adapts the learning rate individually for each parameter, scaling it inversely proportional to the square root of the sum of squared past gradients. Good for sparse data.
+
+  * **RMSprop (Root Mean Square Propagation):** Similar to AdaGrad but uses a moving average of squared gradients, preventing the learning rate from diminishing too quickly.
+
+  * **Adam (Adaptive Moment Estimation):** Combines ideas from Momentum and RMSprop. It's often the default choice for many deep learning tasks due to its good performance.
 
 * **Regularization Techniques (Preventing Overfitting):**
-    * Deep networks have many parameters and can easily overfit. Regularization techniques aim to reduce overfitting by adding a penalty to the loss function or by modifying the network architecture.
-    * **L1 and L2 Regularization (Weight Decay):** Add a penalty based on the magnitude of the weights to the loss function.
-        * **L1 Regularization (Lasso):** Adds the sum of absolute values of weights ($\lambda \sum |w_i|$). Tends to produce sparse models (some weights become exactly zero), effectively performing feature selection.
-        * **L2 Regularization (Ridge):** Adds the sum of squared weights ($\lambda \sum w_i^2$). Encourages smaller weights, leading to more robust models.
-    * **Dropout:** During training, randomly sets a fraction of neurons to zero at each update. This forces the network to learn more robust features (as it cannot rely on any single neuron), acting as an ensemble of smaller networks.
-        * **Concept:** For each training iteration, different subsets of neurons are "dropped out."
-        * **Application:** Applied to hidden layers. A dropout rate (e.g., 0.5) specifies the probability of dropping a neuron.
+
+  * Deep networks have many parameters and can easily overfit. Regularization techniques aim to reduce overfitting by adding a penalty to the loss function or by modifying the network architecture.
+
+  * **L1 and L2 Regularization (Weight Decay):** Add a penalty based on the magnitude of the weights to the loss function.
+
+    * **L1 Regularization (Lasso):** Adds the sum of absolute values of weights ($\lambda \sum |w_i|$). Tends to produce sparse models (some weights become exactly zero), effectively performing feature selection.
+
+    * **L2 Regularization (Ridge):** Adds the sum of squared weights ($\lambda \sum w_i^2$). Encourages smaller weights, leading to more robust models.
+
+  * **Dropout:** During training, randomly sets a fraction of neurons to zero at each update. This forces the network to learn more robust features (as it cannot rely on any single neuron), acting as an ensemble of smaller networks.
+
+    * **Concept:** For each training iteration, different subsets of neurons are "dropped out."
+
+    * **Application:** Applied to hidden layers. A dropout rate (e.g., 0.5) specifies the probability of dropping a neuron.
+
 * **Batch Normalization:**
-    * **Concept:** Normalizes the inputs to each layer (specifically, the activations before applying the non-linear activation function) across a mini-batch. It shifts and scales the activations to have zero mean and unit variance.
-    * **Benefits:**
-        * Speeds up training (allows higher learning rates).
-        * Reduces internal covariate shift (changes in the distribution of layer inputs during training).
-        * Acts as a regularizer, reducing the need for Dropout in some cases.
-        * Makes networks less sensitive to initial weights.
-    * **Placement:** Typically placed after the linear transformation and before the activation function in a layer.
+
+  * **Concept:** Normalizes the inputs to each layer (specifically, the activations before applying the non-linear activation function) across a mini-batch. It shifts and scales the activations to have zero mean and unit variance.
+
+  * **Benefits:**
+
+    * Speeds up training (allows higher learning rates).
+
+    * Reduces internal covariate shift (changes in the distribution of layer inputs during training).
+
+    * Acts as a regularizer, reducing the need for Dropout in some cases.
+
+    * Makes networks less sensitive to initial weights.
+
+  * **Placement:** Typically placed after the linear transformation and before the activation function in a layer.
 
 ---
 
