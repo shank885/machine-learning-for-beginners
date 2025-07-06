@@ -1457,6 +1457,8 @@ Natural Language Processing (NLP) is a subfield of artificial intelligence that 
 
 Before the advent of deep learning, NLP primarily relied on rule-based systems, statistical methods, and shallow machine learning models.
 
+---
+
 #### 9.2.1. Text Preprocessing
 
 These are initial steps to clean and prepare raw text data for analysis.
