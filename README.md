@@ -1429,16 +1429,29 @@ Training deep neural networks can be challenging due to their complexity and man
 
 Natural Language Processing (NLP) is a subfield of artificial intelligence that focuses on enabling computers to understand, interpret, and generate human language in a way that is both meaningful and useful. NLP bridges the gap between human communication and computer understanding, making it possible for machines to interact with us in natural ways and process vast amounts of unstructured text data.
 
+---
+
 ### 9.1. Introduction to NLP
 
+---
+
 * **Definition:** NLP involves the computational treatment of human language. It combines computational linguistics (rule-based modeling of language) with machine learning and deep learning to process, analyze, and generate text and speech.
+
 * **Goal:** To enable computers to understand, interpret, and manipulate human language effectively, mimicking cognitive abilities related to language.
+
 * **Challenges:** Human language is inherently complex and ambiguous.
-    * **Ambiguity:** Words and phrases can have multiple meanings depending on context (e.g., "bank" of a river vs. financial bank).
-    * **Context Sensitivity:** Meaning often relies on surrounding words, sentences, or even external knowledge.
-    * **Variability:** Slang, dialects, misspellings, sarcasm, nuances.
-    * **Syntactic Complexity:** Grammar rules can be intricate and vary widely.
-    * **Semantic Complexity:** Understanding the actual meaning and relationships between words and concepts.
+
+  * **Ambiguity:** Words and phrases can have multiple meanings depending on context (e.g., "bank" of a river vs. financial bank).
+
+  * **Context Sensitivity:** Meaning often relies on surrounding words, sentences, or even external knowledge.
+
+  * **Variability:** Slang, dialects, misspellings, sarcasm, nuances.
+
+  * **Syntactic Complexity:** Grammar rules can be intricate and vary widely.
+
+  * **Semantic Complexity:** Understanding the actual meaning and relationships between words and concepts.
+
+---
 
 ### 9.2. Traditional NLP Techniques (Rule-Based & Statistical)
 
