@@ -1471,6 +1471,8 @@ These are initial steps to clean and prepare raw text data for analysis.
 * **Stop Word Removal:** Eliminating common words (e.g., "the", "a", "is", "are") that carry little semantic meaning and often add noise.
 * **Lowercasing:** Converting all text to lowercase to ensure consistency (e.g., "The" and "the" are treated as the same word).
 
+---
+
 #### 9.2.2. Feature Engineering for Text
 
 Transforming text into numerical representations that machine learning models can understand.
@@ -1491,11 +1493,15 @@ Transforming text into numerical representations that machine learning models ca
         * **Inverse Document Frequency (IDF):** $\text{IDF}(t, D) = \log \left( \frac{\text{Total number of documents in corpus } D}{\text{Number of documents } d \text{ with term } t} \right)$
     * **Benefits:** Captures importance of words beyond just frequency, helps in identifying distinguishing terms.
 
+---
+
 #### 9.2.3. Basic Models
 
 * **N-grams:** Contiguous sequence of `n` items (words, characters) from a given sample of text or speech. Used to capture local word order.
     * Example (bigrams, N=2): "I love NLP" $\rightarrow$ ("I", "love"), ("love", "NLP")
 * **Naive Bayes:** A probabilistic classifier commonly used for text classification (e.g., spam detection, sentiment analysis) due to its simplicity and effectiveness with high-dimensional data like text features (BoW, TF-IDF).
+
+---
 
 ### 9.3. Word Embeddings (Distributed Representations)
 
@@ -1507,6 +1513,8 @@ Traditional methods like BoW or TF-IDF treat words as independent units (one-hot
     * Reduce dimensionality compared to one-hot encoding.
     * Provide a dense representation that deep learning models can effectively use.
 
+---
+
 #### 9.3.1. Word2Vec
 
 One of the most influential early models for creating word embeddings. It comes in two main architectures:
@@ -1516,14 +1524,20 @@ One of the most influential early models for creating word embeddings. It comes 
 * **Training:** Word2Vec models are trained on large text corpora by maximizing the probability of context words given a target word (or vice versa).
 * **Output:** A lookup table (vector space) where each word in the vocabulary is mapped to a unique vector.
 
+---
+
 #### 9.3.2. GloVe & FastText (Brief Mention)
 
 * **GloVe (Global Vectors for Word Representation):** Combines aspects of both global matrix factorization (like LSA) and local context window methods (like Word2Vec) to capture co-occurrence statistics.
 * **FastText:** An extension of Word2Vec that considers subword information (character n-grams), allowing it to handle out-of-vocabulary words and morphologically rich languages better.
 
+---
+
 ### 9.4. Deep Learning for NLP
 
 Deep learning has revolutionized NLP, enabling models to learn hierarchical features and capture long-range dependencies in text.
+
+---
 
 #### 9.4.1. Recurrent Neural Networks (RNNs) in NLP
 
@@ -1535,12 +1549,16 @@ Deep learning has revolutionized NLP, enabling models to learn hierarchical feat
     * **Long-range dependencies:** Difficulty in effectively carrying information over very long stretches of text.
     * **Sequential processing:** Inherently slow for training as computations cannot be easily parallelized.
 
+---
+
 #### 9.4.2. Attention Mechanism
 
 * **Concept:** The Attention Mechanism was introduced to address the bottleneck of the fixed-length context vector in encoder-decoder RNNs and to allow the decoder to "pay attention" to different parts of the input sequence when generating each part of the output sequence.
 * **How it works (conceptual):** Instead of a single context vector, the decoder gets access to all encoder hidden states. When generating a word, it calculates "attention weights" to determine which parts of the input sequence are most relevant for the current output word.
 * **Benefits:** Improves performance on long sequences, makes models more interpretable (by showing attention weights).
 * **Seq2Seq with Attention:** The combination of RNN Encoder-Decoder architectures with attention mechanisms became the state-of-the-art for tasks like machine translation before the Transformer era.
+
+---
 
 #### 9.4.3. Transformers
 
@@ -1559,6 +1577,8 @@ Deep learning has revolutionized NLP, enabling models to learn hierarchical feat
     * **Long-range dependencies:** Excellently captures relationships between distant words.
     * **Scalability:** Forms the basis for very large language models.
 
+---
+
 #### 9.4.4. Pre-trained Language Models (PLMs)
 
 * **Concept:** The dominant paradigm in modern NLP. Instead of training a model from scratch for each specific NLP task, a large Transformer-based model is first **pre-trained** on a massive, diverse corpus of unlabelled text (e.g., the entire internet, books) using self-supervised learning tasks (e.g., predicting masked words). This pre-training phase allows the model to learn deep linguistic patterns, grammar, semantics, and even some world knowledge.
@@ -1575,6 +1595,9 @@ Deep learning has revolutionized NLP, enabling models to learn hierarchical feat
         * **Pre-training Task:** Casual Language Modeling (predicting the next token).
         * **Applications:** Primarily used for text generation, summarization, creative writing, chatbots.
         * **In-context Learning / Few-shot Learning:** With large enough models, they can perform tasks with only a few examples provided in the prompt, without explicit fine-tuning.
+
+
+---
 
 ### 9.5. NLP Tasks & Applications (Overview)
 
@@ -1593,13 +1616,13 @@ Deep learning has significantly advanced performance across a wide range of NLP 
 
 ---
 
-## 9. Contribution Guidelines
+## 10. Contribution Guidelines
 * How to contribute (issues, pull requests)
 * Code of Conduct
 
 ---
 
-## 10. License
+## 11. License
 * MIT License
 
 
