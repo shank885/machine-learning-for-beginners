@@ -88,52 +88,73 @@ graph TD
 
 ---
 
-### Why Learn Machine Learning?
+### 1.2 Why Learn Machine Learning?
 
 Machine Learning isn't just a buzzword; it's a transformative technology impacting nearly every industry and aspect of our lives. Understanding ML is becoming an essential skill in our data-driven world.
 
 * Applications and Impact (Real-world examples)
-    - **Healthcare:** Disease diagnosis, drug discovery, personalized treatment plans.
-    - **Finance:** Fraud detection, algorithmic trading, credit scoring.
-    - **E-commerce:** Product recommendations, targeted advertising, inventory management.
-    - **Transportation:** Self-driving cars, traffic prediction.
-    - **Customer Service:** Chatbots, sentiment analysis.
-    - **Entertainment:** Content recommendations (Netflix, Spotify), video game AI.
-    - **Security:** Facial recognition, cybersecurity threat detection.
-    - **Science:** Climate modeling, material science, genomics.
 
-### Types of Machine Learning
+  - **Healthcare:** Disease diagnosis, drug discovery, personalized treatment plans.
+  - **Finance:** Fraud detection, algorithmic trading, credit scoring.
+  - **E-commerce:** Product recommendations, targeted advertising, inventory management.
+  - **Transportation:** Self-driving cars, traffic prediction.
+  - **Customer Service:** Chatbots, sentiment analysis.
+  - **Entertainment:** Content recommendations (Netflix, Spotify), video game AI.
+  - **Security:** Facial recognition, cybersecurity threat detection.
+  - **Science:** Climate modeling, material science, genomics.
+
+---
+
+### 1.3 Types of Machine Learning
 
 Machine learning problems are broadly categorized based on the nature of the training data and the task the algorithm is designed to perform.
 
 * **Supervised Learning**
-    - **Definition:** The algorithm learns from **labeled data**, meaning each training example includes both the input features and the correct output (label). The goal is to learn a mapping from inputs to outputs so that the model can predict outputs for new, unseen inputs.
-    - **Analogy:** Learning with a teacher who provides correct answers.
-    - **Common Tasks:**
-        - **Regression:** Predicting a continuous numerical value (e.g., house price, temperature).
-        - **Classification:** Predicting a discrete category or class (e.g., spam/not-spam, disease/no-disease).
-    - **Examples:** Image classification (cat/dog), spam detection, predicting house prices, credit risk assessment.
+
+  - **Definition:** The algorithm learns from **labeled data**, meaning each training example includes both the input features and the correct output (label). The goal is to learn a mapping from inputs to outputs so that the model can predict outputs for new, unseen inputs.
+
+  - **Analogy:** Learning with a teacher who provides correct answers.
+
+  - **Common Tasks:**
+
+    - **Regression:** Predicting a continuous numerical value (e.g., house price, temperature).
+
+    - **Classification:** Predicting a discrete category or class (e.g., spam/not-spam, disease/no-disease).
+
+  - **Examples:** Image classification (cat/dog), spam detection, predicting house prices, credit risk assessment.
+
 
 * **Unsupervised Learning**
 
-    - **Definition:** The algorithm learns from **unlabeled data**, where only input features are provided without any corresponding output labels. The goal is to find hidden patterns, structures, or relationships within the data.
-    - **Analogy:** Learning without a teacher, discovering patterns on your own.
-    - **Common Tasks:**
-        - **Clustering:** Grouping similar data points together (e.g., customer segmentation, gene clustering).
-        - **Dimensionality Reduction:** Reducing the number of features in a dataset while retaining most of the important information (e.g., for visualization, noise reduction).
-        - **Association Rule Mining:** Discovering relationships between variables in large datasets (e.g., "customers who buy X also buy Y").
-    - **Examples:** Market segmentation, anomaly detection, topic modeling in documents.
+  - **Definition:** The algorithm learns from **unlabeled data**, where only input features are provided without any corresponding output labels. The goal is to find hidden patterns, structures, or relationships within the data.
+
+  - **Analogy:** Learning without a teacher, discovering patterns on your own.
+
+  - **Common Tasks:**
+
+    - **Clustering:** Grouping similar data points together (e.g., customer segmentation, gene clustering).
+
+    - **Dimensionality Reduction:** Reducing the number of features in a dataset while retaining most of the important information (e.g., for visualization, noise reduction).
+
+    - **Association Rule Mining:** Discovering relationships between variables in large datasets (e.g., "customers who buy X also buy Y").
+
+- **Examples:** Market segmentation, anomaly detection, topic modeling in documents.
+
 
 * **Reinforcement Learning (Brief Introduction)**
 
-    - **Definition:** An agent learns to make decisions by performing actions in an environment to maximize a cumulative reward. It learns through trial and error, getting positive or negative feedback for its actions.
-    - **Analogy:** Training a pet with rewards.
-    - **Examples:** Game AI (AlphaGo), robotics, autonomous driving.
+  - **Definition:** An agent learns to make decisions by performing actions in an environment to maximize a cumulative reward. It learns through trial and error, getting positive or negative feedback for its actions.
+
+  - **Analogy:** Training a pet with rewards.
+
+  - **Examples:** Game AI (AlphaGo), robotics, autonomous driving.
+
 
 * **Semi-supervised Learning (Brief Introduction)**
 
-    - **Definition:** Uses a combination of a small amount of labeled data and a large amount of unlabeled data during training. It can be useful when obtaining labeled data is expensive or time-consuming.
-    - **Example:** Image classification where only a few images are manually tagged, and the algorithm uses unlabeled images to improve its understanding.
+  - **Definition:** Uses a combination of a small amount of labeled data and a large amount of unlabeled data during training. It can be useful when obtaining labeled data is expensive or time-consuming.
+
+  - **Example:** Image classification where only a few images are manually tagged, and the algorithm uses unlabeled images to improve its understanding.
 
 ---
 
