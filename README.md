@@ -208,33 +208,40 @@ While we'll focus on the concepts and math, you'll inevitably interact with thes
 
 This section introduces the foundational concepts that underpin almost all machine learning processes. Understanding these ideas is crucial before diving into specific algorithms, as they form the common language and principles used throughout the field.
 
-### Data Fundamentals:
+---
+
+### 3.1 Data Fundamentals:
 
 At the heart of machine learning is data. How data is structured, characterized, and prepared directly impacts the performance of your models.
 
--   **Types of Data:**
-    -   **Numerical Data:** Represents quantities and can be measured.
-        -   **Continuous:** Can take any value within a range (e.g., temperature, height, price).
-        -   **Discrete:** Can only take specific, distinct values, often integers (e.g., number of children, counts).
-    -   **Categorical Data:** Represents categories or groups.
-        -   **Nominal:** Categories with no inherent order (e.g., colors - red, blue, green; marital status).
-        -   **Ordinal:** Categories with a meaningful order (e.g., education level - high school, bachelor's, master's; rating - low, medium, high).
+- **Types of Data:**
 
--   **Features and Labels (Independent vs. Dependent Variables):**
-    -   **Features (Independent Variables / Inputs):** The individual measurable properties or characteristics of the phenomenon being observed. These are the pieces of information your model uses to make predictions. In a dataset, these are typically the columns that describe each instance.
-    -   **Labels (Dependent Variables / Outputs / Targets):** The variable that you are trying to predict or explain. For supervised learning, this is the "answer" provided in the training data.
-    -   **Example:** In predicting house prices: "Number of bedrooms," "Square footage," "Location" are **features**, and "House price" is the **label**.
+  - **Numerical Data:** Represents quantities and can be measured.
+    - **Continuous:** Can take any value within a range (e.g., temperature, height, price).
+    - **Discrete:** Can only take specific, distinct values, often integers (e.g., number of children, counts).
+  
+  - **Categorical Data:** Represents categories or groups.
+    - **Nominal:** Categories with no inherent order (e.g., colors - red, blue, green; marital status).
+    - **Ordinal:** Categories with a meaningful order (e.g., education level - high school, bachelor's, master's; rating - low, medium, high).
+
+- **Features and Labels (Independent vs. Dependent Variables):**
+
+  - **Features (Independent Variables / Inputs):** The individual measurable properties or characteristics of the phenomenon being observed. These are the pieces of information your model uses to make predictions. In a dataset, these are typically the columns that describe each instance.
+  - **Labels (Dependent Variables / Outputs / Targets):** The variable that you are trying to predict or explain. For supervised learning, this is the "answer" provided in the training data.
+  - **Example:** In predicting house prices: "Number of bedrooms," "Square footage," "Location" are **features**, and "House price" is the **label**.
 
 -   **Datasets (Training, Validation, Test Sets):**
-    -   To build robust ML models, datasets are typically split into three parts:
-        -   **Training Set:** The largest portion of the data, used to train the machine learning model. The model learns patterns from this data.
-        -   **Validation Set (or Development Set):** Used to tune the model's hyperparameters and to provide an unbiased evaluation of a model _while tuning model hyperparameters_. It helps in preventing overfitting to the training data.
-        -   **Test Set:** A completely unseen portion of the data, used _only once_ at the very end to provide a final, unbiased evaluation of the model's performance. It gives an estimate of how the model will perform on real-world, new data.
+  - To build robust ML models, datasets are typically split into three parts:
+    - **Training Set:** The largest portion of the data, used to train the machine learning model. The model learns patterns from this data.
+    - **Validation Set (or Development Set):** Used to tune the model's hyperparameters and to provide an unbiased evaluation of a model _while tuning model hyperparameters_. It helps in preventing overfitting to the training data.
+    - **Test Set:** A completely unseen portion of the data, used _only once_ at the very end to provide a final, unbiased evaluation of the model's performance. It gives an estimate of how the model will perform on real-world, new data.
 
--   **Data Quality (Missing Values, Outliers):**
-    -   **Missing Values:** Data points that are not recorded for a feature. These need to be handled (e.g., by imputation or removal) as most ML algorithms cannot work with missing data.
-    -   **Outliers:** Data points that significantly deviate from other observations. Outliers can skew model training and lead to inaccurate results if not handled appropriately.
+- **Data Quality (Missing Values, Outliers):**
+  - **Missing Values:** Data points that are not recorded for a feature. These need to be handled (e.g., by imputation or removal) as most ML algorithms cannot work with missing data.
+  - **Outliers:** Data points that significantly deviate from other observations. Outliers can skew model training and lead to inaccurate results if not handled appropriately.
 
+
+---
 
 ### Model Training & Evaluation:
 
