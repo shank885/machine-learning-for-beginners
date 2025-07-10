@@ -192,12 +192,14 @@ Don't let the word "math" intimidate you! For beginners, the focus isn't on prov
 
 ---
 
-### Recommended Libraries (for conceptual understanding, not necessarily coding yet):
+### 2.3 Recommended Libraries (for conceptual understanding, not necessarily coding yet):
 
 While we'll focus on the concepts and math, you'll inevitably interact with these Python libraries in any practical ML endeavor. Familiarizing yourself with their purpose will be beneficial:
 
 - **NumPy:** The fundamental package for numerical computing in Python. It provides powerful array objects and tools for working with them efficiently. All other scientific libraries often build upon NumPy arrays.
+
 - **Pandas:** An essential library for data manipulation and analysis. It introduces DataFrames, which are tabular data structures (like spreadsheets) that make working with structured data intuitive and efficient.
+
 - **Matplotlib/Seaborn:** Libraries for creating static, interactive, and animated visualizations in Python. Visualizing data and model results is a crucial part of the ML workflow.
 
 ---
