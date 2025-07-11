@@ -243,37 +243,44 @@ At the heart of machine learning is data. How data is structured, characterized,
 
 ---
 
-### Model Training & Evaluation:
+### 3.2 Model Training & Evaluation:
 
 This describes the core process of building and assessing an ML model.
 
--   **What is a Model?**
-    
-    -   In machine learning, a "model" is the output of the training process. It's a mathematical function or a set of rules that has learned patterns from the training data. The model can then be used to make predictions or decisions on new data.
+- **What is a Model?**
 
--   **Training a Model:**
-    
-    -   The process of feeding data to a machine learning algorithm so that it can learn the relationships and patterns within that data. During training, the model's internal parameters are adjusted iteratively to minimize a defined error.
+  - In machine learning, a "model" is the output of the training process. It's a mathematical function or a set of rules that has learned patterns from the training data. The model can then be used to make predictions or decisions on new data.
 
--   **Prediction/Inference:**
-    
-    -   Once a model is trained, **prediction** (or **inference**) is the process of using the trained model to make an output for new, unseen input data.
+- **Training a Model:**
 
--   **Underfitting vs. Overfitting:**
-    
-    -   **Underfitting:** Occurs when a model is too simple to capture the underlying patterns in the training data. It performs poorly on both training and test data, indicating that it hasn't learned enough.
-    -   **Overfitting:** Occurs when a model learns the training data _too well_, including noise and irrelevant details. It performs excellently on the training data but poorly on unseen test data, as it fails to generalize.
-    -   **Bias-Variance Tradeoff (Mathematical Intuition):**
-        -   This is a central concept in understanding model performance.
-        -   **Bias:**  The error introduced by approximating a real-world problem, which may be complex, by a simplified model. High bias leads to underfitting.
-        -   **Variance:** The amount that the estimate of the target function will change if different training data was used. High variance leads to overfitting.
-        -   **Tradeoff:** There's an inverse relationship between bias and variance. Reducing one often increases the other. The goal is to find a balance that minimizes the total error (Bias^2 + Variance + Irreducible Error).
+  - The process of feeding data to a machine learning algorithm so that it can learn the relationships and patterns within that data. During training, the model's internal parameters are adjusted iteratively to minimize a defined error.
 
-            <p align="center">
-            $$Total Error = Bias^2 + Variance + Irreducible Error$$
-            </p>
+- **Prediction/Inference:**
+
+  - Once a model is trained, **prediction** (or **inference**) is the process of using the trained model to make an output for new, unseen input data.
+
+- **Underfitting vs. Overfitting:**
+
+  - **Underfitting:** Occurs when a model is too simple to capture the underlying patterns in the training data. It performs poorly on both training and test data, indicating that it hasn't learned enough.
+  
+  - **Overfitting:** Occurs when a model learns the training data _too well_, including noise and irrelevant details. It performs excellently on the training data but poorly on unseen test data, as it fails to generalize.
+
+  - **Bias-Variance Tradeoff (Mathematical Intuition):**
+
+    - This is a central concept in understanding model performance.
+    
+    - **Bias:**  The error introduced by approximating a real-world problem, which may be complex, by a simplified model. High bias leads to underfitting.
+
+    - **Variance:** The amount that the estimate of the target function will change if different training data was used. High variance leads to overfitting.
+    
+    - **Tradeoff:** There's an inverse relationship between bias and variance. Reducing one often increases the other. The goal is to find a balance that minimizes the total error (Bias^2 + Variance + Irreducible Error).
+
+      <p align="center">
+        $$Total Error = Bias^2 + Variance + Irreducible Error$$
+      </p>
 
 * **Model Evaluation Metrics (General Overview for now, detailed later):**
+
   * After training, we need to assess how well our model performs. Different metrics are used depending on the type of problem (regression vs. classification).
 
   * **For Regression:**
@@ -281,7 +288,7 @@ This describes the core process of building and assessing an ML model.
     * **Mean Squared Error (MSE):** Average of the squared differences between predicted and actual values. Penalizes larger errors more.
 
       <p align="center">
-      $$\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$
+        $$\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$
       </p>
 
       * **N**: The total number of data points or observations.
@@ -297,7 +304,7 @@ This describes the core process of building and assessing an ML model.
     * **Mean Absolute Error (MAE):** Average of the absolute differences between predicted and actual values. Less sensitive to outliers than MSE.
 
       <p align="center">
-      $$\text{MAE} = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i|$$
+        $$\text{MAE} = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i|$$
       </p>
 
       * **N**: The total number of data points or observations.
@@ -310,7 +317,7 @@ This describes the core process of building and assessing an ML model.
     * **R-squared (R2):** **R-squared error**, more commonly known as $R^2$ **(R-squared)** or the **coefficient of determination** is a statistical measure used to evaluate the **goodness of fit** of a regression model. It tells us how much of the **variance in the dependent variable (target)** is **explained by the independent variable(s)** in the model.
 
       <p align="center">
-      $$R^2 = 1 - \frac{SS_{res}}{SS_{total}}$$
+        $$R^2 = 1 - \frac{SS_{res}}{SS_{total}}$$
       </p>
 
       * $SS_{res}:$ Residual sum of squares = $∑(yᵢ - ŷᵢ)²$
@@ -327,6 +334,8 @@ This describes the core process of building and assessing an ML model.
       * **F1-Score:** The harmonic mean of Precision and Recall. Useful when you need a balance between Precision and Recall.
       * **Confusion Matrix:** A table that summarizes the performance of a classification model, showing True Positives, True Negatives, False Positives, and False Negatives. (Will be detailed in classification algorithms).
 
+
+---
 
 ### Feature Engineering:
 
