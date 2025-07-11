@@ -329,37 +329,50 @@ This describes the core process of building and assessing an ML model.
     * **For Classification:**
 
       * **Accuracy:** The proportion of correctly predicted instances out of the total instances. (Can be misleading with imbalanced datasets).
+
       * **Precision:** The proportion of correctly predicted positive observations out of all predicted positives. "Of all the times we predicted positive, how many were actually positive?"
+
       * **Recall (Sensitivity):** The proportion of correctly predicted positive observations out of all actual positives. "Of all the actual positives, how many did we correctly identify?"
+
       * **F1-Score:** The harmonic mean of Precision and Recall. Useful when you need a balance between Precision and Recall.
+
       * **Confusion Matrix:** A table that summarizes the performance of a classification model, showing True Positives, True Negatives, False Positives, and False Negatives. (Will be detailed in classification algorithms).
 
 
 ---
 
-### Feature Engineering:
+### 3.3 Feature Engineering:
 
 The process of creating new features or transforming existing ones from raw data to improve the performance of machine learning models. It's often more impactful than algorithm tuning.
 
--   **Definition and Importance:**
-    -   **Definition:** The art of creating new input features from existing ones that are more informative and useful for your machine learning model.
-    -   **Importance:** Well-engineered features can significantly boost model accuracy, even with simpler algorithms, by allowing the model to better understand the underlying patterns.
--   **Common Techniques:**
-    -   **One-hot encoding:** Converting categorical variables into a numerical format that ML algorithms can understand without implying an artificial order. For a feature with N categories, it creates N new binary features.
-    -   **Scaling:** Adjusting the range of feature values.
-        -   **Standardization (Z-score normalization):** Rescales data to have a mean (μ) of 0 and a standard deviation (σ) of 1.
+- **Definition and Importance:**
 
-            <p align="center">
-            $$z = \frac{x - \mu}{\sigma}$$
-            </p>
+    - **Definition:** The art of creating new input features from existing ones that are more informative and useful for your machine learning model.
 
-        -   **Normalization (Min-Max scaling):** Rescales data to a fixed range, usually between 0 and 1.
+    - **Importance:** Well-engineered features can significantly boost model accuracy, even with simpler algorithms, by allowing the model to better understand the underlying patterns.
 
-            <p align="center">
-            $$x_{scaled} = \frac{x - x_{min}}{x_{max} - x_{min}}$$
-            </p>
+- **Common Techniques:**
 
-        -   **Why Scale?** Many ML algorithms (like Gradient Descent, KNN, SVM) are sensitive to the scale of input features because they involve distance calculations or weight updates. Scaling prevents features with larger ranges from dominating the learning process.
+  - **One-hot encoding:** Converting categorical variables into a numerical format that ML algorithms can understand without implying an artificial order. For a feature with N categories, it creates N new binary features.
+
+  - **Scaling:** Adjusting the range of feature values.
+
+    - **Standardization (Z-score normalization):** Rescales data to have a mean (μ) of 0 and a standard deviation (σ) of 1.
+
+      <p align="center">
+        $$z = \frac{x - \mu}{\sigma}$$
+      </p>
+
+    - **Normalization (Min-Max scaling):** Rescales data to a fixed range, usually between 0 and 1.
+
+      <p align="center">
+        $$x_{scaled} = \frac{x - x_{min}}{x_{max} - x_{min}}$$
+      </p>
+
+    - **Why Scale?** Many ML algorithms (like Gradient Descent, KNN, SVM) are sensitive to the scale of input features because they involve distance calculations or weight updates. Scaling prevents features with larger ranges from dominating the learning process.
+
+
+---
 
 ### Optimization:
 
