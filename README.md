@@ -374,25 +374,34 @@ The process of creating new features or transforming existing ones from raw data
 
 ---
 
-### Optimization:
+### 3.4 Optimization:
 
 It is the process of finding the best set of model parameters that minimize the model's error (cost/loss).
 
--   **Cost/Loss Functions (What they are, why we use them):**
-    -   **Definition:** A function that quantifies the "error" or "cost" associated with a model's predictions. The lower the cost, the better the model's performance.
-    -   **Why use them?** They provide a measurable objective that the ML algorithm tries to minimize during training, guiding the learning process. Different ML tasks (e.g., regression vs. classification) use different types of cost functions.
+- **Cost/Loss Functions (What they are, why we use them):**
 
--   **Gradient Descent (Intuition and basic math for univariate):**
-    -   **Definition:** An iterative optimization algorithm used to find the minimum of a function (our cost function). It works by taking small steps in the direction of the steepest decrease of the function.
-    -   **Intuition:** Imagine you are blindfolded on a mountain and want to reach the lowest point. You'd feel the slope around you and take a small step downhill in the steepest direction. You repeat this until you can't go down further.
-    -   **Learning Rate (α):**
-        -   A crucial hyperparameter in Gradient Descent. It controls the size of the steps taken towards the minimum.
-        -   Too large α: May overshoot the minimum or even diverge.
-        -   Too small α: Training will be very slow and may get stuck in local minima.
-    -   **Batch vs. Stochastic vs. Mini-batch Gradient Descent:** These are variations of Gradient Descent differing in how much data they use to compute the gradient at each step.
-        -   **Batch Gradient Descent:** Uses the entire training dataset to compute the gradient for each step. Can be slow for large datasets but guarantees convergence to a minimum.
-        -   **Stochastic Gradient Descent (SGD):** Uses only one randomly chosen training example at each step to compute the gradient. Faster but with more noisy updates, leading to oscillations around the minimum.
-        -   **Mini-batch Gradient Descent:** A compromise between Batch and SGD. Uses a small random subset (mini-batch) of the training data at each step. This offers a good balance of speed and stability.
+  - **Definition:** A function that quantifies the "error" or "cost" associated with a model's predictions. The lower the cost, the better the model's performance.
+
+  - **Why use them?** They provide a measurable objective that the ML algorithm tries to minimize during training, guiding the learning process. Different ML tasks (e.g., regression vs. classification) use different types of cost functions.
+
+- **Gradient Descent (Intuition and basic math for univariate):**
+
+  - **Definition:** An iterative optimization algorithm used to find the minimum of a function (our cost function). It works by taking small steps in the direction of the steepest decrease of the function.
+
+  - **Intuition:** Imagine you are blindfolded on a mountain and want to reach the lowest point. You'd feel the slope around you and take a small step downhill in the steepest direction. You repeat this until you can't go down further.
+
+  - **Learning Rate (α):**
+    - A crucial hyperparameter in Gradient Descent. It controls the size of the steps taken towards the minimum.
+    - Too large α: May overshoot the minimum or even diverge.
+    - Too small α: Training will be very slow and may get stuck in local minima.
+
+  - **Batch vs. Stochastic vs. Mini-batch Gradient Descent:** These are variations of Gradient Descent differing in how much data they use to compute the gradient at each step.
+
+    - **Batch Gradient Descent:** Uses the entire training dataset to compute the gradient for each step. Can be slow for large datasets but guarantees convergence to a minimum.
+
+    - **Stochastic Gradient Descent (SGD):** Uses only one randomly chosen training example at each step to compute the gradient. Faster but with more noisy updates, leading to oscillations around the minimum.
+
+    - **Mini-batch Gradient Descent:** A compromise between Batch and SGD. Uses a small random subset (mini-batch) of the training data at each step. This offers a good balance of speed and stability.
 
 ---
 
