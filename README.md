@@ -409,6 +409,8 @@ It is the process of finding the best set of model parameters that minimize the 
 
 While Machine Learning often feels like coding, at its core, it's deeply rooted in mathematics. A solid grasp of these mathematical fundamentals isn't about memorizing complex proofs, but about building intuition for *why* algorithms work the way they do and understanding their limitations. This section will lay out the essential concepts from Linear Algebra, Calculus, and Probability & Statistics.
 
+---
+
 ### 4.1. Linear Algebra:
 
 Linear Algebra is the mathematics of vectors, matrices, and linear transformations. It's the language used to represent data, features, and model parameters in machine learning, making it fundamental for almost every algorithm.
@@ -500,6 +502,7 @@ Linear Algebra is the mathematics of vectors, matrices, and linear transformatio
 
   * **Algorithm Operations:** Core operations of many algorithms (e.g., dot products for predictions, matrix multiplications in neural networks) are linear algebraic.
 
+---
 
 ### 4.2. Calculus:
 
@@ -532,6 +535,8 @@ Calculus is the study of change. In Machine Learning, it's primarily used for **
     * **Optimization (Gradient Descent):** Derivatives are the backbone of Gradient Descent, telling us which direction to adjust model parameters to reduce the cost.
     * **Backpropagation:** The algorithm for training neural networks relies heavily on the chain rule for calculating gradients.
     * **Loss Functions:** Many loss functions are designed to be differentiable, enabling gradient-based optimization.
+
+---
 
 ### 4.3. Probability & Statistics:
 
