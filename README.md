@@ -769,13 +769,13 @@ Classification algorithms are used when the target variable is a discrete catego
 Despite its name, Logistic Regression is a fundamental **classification algorithm**, not a regression algorithm. It's used for predicting the probability that an instance belongs to a particular class (e.g., 0 or 1, true or false).
 
 * **Binary Classification (Sigmoid Function):**
-  
+
   * For binary classification, Logistic Regression uses the **Sigmoid function** (also called the Logistic function) to squash the output of a linear equation into a probability between 0 and 1.
-  
+
   * The linear part is: $z = \theta^T \mathbf{x}$
-  
+
   * The Sigmoid function $\sigma(z)$ is:
-    
+
     <p align="center">
       $$\sigma(z) = \frac{1}{1 + e^{-z}}$$
     </p>
@@ -803,7 +803,7 @@ Despite its name, Logistic Regression is a fundamental **classification algorith
     </p>
 
   * The overall cost function $J(\theta)$ for $m$ training examples is the average of these costs:
-    
+
     <p align="center">
       <img src="assets/lr_cf_2.jpg" alt="Matrix A" width="400"/>
     </p>
@@ -812,7 +812,7 @@ Despite its name, Logistic Regression is a fundamental **classification algorith
 * **Gradient Descent for Logistic Regression (Derivations & Update Rules):**
 
   * Similar to linear regression, Gradient Descent is used to minimize the cross-entropy cost function.
-  
+
   * The **update rule** for each parameter $\theta_j$ is still:
 
     <p align="center">
@@ -825,13 +825,12 @@ Despite its name, Logistic Regression is a fundamental **classification algorith
       $$\frac{\partial}{\partial \theta_j} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}$$
     </p>
 
-
 * **Decision Boundary:**
 
   * Logistic Regression creates a **linear decision boundary** in the feature space. This is a line (or hyperplane in higher dimensions) that separates the different classes. Instances falling on one side of the boundary are classified into one class, and instances on the other side into the other class.
 
 * **Evaluation Metrics (Specific to Classification):**
-  
+
   * **Confusion Matrix:** A table that summarizes the performance of a classification model. It shows the number of:
     * **True Positives (TP):** Correctly predicted positive cases.
     * **True Negatives (TN):** Correctly predicted negative cases.
@@ -849,7 +848,7 @@ Despite its name, Logistic Regression is a fundamental **classification algorith
     </p>
 
     * *Limitations:* Can be misleading with imbalanced datasets. If 95% of emails are not spam, a model that always predicts "not spam" will have 95% accuracy but be useless.
-    
+
   * **Precision:** Of all positive predictions, how many were correct?
 
     <p align="center">
