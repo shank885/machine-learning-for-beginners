@@ -955,7 +955,7 @@ Decision Trees are versatile non-parametric supervised learning algorithms used 
   * Techniques used to reduce the size of decision trees by removing sections of the tree that provide little power to classify instances. This helps to prevent overfitting.
 
     * **Pre-pruning (Early Stopping):** Stop the tree growth early (e.g., limit max depth, min samples per leaf).
-    
+
     * **Post-pruning:** Grow the full tree and then remove branches that don't contribute significantly to accuracy.
 
 ---
