@@ -965,13 +965,15 @@ Decision Trees are versatile non-parametric supervised learning algorithms used 
 SVMs are powerful and versatile supervised learning models used for both classification and regression, but are primarily known for classification.
 
 * **Hyperplane and Margins:**
-    * **Concept:** SVMs aim to find the "best" hyperplane that separates data points of different classes in a high-dimensional space.
-    * **Hyperplane:** A decision boundary. In 2D, it's a line; in 3D, it's a plane; in higher dimensions, it's a hyperplane.
-    * **Margin:** SVMs choose the hyperplane that has the largest possible **margin** (the distance between the hyperplane and the nearest data points from each class, called support vectors). A larger margin generally leads to better generalization.
+
+  * **Concept:** SVMs aim to find the "best" hyperplane that separates data points of different classes in a high-dimensional space.
+  * **Hyperplane:** A decision boundary. In 2D, it's a line; in 3D, it's a plane; in higher dimensions, it's a hyperplane.
+  * **Margin:** SVMs choose the hyperplane that has the largest possible **margin** (the distance between the hyperplane and the nearest data points from each class, called support vectors). A larger margin generally leads to better generalization.
 
 * **Kernel Trick (Brief mention):**
-    * **Concept:** SVMs can handle non-linear classification tasks by using the "kernel trick." A kernel function implicitly maps the input features into a higher-dimensional space where a linear decision boundary (hyperplane) can then effectively separate the classes.
-    * **Common Kernels:** Polynomial Kernel, Radial Basis Function (RBF) Kernel.
+
+  * **Concept:** SVMs can handle non-linear classification tasks by using the "kernel trick." A kernel function implicitly maps the input features into a higher-dimensional space where a linear decision boundary (hyperplane) can then effectively separate the classes.
+  * **Common Kernels:** Polynomial Kernel, Radial Basis Function (RBF) Kernel.
 
 ---
 
