@@ -884,27 +884,33 @@ Despite its name, Logistic Regression is a fundamental **classification algorith
 KNN is a simple, non-parametric, lazy learning algorithm used for both classification and regression.
 
 * **How it works (Distance metric - Euclidean):**
-    1.  **"Lazy" Learning:** It doesn't learn a discriminative function from the training data, but simply memorizes the training dataset.
-    2.  **Prediction:** To classify a new, unseen data point:
-        * Calculate the **distance** (commonly Euclidean distance) between the new data point and all training data points.
-        * Identify the `K` nearest neighbors (training points closest to the new point).
-        * For **classification:** The new point is assigned the class that is most common among its `K` nearest neighbors (majority vote).
-        * For **regression:** The new point's value is the average (or weighted average) of the values of its `K` nearest neighbors.
-    * **Euclidean Distance** between two points $P=(p_1, p_2, \dots, p_n)$ and $Q=(q_1, q_2, \dots, q_n)$:
-        
-        <p align="center">
-         $$d(P, Q) = \sqrt{\sum_{i=1}^{n} (p_i - q_i)^2}$$
-        </p>
+
+  1. **"Lazy" Learning:** It doesn't learn a discriminative function from the training data, but simply memorizes the training dataset.
+
+  2. **Prediction:** To classify a new, unseen data point:
+
+    * Calculate the **distance** (commonly Euclidean distance) between the new data point and all training data points.
+    * Identify the `K` nearest neighbors (training points closest to the new point).
+    * For **classification:** The new point is assigned the class that is most common among its `K` nearest neighbors (majority vote).
+    * For **regression:** The new point's value is the average (or weighted average) of the values of its `K` nearest neighbors.
+
+  * **Euclidean Distance** between two points $P=(p_1, p_2, \dots, p_n)$ and $Q=(q_1, q_2, \dots, q_n)$:
+
+    <p align="center">
+      $$d(P, Q) = \sqrt{\sum_{i=1}^{n} (p_i - q_i)^2}$$
+    </p>
 
 * **Choosing K:**
-    * `K` is a crucial hyperparameter.
-    * A small `K` (e.g., K=1) makes the model sensitive to noise and outliers, leading to high variance (overfitting).
-    * A large `K` smooths out the decision boundary, reducing variance but potentially increasing bias (underfitting) by including too many distant points.
-    * `K` is typically chosen via cross-validation.
+
+  * `K` is a crucial hyperparameter.
+  * A small `K` (e.g., K=1) makes the model sensitive to noise and outliers, leading to high variance (overfitting).
+  * A large `K` smooths out the decision boundary, reducing variance but potentially increasing bias (underfitting) by including too many distant points.
+  * `K` is typically chosen via cross-validation.
 
 * **Advantages and Disadvantages:**
-    * **Pros:** Simple to understand and implement, no training phase (lazy), easily adapts to new training data.
-    * **Cons:** Can be computationally expensive during prediction (has to calculate distances to all training points), sensitive to irrelevant features, scales poorly with high-dimensional data ("curse of dimensionality"), sensitive to feature scaling.
+
+  * **Pros:** Simple to understand and implement, no training phase (lazy), easily adapts to new training data.
+  * **Cons:** Can be computationally expensive during prediction (has to calculate distances to all training points), sensitive to irrelevant features, scales poorly with high-dimensional data ("curse of dimensionality"), sensitive to feature scaling.
 
 ---
 
