@@ -747,13 +747,14 @@ Linear Regression is one of the simplest and most fundamental algorithms in mach
 #### 5.1.2. Polynomial Regression (Brief overview, transformation of linear regression)
 
 * **Concept:** Polynomial Regression is a form of linear regression where the relationship between the independent variable $x$ and the dependent variable $y$ is modeled as an $n$-th degree polynomial. It's still considered "linear" because it's linear in terms of its parameters ($\theta$).
+
 * **Equation (Example for degree 2):**
-    
-    <p align="center">
-        $$h_\theta(x) = \theta_0 + \theta_1 x + \theta_2 x^2$$
-    </p>
-    
-    * You effectively create new features by taking powers of the original features. Once these polynomial features are created, the model is trained using the same linear regression techniques (e.g., Gradient Descent or Normal Equation).
+
+  <p align="center">
+    $$h_\theta(x) = \theta_0 + \theta_1 x + \theta_2 x^2$$
+  </p>
+
+  * You effectively create new features by taking powers of the original features. Once these polynomial features are created, the model is trained using the same linear regression techniques (e.g., Gradient Descent or Normal Equation).
 
 ---
 
