@@ -622,16 +622,17 @@ Regression algorithms are used when the target variable is a continuous numerica
 
 ---
 
-#### **Linear Regression:**
+#### 5.1.1 **Linear Regression:**
 
 Linear Regression is one of the simplest and most fundamental algorithms in machine learning. It models the relationship between a dependent variable (label) and one or more independent variables (features) by fitting a linear equation to the observed data.
 
 * **Simple Linear Regression (Equation, Assumptions):**
+
   * **Equation:** For a single feature $x$, the relationship is modeled as a straight line:
 
-      <p align="center">
-        $$h_\theta(x) = \theta_0 + \theta_1 x$$
-      </p>
+    <p align="center">
+      $$h_\theta(x) = \theta_0 + \theta_1 x$$
+    </p>
 
     Where:
     * $h_\theta(x)$ (or $\hat{y}$) is the predicted output.
@@ -647,92 +648,99 @@ Linear Regression is one of the simplest and most fundamental algorithms in mach
     * **No or Little Multicollinearity:** Independent variables are not highly correlated with each other.
 
 * **Multiple Linear Regression:**
-    * Extends simple linear regression to include multiple features. The equation becomes:
 
-        <p align="center">
-            $$h_\theta(\mathbf{x}) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \dots + \theta_n x_n$$
-        </p>
+  * Extends simple linear regression to include multiple features. The equation becomes:
 
-        In a more compact **vectorized form**, where $\mathbf{x}$ is a vector of features (with $x_0=1$ for the intercept term) and $\theta$ is a vector of parameters:
+    <p align="center">
+      $$h_\theta(\mathbf{x}) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \dots + \theta_n x_n$$
+    </p>
 
-        <p align="center">
-            $$h_\theta(\mathbf{x}) = \theta^T \mathbf{x}$$
-        </p>
+    In a more compact **vectorized form**, where $\mathbf{x}$ is a vector of features (with $x_0=1$ for the intercept term) and $\theta$ is a vector of parameters:
+
+    <p align="center">
+        $$h_\theta(\mathbf{x}) = \theta^T \mathbf{x}$$
+    </p>
 
 * **Cost Function (Mean Squared Error - MSE):**
-    * To find the "best" line, we need to define what "best" means. This is done by a **Cost Function**, which measures the difference between our model's predictions and the actual target values. For Linear Regression, the **Mean Squared Error (MSE)** is commonly used. Our goal is to find the values of $\theta$ that minimize this cost.
-    * The cost function $J(\theta)$ for $m$ training examples is:
 
-        <p align="center">
-            $$J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2$$
-        </p>
+  * To find the "best" line, we need to define what "best" means. This is done by a **Cost Function**, which measures the difference between our model's predictions and the actual target values. For Linear Regression, the **Mean Squared Error (MSE)** is commonly used. Our goal is to find the values of $\theta$ that minimize this cost.
+  * The cost function $J(\theta)$ for $m$ training examples is:
 
-        Where:
-        * $m$ is the number of training examples.
-        * $h_\theta(x^{(i)})$ is the model's prediction for the $i$-th training example.
-        * $y^{(i)}$ is the actual target value for the $i$-th training example.
+    <p align="center">
+      $$J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})^2$$
+    </p>
+
+    Where:
+    * $m$ is the number of training examples.
+    * $h_\theta(x^{(i)})$ is the model's prediction for the $i$-th training example.
+    * $y^{(i)}$ is the actual target value for the $i$-th training example.
+
 
 * **Gradient Descent for Linear Regression (Derivations & Update Rules):**
-    * **Gradient Descent** is an iterative optimization algorithm used to find the values of $\theta$ (parameters) that minimize the cost function $J(\theta)$. It repeatedly adjusts the parameters in the direction opposite to the gradient of the cost function.
-    * The **update rule** for each parameter $\theta_j$ is:
 
-        <p align="center">
-            $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
-        </p>
+  * **Gradient Descent** is an iterative optimization algorithm used to find the values of $\theta$ (parameters) that minimize the cost function $J(\theta)$. It repeatedly adjusts the parameters in the direction opposite to the gradient of the cost function.
+  * The **update rule** for each parameter $\theta_j$ is:
 
-        Where:
-        * $\alpha$ (alpha) is the **learning rate**, a hyperparameter that controls the step size of each update.
-        * $\frac{\partial}{\partial \theta_j} J(\theta)$ is the partial derivative of the cost function with respect to parameter $\theta_j$. This derivative tells us the slope (gradient) of the cost function with respect to that parameter.
+    <p align="center">
+      $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
+    </p>
 
-    * **Partial Derivatives for Linear Regression Cost Function:**
-        * For $\theta_0$ (intercept):
+    Where:
+    * $\alpha$ (alpha) is the **learning rate**, a hyperparameter that controls the step size of each update.
+    * $\frac{\partial}{\partial \theta_j} J(\theta)$ is the partial derivative of the cost function with respect to parameter $\theta_j$. This derivative tells us the slope (gradient) of the cost function with respect to that parameter.
 
-        <p align="center">
-            $$\frac{\partial}{\partial \theta_0} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})$$
-        </p>
+  * **Partial Derivatives for Linear Regression Cost Function:**
+    * For $\theta_0$ (intercept):
 
-        * For $\theta_j$ (for $j=1, \dots, n$ features):
-        
-        <p align="center">
-            $$\frac{\partial}{\partial \theta_j} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}$$
-        </p>
+      <p align="center">
+        $$\frac{\partial}{\partial \theta_0} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})$$
+      </p>
+
+      * For $\theta_j$ (for $j=1, \dots, n$ features):
+
+      <p align="center">
+        $$\frac{\partial}{\partial \theta_j} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}$$
+      </p>
 
 * **Normal Equation (Alternative for analytical solution):**
-    * For linear regression, there's a closed-form solution to find the optimal $\theta$ values without iteration. This is called the **Normal Equation**.
 
-        <p align="center">
-            $$\theta = (X^T X)^{-1} X^T \mathbf{y}$$
-        </p>
-    
-        Where:
-        * $\theta$ is the vector of optimal parameters.
-        * $X$ is the design matrix (matrix of features, with a column of ones for the intercept).
-        * $X^T$ is the transpose of $X$.
-        * $(X^T X)^{-1}$ is the inverse of the matrix $(X^T X)$.
-        * $\mathbf{y}$ is the vector of actual target values.
-    * **Pros:** No need to choose a learning rate $\alpha$, no iteration.
-    * **Cons:** Computationally expensive for very large datasets as it requires calculating a matrix inverse, which scales poorly with the number of features ($O(n^3)$ complexity). Gradient Descent is preferred for large datasets or many features.
+  * For linear regression, there's a closed-form solution to find the optimal $\theta$ values without iteration. This is called the **Normal Equation**.
+
+    <p align="center">
+      $$\theta = (X^T X)^{-1} X^T \mathbf{y}$$
+    </p>
+
+    Where:
+    * $\theta$ is the vector of optimal parameters.
+    * $X$ is the design matrix (matrix of features, with a column of ones for the intercept).
+    * $X^T$ is the transpose of $X$.
+    * $(X^T X)^{-1}$ is the inverse of the matrix $(X^T X)$.
+    * $\mathbf{y}$ is the vector of actual target values.
+
+  * **Pros:** No need to choose a learning rate $\alpha$, no iteration.
+  * **Cons:** Computationally expensive for very large datasets as it requires calculating a matrix inverse, which scales poorly with the number of features ($O(n^3)$ complexity). Gradient Descent is preferred for large datasets or many features.
 
 * **Evaluation Metrics (Revisit from Section 3, now in context):**
-    * **Mean Squared Error (MSE):** Already discussed as the cost function.
-        
-        <p align="center">
-            $$\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$
-        </p>
-    
-    * **Mean Absolute Error (MAE):**
-        
-        <p align="center">
-            $$MAE = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i|$$
-        </p>
-    
-    * **R-squared ($R^2$):** Also known as the coefficient of determination. It measures the proportion of the variance in the dependent variable that can be explained by the independent variables. Values range from 0 to 1, with 1 indicating a perfect fit.
 
-        <p align="center">
-            $$R^2 = 1 - \frac{\sum_{i=1}^{N} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{N} (y_i - \bar{y})^2}$$
-        </p>
+  * **Mean Squared Error (MSE):** Already discussed as the cost function.
 
-        * The numerator is the sum of squared residuals (SSR) and the denominator is the total sum of squares (SST).
+    <p align="center">
+      $$\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2$$
+    </p>
+
+  * **Mean Absolute Error (MAE):**
+
+    <p align="center">
+      $$MAE = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i|$$
+    </p>
+
+  * **R-squared ($R^2$):** Also known as the coefficient of determination. It measures the proportion of the variance in the dependent variable that can be explained by the independent variables. Values range from 0 to 1, with 1 indicating a perfect fit.
+
+    <p align="center">
+      $$R^2 = 1 - \frac{\sum_{i=1}^{N} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{N} (y_i - \bar{y})^2}$$
+    </p>
+
+    * The numerator is the sum of squared residuals (SSR) and the denominator is the total sum of squares (SST).
 
 ---
 
