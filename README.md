@@ -1000,21 +1000,21 @@ K-Means is one of the most popular and simplest unsupervised learning algorithms
 
 * **How it Works (Iterative Process):**
 
-  1.  **Initialization:** Randomly select $K$ data points from the dataset as initial cluster centroids.
+  1. **Initialization:** Randomly select $K$ data points from the dataset as initial cluster centroids.
 
-  2.  **Assignment Step (E-step - Expectation):** Assign each data point to the closest centroid. The "closest" is typically determined using **Euclidean distance** (or squared Euclidean distance).
+  2. **Assignment Step (E-step - Expectation):** Assign each data point to the closest centroid. The "closest" is typically determined using **Euclidean distance** (or squared Euclidean distance).
 
     <p align="center">
       <img src="assets/k-means_assignment.jpg" alt="Matrix A" width="500"/>
     </p>
 
-  3.  **Update Step (M-step - Maximization):** Recalculate the position of each cluster centroid by taking the mean of all data points assigned to that cluster.
+  3. **Update Step (M-step - Maximization):** Recalculate the position of each cluster centroid by taking the mean of all data points assigned to that cluster.
 
     <p align="center">
       <img src="assets/k-means_update.jpg" alt="Matrix A" width="200"/>
     </p>
 
-  4.  **Convergence:** Repeat steps 2 and 3 until the centroids no longer move significantly or a maximum number of iterations is reached.
+  4. **Convergence:** Repeat steps 2 and 3 until the centroids no longer move significantly or a maximum number of iterations is reached.
 
 * **Objective Function (Inertia/Within-Cluster Sum of Squares - WCSS):**
 
