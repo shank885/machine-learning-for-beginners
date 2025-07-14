@@ -1090,7 +1090,7 @@ PCA is a widely used linear dimensionality reduction technique. It transforms th
   * PCA relies on finding the **eigenvectors** and **eigenvalues** of the data's covariance matrix.
 
   * **Covariance Matrix ($\Sigma$):** A square matrix that shows the covariance between each pair of features in the dataset.
-    
+
     * For a dataset with $n$ features, $\Sigma$ will be an $n \times n$ matrix.
 
       <p align="center">
@@ -1103,15 +1103,15 @@ PCA is a widely used linear dimensionality reduction technique. It transforms th
 
 * **Steps (High-level):**
 
-  1.  **Standardize the data:** Scale the features to have zero mean and unit variance. This is crucial as PCA is sensitive to the scale of features.
+  1. **Standardize the data:** Scale the features to have zero mean and unit variance. This is crucial as PCA is sensitive to the scale of features.
   
-  2.  **Compute the covariance matrix:** Calculate the covariance matrix of the standardized data.
-  
-  3.  **Calculate eigenvectors and eigenvalues:** Find the eigenvectors and eigenvalues of the covariance matrix.
-  
-  4.  **Select principal components:** Order the eigenvectors by their corresponding eigenvalues in descending order. Choose the top $k$ eigenvectors (principal components) that capture a sufficient amount of variance (e.g., 95%).
-  
-  5.  **Transform the data:** Project the original (standardized) data onto the selected $k$ principal components.
+  2. **Compute the covariance matrix:** Calculate the covariance matrix of the standardized data.
+
+  3. **Calculate eigenvectors and eigenvalues:** Find the eigenvectors and eigenvalues of the covariance matrix.
+
+  4. **Select principal components:** Order the eigenvectors by their corresponding eigenvalues in descending order. Choose the top $k$ eigenvectors (principal components) that capture a sufficient amount of variance (e.g., 95%).
+
+  5. **Transform the data:** Project the original (standardized) data onto the selected $k$ principal components.
 
 * **Scree Plot / Explained Variance Ratio:**
 
