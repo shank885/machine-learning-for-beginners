@@ -1199,7 +1199,6 @@ Q-Learning is a popular off-policy, value-based reinforcement learning algorithm
 
 * **Concept:** Q-Learning learns the optimal Q-value function, Q*(s, a), which represents the maximum expected future reward for taking action `a` in state `s`. Once Q*(s, a) is learned, the optimal policy is simply to take the action with the highest Q-value in any given state.
 
-
   <p align="center">
     <img src="assets/q_learning_concepts.jpg" alt="Matrix A" width="250"/>
   </p>
@@ -1265,10 +1264,13 @@ SARSA is another popular on-policy, value-based reinforcement learning algorithm
 
 * **SARSA Update Rule:**
 
-  $$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ R + \gamma Q(s',a') - Q(s,a) \right]$$
-    Where:
-      * $s, a, R, s'$ are the current state, action, reward, and next state, respectively.
-      * $a'$ is the **action chosen in the next state $s'$ according to the current policy (e.g., epsilon-greedy)**. This is the crucial difference from Q-Learning, which uses $\max_{a'} Q(s',a')$.
+  <p align="center">
+    $$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ R + \gamma Q(s',a') - Q(s,a) \right]$$
+  </p>
+
+  Where:
+    * $s, a, R, s'$ are the current state, action, reward, and next state, respectively.
+    * $a'$ is the **action chosen in the next state $s'$ according to the current policy (e.g., epsilon-greedy)**. This is the crucial difference from Q-Learning, which uses $\max_{a'} Q(s',a')$.
 
 * **On-Policy vs. Off-Policy (Key Distinction):**
 
