@@ -20,35 +20,53 @@ Embark on your Machine Learning journey with confidence! This repository is your
     * [1.3 Types of Machine Learning](#13-types-of-machine-learning)
 * [2. Prerequisites for Machine Learning](#2-prerequisites-for-machine-learning)
     * [2.1 Python Basics](#21-python-basics)
-    * [2.2 Fundamental Math Concepts (Overview)](#22-fundamental-math-concepts-overview)
-    * [2.3 Recommended Libraries](#23-recommended-libraries-for-conceptual-understanding-not-necessarily-coding-yet)
+    * [2.2 Fundamental Math Concepts Overview](#22-fundamental-math-concepts-overview)
+    * [2.3 Recommended Libraries for Conceptual Understanding Not Necessarily Coding Yet](#23-recommended-libraries-for-conceptual-understanding-not-necessarily-coding-yet)
 * [3. Core Concepts in Machine Learning](#3-core-concepts-in-machine-learning)
     * [3.1 Data Fundamentals](#31-data-fundamentals)
-    * [3.2 Model Training & Evaluation](#32-model-training--evaluation)
+    * [3.2 Model Training--Evaluation](#32-model-training--evaluation)
     * [3.3 Feature Engineering](#33-feature-engineering)
     * [3.4 Optimization](#34-optimization)
 * [4. Mathematical Foundations for Machine Learning](#4-mathematical-foundations-for-machine-learning)
     * [4.1 Linear Algebra](#41-linear-algebra)
     * [4.2 Calculus](#42-calculus)
-    * [4.3 Probability & Statistics](#43-probability--statistics)
-* [5. Supervised Learning Algorithms (Concepts & Math)](#5-supervised-learning-algorithms-concepts--math)
+    * [4.3 Probability--Statistics](#43-probability--statistics)
+* [5. Supervised Learning Algorithms Concepts--Math](#5-supervised-learning-algorithms-concepts--math)
     * [5.1 Regression Algorithms](#51-regression-algorithms)
-        * [5.1.1 Linear Regression](#511-linear-regression)
-        * [5.1.2 Polynomial Regression](#512-polynomial-regression-brief-overview-transformation-of-linear-regression)
+        * [Linear Regression](#linear-regression)
+        * [Polynomial Regression Brief Overview Transformation of Linear Regression](#polynomial-regression-brief-overview-transformation-of-linear-regression)
     * [5.2 Classification Algorithms](#52-classification-algorithms)
-        * [5.2.1 Logistic Regression](#521-logistic-regression)
-        * [5.2.2 K-Nearest Neighbors (KNN)](#522-k-nearest-neighbors-knn)
-        * [5.2.3 Decision Trees](#523-decision-trees)
-        * [5.2.4 Support Vector Machines (SVM)](#524-support-vector-machines-svm-conceptual-introduction)
-* [6. Unsupervised Learning Algorithms (Concepts & Math)](#6-unsupervised-learning-algorithms-concepts--math)
+        * [Logistic Regression](#logistic-regression)
+        * [K-Nearest Neighbors KNN](#k-nearest-neighbors-knn)
+        * [Decision Trees](#decision-trees)
+        * [Support Vector Machines SVM Conceptual Introduction](#support-vector-machines-svm-conceptual-introduction)
+* [6. Unsupervised Learning Algorithms Concepts--Math](#6-unsupervised-learning-algorithms-concepts--math)
     * [6.1 Clustering Algorithms](#61-clustering-algorithms)
-        * [6.1.1 K-Means Clustering](#611-k-means-clustering)
-        * [6.1.2 Hierarchical Clustering](#612-hierarchical-clustering-conceptual)
+        * [K-Means Clustering](#k-means-clustering)
+        * [Hierarchical Clustering Conceptual](#hierarchical-clustering-conceptual)
     * [6.2 Dimensionality Reduction](#62-dimensionality-reduction)
-* [7. Model Selection & Improvement (Advanced Beginner Topics)](#7-model-selection--improvement-advanced-beginner-topics)
-* [8. Next Steps & Further Learning](#8-next-steps--further-learning)
-* [9. Contribution Guidelines](#9-contribution-guidelines)
-* [10. License](#10-license)
+* [7. Reinforcement Learning (Concepts & Algorithms)](#7-reinforcement-learning-concepts--algorithms)
+  * [7.1 Core Concepts in Reinforcement Learning](#71-core-concepts-in-reinforcement-learning)
+  * [7.2 Key Reinforcement Learning Algorithms](#72-key-reinforcement-learning-algorithms)
+    * [Q-Learning](#721-q-learning-value-based-model-free)
+    * [SARSA](#722-sarsa-state-action-reward-state-action-value-based-model-free)
+  * [7.3 Deep Reinforcement Learning (Conceptual)](#73-deep-reinforcement-learning-conceptual)
+* [8. Deep Learning (Concepts & Architectures)](#8-deep-learning-concepts--architectures)
+  * [8.1 Introduction to Neural Networks](#81-introduction-to-neural-networks)
+  * [8.2 Backpropagation (Conceptual)](#82-backpropagation-conceptual)
+  * [8.3 Common Deep Learning Architectures](#83-common-deep-learning-architectures)
+    * [Feedforward Neural Networks (FNNs) / Multi-Layer Perceptrons (MLPs)](#831-feedforward-neural-networks-fnns--multi-layer-perceptrons-mlps)
+    * [Convolutional Neural Networks (CNNs)](#832-convolutional-neural-networks-cnns)
+    * [Recurrent Neural Networks (RNNs)](#833-recurrent-neural-networks-rnns)
+  * [8.4 Training Deep Networks](#84-training-deep-networks)
+* [9. Natural Language Processing (Concepts & Deep Learning)](#9-natural-language-processing-concepts--deep-learning)
+  * [9.1 Introduction to NLP](#91-introduction-to-nlp)
+  * [9.2 Traditional NLP Techniques (Rule-Based & Statistical)](#92-traditional-nlp-techniques-rule-based--statistical)
+  * [9.3 Word Embeddings (Distributed Representations)](#93-word-embeddings-distributed-representations)
+  * [9.4 Deep Learning for NLP](#94-deep-learning-for-nlp)
+  * [9.5 NLP Tasks & Applications (Overview)](#95-nlp-tasks--applications-overview)
+* [10. Contribution Guidelines](#10-contribution-guidelines)
+* [11. License](#11-license)
 
 ---
 
@@ -186,7 +204,7 @@ Python is the lingua franca of Machine Learning due to its simplicity, vast ecos
 
 ---
 
-### 2.2 Fundamental Math Concepts (Overview):
+### 2.2 Fundamental Math Concepts Overview:
 
 Don't let the word "math" intimidate you! For beginners, the focus isn't on proving theorems but on understanding the intuition behind the concepts and how they apply to ML. This repository will delve into the _math behind it_ in subsequent sections, but a high-level familiarity helps:
 
@@ -200,7 +218,7 @@ Don't let the word "math" intimidate you! For beginners, the focus isn't on prov
 
 ---
 
-### 2.3 Recommended Libraries (for conceptual understanding, not necessarily coding yet):
+### 2.3 Recommended Libraries for Conceptual Understanding Not Necessarily Coding Yet:
 
 While we'll focus on the concepts and math, you'll inevitably interact with these Python libraries in any practical ML endeavor. Familiarizing yourself with their purpose will be beneficial:
 
@@ -1233,7 +1251,7 @@ Q-Learning is a popular off-policy, value-based reinforcement learning algorithm
 
     * $Q(s,a)$ is the current estimate of the Q-value for state $s$ and action $a$.
 
-    * $\alpha$ (alpha) is the **learning rate** (similar to gradient descent), controlling how much new information overrides old information.
+    * $\alpha$ (alpha) is the **learning rate**, a hyperparameter that controls the step size of each update.
 
     * $R$ is the immediate reward received after taking action $a$ in state $s$.
 
